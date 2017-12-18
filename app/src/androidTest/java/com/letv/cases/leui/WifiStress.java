@@ -244,7 +244,6 @@ public class WifiStress extends LetvTestCase {
         UiObject2 wifiImg=waitForObj(By.res("com.stv.globalsetting:id/status_textview"));
         check("无线没有关闭",wifi3!=null&&wifiImg!=null);
     }
-
 //    @Override
 //    public void press_back(int times) {
 //        super.press_back(times);
