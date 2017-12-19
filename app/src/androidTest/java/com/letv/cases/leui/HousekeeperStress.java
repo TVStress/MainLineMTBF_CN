@@ -44,6 +44,8 @@ public class HousekeeperStress extends LetvTestCase{
         }
     }
 
+
+
     public void Housekeeper()throws UiObjectNotFoundException,RemoteException{
         UiObject2 oneKey = waitForObj(By.text("一键体检"));
         if (oneKey.isFocused()){
