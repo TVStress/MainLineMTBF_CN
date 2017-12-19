@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mtbf2.0</string>
+    <string name="action_settings">设置</string>
+    <string name="setting">设置</string>
+
+    <string name="testAddDelContacts_title">添加删除联系人</string>
+    <string name="testAddDelContacts_step1">打开通讯录</string>
+    <string name="testAddDelContacts_step2">清空联系人</string>
+    <string name="testAddDelContacts_step3">新建联系人</string>
+    <string name="testAddDelContacts_step4">删除联系人</string>
+    <string name="testAddDelContacts_step5">退出通讯录</string>
+
+    <string name="testDialContactYellowpage_title">反复在黄页，拨号，联系人之间切换25次</string>
+    <string name="testDialContactYellowpage_step1">进入电话应用</string>
+    <string name="testDialContactYellowpage_step2">切换到联系人页面</string>
+    <string name="testDialContactYellowpage_step3">切换到拨号页面</string>
+    <string name="testDialContactYellowpage_step4">退出电话应用</string>
+
+    <string name="testDialling_title">从拨号盘循环打电话100次</string>
+    <string name="testDialling_step1">进入电话应用</string>
+    <string name="testDialling_step2">拨出电话</string>
+    <string name="testDialling_step3">挂断电话</string>
+    <string name="testDialling_step4">退出电话应用</string>
+
+    <string name="testOpenCamera_title">启动退出相机50次</string>
+    <string name="testOpenCamera_step1">打开相机应用</string>
+    <string name="testOpenCamera_step2">点击back退出相机</string>
+
+    <string name="testSendSMS_title">循环发送短信</string>
+    <string name="testSendSMS_step1">打开信息应用</string>
+    <string name="testSendSMS_step2">删除信息</string>
+    <string name="testSendSMS_step3">点击+ -> 输入收件人 -> 编辑信息内容</string>
+    <string name="testSendSMS_step4">选择SIM1发送信息</string>
+    <string name="testSendSMS_step5">选择SIM2发送信息</string>
+    <string name="testSendSMS_step6">点击顶部的返回按钮回到信息列表界面</string>
+
+    <string name="testOpenSMS_title">循环查看短信</string>
+    <string name="testOpenSMS_step1">打开信息应用</string>
+    <string name="testOpenSMS_step2">删除信息</string>
+    <string name="testOpenSMS_step3">点击+ -> 输入收件人 -> 编辑信息内容 -> 添加图片，音频，视频附件</string>
+    <string name="testOpenSMS_step4">选择SIM1发送信息</string>
+    <string name="testOpenSMS_step5">返回到信息列表界面查看发送成功的信息</string>
+
+    <string name="testSendMMS_title">循环发送彩信</string>
+    <string name="testSendMMS_step1">打开信息应用</string>
+    <string name="testSendMMS_step2">删除信息</string>
+    <string name="testSendMMS_step3">点击+ -> 输入收件人 -> 编辑信息内容 -> 添加图片，音频，视频附件</string>
+    <string name="testSendMMS_step4">选择SIM1发送信息</string>
+    <string name="testSendMMS_step5">选择SIM2发送信息</string>
+    <string name="testSendMMS_step6">点击顶部的返回按钮回到信息列表界面</string>
+
+    <string name="testOpenMMS_title">循环查看彩信</string>
+    <string name="testOpenMMS_step1">打开信息应用</string>
+    <string name="testOpenMMS_step2">删除信息</string>
+    <string name="testOpenMMS_step3">点击+ -> 输入收件人 -> 编辑信息内容 -> 添加图片，音频，视频附件</string>
+    <string name="testOpenMMS_step4">选择SIM1发送彩信</string>
+    <string name="testOpenMMS_step5">返回到信息列表界面查看发送成功的彩信</string>
+
+    <string name="testsendEmail_title">发送邮件</string>
+    <string name="testsendEmail_step1">进入邮箱</string>
+    <string name="testsendEmail_step2">转发010邮件</string>
+    <string name="testsendEmail_step3">删除刚刚发送的邮件</string>
+    <string name="testsendEmail_step4">退出邮箱</string>
+
+    <string name="testsendEmailAttach_title">发送带附件的邮件邮件</string>
+    <string name="testsendEmailAttach_step1">进入邮箱</string>
+    <string name="testsendEmailAttach_step2">转发010-attachment邮件</string>
+    <string name="testsendEmailAttach_step3">删除刚刚发送的邮件</string>
+    <string name="testsendEmailAttach_step4">退出邮箱</string>
+
+</resources>

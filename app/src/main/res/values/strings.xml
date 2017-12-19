@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">mtbf2.0</string>
+    <string name="action_settings">Settings</string>
+    <string name="setting">Settings</string>
+
+    <string name="testAddDelContacts_title">Add and del contact</string>
+    <string name="testAddDelContacts_step1">Enter into Phone app</string>
+    <string name="testAddDelContacts_step2">Clear contacts existing</string>
+    <string name="testAddDelContacts_step3">Add a new contact</string>
+    <string name="testAddDelContacts_step4">Del the contact</string>
+    <string name="testSetting_confirmBtn">Exit Phone APP</string>
+
+    <string name="testDialContactYellowpage_title">Switch between contact view and dial view loop 25 times</string>
+    <string name="testDialContactYellowpage_step1">Enter into Phone app</string>
+    <string name="testDialContactYellowpage_step2">Switch to contact view</string>
+    <string name="testDialContactYellowpage_step3">Switch to dial view</string>
+    <string name="testDialContactYellowpage_step4">Exit Phone APP</string>
+
+    <string name="testDialling_title">Make a call from phone dial panel loop 100 times</string>
+    <string name="testDialling_step1">Enter into Phone app</string>
+    <string name="testDialling_step2">Dail out the phone</string>
+    <string name="testDialling_step3">Hang up the phone</string>
+    <string name="testDialling_step4">Exit Phone APP</string>
+
+    <string name="testOpenCamera_title">Launch and exit Camera app loop 50 times</string>
+    <string name="testOpenCamera_step1">Launch Camera app</string>
+    <string name="testOpenCamera_step2">Press back key to exit Camera app</string>
+
+    <string name="testSendSMS_title">Send Message Loop 20 times</string>
+    <string name="testSendSMS_step1">Open Message App</string>
+    <string name="testSendSMS_step2">Del messages existing</string>
+    <string name="testSendSMS_step3">Tap + icon -> Input recipient -> Edit content</string>
+    <string name="testSendSMS_step4">Choose SIM1</string>
+    <string name="testSendSMS_step5">Choose SIM2</string>
+    <string name="testSendSMS_step6">Tap the top back button to back to message list view</string>
+
+    <string name="testOpenSMS_title">Open message Loop 20 times</string>
+    <string name="testOpenSMS_step1">Open Message App</string>
+    <string name="testOpenSMS_step2">Del messages existing</string>
+    <string name="testOpenSMS_step3">Tap + icon -> Input recipient -> Edit content -> add attachment including image,audio and video</string>
+    <string name="testOpenSMS_step4">choose SIM1 to send the message</string>
+    <string name="testOpenSMS_step5">back to message list and reopen the message sent</string>
+
+    <string name="testSendMMS_title">Send MMS Loop 20 times</string>
+    <string name="testSendMMS_step1">Open Message App</string>
+    <string name="testSendMMS_step2">Del messages existing</string>
+    <string name="testSendMMS_step3">Tap + icon -> Input recipient -> Edit content -> add attachment including image,audio and video</string>
+    <string name="testSendMMS_step4">choose SIM1 to send the MMS</string>
+    <string name="testSendMMS_step5">choose SIM2 to send the MMS</string>
+    <string name="testSendMMS_step6">Tap the top back button to back to message list view</string>
+
+    <string name="testOpenMMS_title">Open MMS Loop 20 times</string>
+    <string name="testOpenMMS_step1">Open Message App</string>
+    <string name="testOpenMMS_step2">Del messages existing</string>
+    <string name="testOpenMMS_step3">>Tap + icon -> Input recipient -> Edit content -> add attachment including image,audio and video</string>
+    <string name="testOpenMMS_step4">choose SIM1 to send the MMS</string>
+    <string name="testOpenMMS_step5">back to message list and reopen the MMS sent</string>
+
+    <string name="testsendEmail_title">Send Email</string>
+    <string name="testsendEmail_step1">Enter into Email app</string>
+    <string name="testsendEmail_step2">Forward Email searched which title contains 010</string>
+    <string name="testsendEmail_step3">Del the just sent email</string>
+    <string name="testsendEmail_step4">Exit email</string>
+
+    <string name="testsendEmailAttach_title">Send Email with attachment</string>
+    <string name="testsendEmailAttach_step1">Enter into Email app</string>
+    <string name="testsendEmailAttach_step2">Forward Email searched which title contains 010-attachment</string>
+    <string name="testsendEmailAttach_step3">Del the just sent email</string>
+    <string name="testsendEmailAttach_step4">Exit email</string>
+
+</resources>
