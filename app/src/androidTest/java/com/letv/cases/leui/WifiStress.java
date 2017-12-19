@@ -167,11 +167,8 @@ public class WifiStress extends LetvTestCase {
         press_back(2);
     }
 
-
-
     @Test
     @CaseName("查动多屏互动")
-
     public void testScreenInteraction() throws UiObjectNotFoundException, RemoteException {
         gotoHomeScreen("应用");
         addStep("打开设置-网络设置");
