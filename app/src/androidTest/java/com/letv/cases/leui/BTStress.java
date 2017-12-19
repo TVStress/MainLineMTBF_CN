@@ -19,9 +19,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 
-/**
- * Created by wangyaxiu on 2016/12/15.
- */
 
 public class BTStress extends LetvTestCase{
 
