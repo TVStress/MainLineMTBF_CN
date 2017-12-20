@@ -58,7 +58,7 @@ int count=0;
 //        hometime.click();
         loginAccount();
         sleepInt(2);
-        press_right(4);
+        press_right(6);
         press_left(5);
         sleepInt(2);
         for(int j = 0;j< 2;j++ ) {
