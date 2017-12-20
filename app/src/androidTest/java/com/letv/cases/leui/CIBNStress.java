@@ -139,6 +139,8 @@ public class CIBNStress extends LetvTestCase {
     public void cibnEnter() throws UiObjectNotFoundException {
         press_back(2);
         gotoHomeScreen("应用");
+        press_down(1);
+        press_back(3);
         press_down(2);
         press_right(3);
         UiObject2 allapp = phone.findObject(By.text(Pattern.compile("全部应用")));
@@ -164,6 +166,12 @@ public class CIBNStress extends LetvTestCase {
                 retry.click();
                 retry.click();
             }
+        }
+        UiObject2 close = phone.findObject(By.text("立即关闭"));
+        if (close!=null) {
+            check("未出现关闭", close!=null);
+            close.click();
+            close.click();
         }
     }
 
