@@ -767,7 +767,7 @@ public class FileManageStress extends LetvTestCase {
         UiObject2 IP = phone.findObject(By.text(Pattern.compile("IP 地址"))).getParent().findObject(By.clazz("android.widget.EditText"));
         verify("can't find ip address.", IP != null);
         IP.setText(getStrParams("IP"));
-        // IP.setText("10.57.183.215");
+//        IP.setText("10.58.81.227");
 
         UiObject2 newSMB = phone.findObject(By.text(Pattern.compile("确定")));
         verify("can't find ok button.", newSMB != null);
@@ -1071,8 +1071,6 @@ public class FileManageStress extends LetvTestCase {
             sleepInt(2);
         }
     }
-
-
 
 
     @Test
