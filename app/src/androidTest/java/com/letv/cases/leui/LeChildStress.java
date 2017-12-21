@@ -270,6 +270,8 @@ public class LeChildStress extends LetvTestCase {
         addStep("进入应用儿童TV");
         gotoHomeScreen("应用");
         retry();
+        press_down(1);
+        press_back(3);
         press_down(3);
         press_right(3);
         UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
