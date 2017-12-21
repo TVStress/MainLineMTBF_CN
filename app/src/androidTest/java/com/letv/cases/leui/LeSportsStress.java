@@ -53,7 +53,7 @@ public class LeSportsStress extends LetvTestCase {
 //        }
 //    };
 
-    public String arrSportdeskPlay[] = {"NBA","CBA","马拉松","自行车","F1世绵赛","综合体育"};
+    public String arrSportdeskPlay[] = {"NBA","CBA","自行车","湖人","F1世绵赛","英超"};
 
     @Test
     @CaseName("进入桌面体育反复切换画面")
@@ -61,7 +61,6 @@ public class LeSportsStress extends LetvTestCase {
         addStep("进入超级体育");
         gotoHomeScreen("体育");
         press_down(1);
-
         try{
             LeSportdesk();
         }
@@ -79,6 +78,11 @@ public class LeSportsStress extends LetvTestCase {
             }
         }
     }
+
+
+
+
+
     public void LeSportdesk() throws UiObjectNotFoundException,RemoteException{
         for (int i = 0; i < arrSportdeskPlay.length; i++) {
             press_back(2);
