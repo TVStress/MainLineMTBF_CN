@@ -78,11 +78,6 @@ public class LeSportsStress extends LetvTestCase {
             }
         }
     }
-
-
-
-
-
     public void LeSportdesk() throws UiObjectNotFoundException,RemoteException{
         for (int i = 0; i < arrSportdeskPlay.length; i++) {
             press_back(2);
