@@ -53,7 +53,7 @@ public class LeSportsStress extends LetvTestCase {
 //        }
 //    };
 
-    public String arrSportdeskPlay[] = {"NBA","CBA","自行车","湖人","F1世绵赛","英超"};
+    public String arrSportdeskPlay[] = {"NBA","CBA","自行车","湖人"};
 
     @Test
     @CaseName("进入桌面体育反复切换画面")
@@ -93,7 +93,7 @@ public class LeSportsStress extends LetvTestCase {
             press_right(sportdesk-2);
             press_left(sportdesk-2);
         }
-        for (int i = 6; i < 15; i++) {
+        for (int i = 4; i < 15; i++) {
             press_back(2);
             press_down(4+i);
             press_right(2);
