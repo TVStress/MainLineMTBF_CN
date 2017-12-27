@@ -20,10 +20,6 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 
-/**
- * Created by wangyaxiu on 2016/12/13.
- */
-
 public class TVmanagerStress extends LetvTestCase{
 
     @Test
