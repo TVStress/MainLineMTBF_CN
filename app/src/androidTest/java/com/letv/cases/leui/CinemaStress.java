@@ -44,7 +44,6 @@ public class CinemaStress extends LetvTestCase {
                 }
             }
         }
-
     }
     public void CinemaModeDesk() throws UiObjectNotFoundException, RemoteException {
         for (int i=1;i<=2;i++){
