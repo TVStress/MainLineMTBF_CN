@@ -17,10 +17,6 @@ import org.junit.Test;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by pc7 on 7/28/17.
- */
-
 public class LeChildStress extends LetvTestCase {
     int count = 0;
     @Test
