@@ -67,6 +67,8 @@ public class GameCentreStress extends LetvTestCase{
             check("未进入" + arrGameDeskSwitch[i], GameDesk != 0);
             press_right(GameDesk);
             press_left(GameDesk);
+
+
         }
         press_back(3);
     }
