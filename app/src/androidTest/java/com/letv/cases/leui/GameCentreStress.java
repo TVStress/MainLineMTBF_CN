@@ -68,7 +68,6 @@ public class GameCentreStress extends LetvTestCase{
             press_right(GameDesk);
             press_left(GameDesk);
 
-
         }
         press_back(3);
     }
