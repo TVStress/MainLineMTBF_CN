@@ -23,7 +23,6 @@ public class DesktopStress extends LetvTestCase {
     @Test
     @CaseName("桌面管理")
     public void testDeskManager() throws UiObjectNotFoundException, RemoteException {
-
         /*Random r =new Random();
         int m,n,lable1Count,lable2Count,deskCount;
         for (int Loop =0;Loop <getIntParams("Loop");Loop++){
