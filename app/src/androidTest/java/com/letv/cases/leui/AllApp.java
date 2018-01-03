@@ -84,18 +84,6 @@ public class AllApp extends LetvTestCase{
         }
     }
 
-/*    public void AppDesk() throws UiObjectNotFoundException, RemoteException {
-        String[] apps={"设置","日历","设置","乐视视频","乐视游戏中心","乐视应用商店","乐视体育","购物","系统更新","音乐","乐看搜索","浏览器","文件管理","电视管家","日历","设置","相册","乐视云盘","同步院线","天气"};
-        for(int k=0;k<apps.length;k++){
-            enterApps(apps[k]);
-            exitApp();
-            if(!phone.getCurrentPackageName().equals("com.stv.launcher"))press_home(1);
-            UiObject2 application=phone.findObject(By.text("应用").pkg("com.stv.launcher"));
-            verify("没有找到应用桌面",application!=null);
-            application.click();
-            sleepInt(2);
-        }
-    }*/
 
     public boolean enterApps(String app) throws UiObjectNotFoundException,RemoteException{
         UiObject2 appItem;
