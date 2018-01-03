@@ -35,6 +35,7 @@ public class LauncherManager extends LetvTestCase {
         press_right(6);
         press_back(2);
     }
+
     @Test
     @CaseName("进入桌面管理调整桌面顺序")
     public void testLauncherLocation() throws UiObjectNotFoundException, RemoteException {
