@@ -53,6 +53,7 @@ public class DownLoadStress extends LetvTestCase {
     BySelector intStorageDeviceS = By.clazz("android.widget.TextView").text("本机存储");
     BySelector backButtonS = By.text("退出播放");
 
+
     @Test
     @CaseName("下载中心添加下载")
     public void testLoadCenterAdd()throws UiObjectNotFoundException,RemoteException{
