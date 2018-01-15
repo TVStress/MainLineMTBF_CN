@@ -271,4 +271,71 @@ public class LetvStoreStressApp extends LetvTestCase {
         search.click();
         sleepInt(1);
     }
+
+    @Test
+    @CaseName("LetvStore应用Update")
+    public void testLetvStoreUpdate() throws UiObjectNotFoundException, RemoteException {
+        addStep("打开LetvStore");
+        launchApp(AppName.LeStore, IntentConstants.LeStore);
+            try{
+                LetvStoreUpdate();
+            }
+            catch (Exception e){
+                try{
+                    count++;
+                    failCount(count,getIntParams("Loop"),e.getMessage());
+                    launchApp(AppName.LeStore, IntentConstants.LeStore);
+                    LetvStoreUpdate();
+                }
+                catch (RuntimeException re){
+                    screenShot();
+                    Assert.fail(re.getMessage());
+                }
+            }
+            press_back(3);
+    }
+    public void LetvStoreUpdate() throws UiObjectNotFoundException, RemoteException {
+        BySelector upgradeBtnS = By.text(Pattern.compile("升 级|Upgrade"));
+        UiObject2 upgradeBtn = phone.findObject(upgradeBtnS);
+        if (upgradeBtn != null) {
+            addStep("检测到升级按钮，升级乐视应用商店");
+            clickAndWaitForNewWindow(upgradeBtn);
+            sleepInt(60);
+            press_right(4);
+            sleepInt(10);
+        }
+        UiObject2 install = phone.findObject(By.text("一键安装"));
+        if (install != null) {
+            press_back(1);
+            sleepInt(1);
+        }
+        press_up(2);
+        UiObject2 appupdate=waitForObj(By.res("com.letv.tvos.appstore:id/mv_update"));
+        if (appupdate!=null){
+            appupdate.click();
+            appupdate.click();
+            press_down(1);
+           UiObject2 one_appupdate=waitForObj(By.text("一键更新"));
+            for (int i =0;i<6;i++){
+            clickAndWaitForNewWindow(one_appupdate);
+            }
+        }
+        exitApp();
+        press_back(3);
+        press_down(3);
+        UiObject2 cinbapp = waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("CIBN高清影视"));
+        check("未进入CIBN高清影视",cinbapp!=null);
+        cinbapp.click();
+        cinbapp.click();
+
+        UiObject2 cibndownapp = waitForObj(By.res("com.letv.tvos.appstore:id/downloadTV").text("下载"));
+        if (cibndownapp!=null) {
+            check("未进入下载", cibndownapp != null);
+            cibndownapp.click();
+            clickAndWaitForNewWindow(cibndownapp);
+        }
+        exitApp();
+
+    }
+
 }
