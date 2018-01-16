@@ -61,7 +61,7 @@ public class SystemUpLoad extends LetvTestCase {
     @CaseName("恢复出厂")
     public void testFactoryReset() throws RemoteException {
         addStep("恢复出厂设置");
-        if (LetvUI(6.0)){
+        if (LetvUI(6.5)){
             addStep("UI6.0版本恢复出厂");
             gotoHomeScreen("应用");
             addStep("进入设置");
@@ -69,6 +69,7 @@ public class SystemUpLoad extends LetvTestCase {
             press_down(6);
             UiObject2 systemsetting = waitForObj(By.res("com.stv.globalsetting:id/letv_setting_base_advance"));
             verify("系统设置没有找到", systemsetting != null);
+            systemsetting.click();
             systemsetting.click();
             UiObject2 general = waitForObj(By.res("com.stv.globalsetting:id/advance_general"));
             verify("通用没有找到", general != null);
@@ -118,13 +119,15 @@ public class SystemUpLoad extends LetvTestCase {
     @CaseName("TV测试跳过开机向导")
     public void testMTBFinitialize() throws RemoteException {
         addStep("跳过引导界面");
-        if (LetvUI(6.0)){
-            addStep("UI6.0 TV跳过开机向导");
+        if (LetvUI(6.5)){
+            addStep("UI6.5 TV跳过开机向导");
             UiObject2 skip = waitForObj(By.res("com.stv.guider:id/btn_skip_setting").text("跳过向导"));
             verify("跳过向导不存在", skip != null);
             skip.click();
-            UiObject2 ok1 = waitForObj(By.text("确定"));
-
+            UiObject2 ok = waitForObj(By.text("确定"));
+            ok.click();
+            press_down(3);
+            UiObject2 ok1 = waitForObj(By.text("同意并继续"));
             ok1.click();
             sleepInt(10);
             addStep("将首页设为开机默认桌面");
@@ -139,32 +142,6 @@ public class SystemUpLoad extends LetvTestCase {
             press_right(1);
             press_up(1);
             press_center(1);
-            press_back(1);
-            addStep("TV初始化完成");
-        }else {
-            addStep("UI6.0之下TV跳过开机向导");
-            UiObject2 skip = waitForObj(By.res("com.stv.guider:id/btn_skip_setting").text("跳过向导"));
-            verify("跳过向导不存在", skip != null);
-            skip.click();
-            UiObject2 ok1 = waitForObj(By.text("确定"));
-            ok1.click();
-            UiObject2 ok = waitForObj(By.text("提交"));
-            verify("提交不存在", ok != null);
-            ok.click();
-            press_right(1);
-            UiObject2 Retain = waitForObj(By.text("坚持保留"));
-            verify("坚持保留不存在", Retain != null);
-            Retain.click();
-            sleepInt(10);
-            addStep("将首页设为开机默认桌面");
-            press_right(10);
-            UiObject2 deskmanage = waitForObj(By.res("com.stv.launcher:id/manager_bt").text("桌面管理"));
-            verify("桌面管理不存在", deskmanage != null);
-            deskmanage.click();
-            sleepInt(2);
-            press_left(1);
-            press_right(2);
-            press_up(1);
             press_back(1);
             addStep("TV初始化完成");
         }
