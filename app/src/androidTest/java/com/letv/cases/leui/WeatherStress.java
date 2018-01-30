@@ -28,8 +28,6 @@ public class WeatherStress extends  LetvTestCase{
     @Test
     @CaseName("多次进入天气应用，查看天气界面显示")
     public void testWeatherEntry() throws UiObjectNotFoundException, RemoteException {
-
-
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("....................looper : " + Loop);
 

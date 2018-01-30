@@ -145,5 +145,31 @@ public class SystemUpLoad extends LetvTestCase {
             press_back(1);
             addStep("TV初始化完成");
         }
+        if (LetvUI(6.0)){
+            addStep("UI6.0 TV跳过开机向导");
+            UiObject2 skip = waitForObj(By.res("com.stv.guider:id/btn_skip_setting").text("跳过向导"));
+            verify("跳过向导不存在", skip != null);
+            skip.click();
+            UiObject2 ok = waitForObj(By.text("确定"));
+            ok.click();
+            press_down(3);
+            UiObject2 ok1 = waitForObj(By.text("同意并继续"));
+            ok1.click();
+            sleepInt(10);
+            addStep("将首页设为开机默认桌面");
+            press_right(10);
+            UiObject2 deskmanage = waitForObj(By.res("com.stv.launcher:id/manager_bt"));
+            verify("桌面管理不存在", deskmanage != null);
+            deskmanage.click();
+            UiObject2 desk=waitForObj(By.res("com.stv.launcher:id/tv_page_title").text("桌面管理"));
+            verify("没有进入桌面管理",desk!=null);
+            sleepInt(2);
+            press_left(1);
+            press_right(1);
+            press_up(1);
+            press_center(1);
+            press_back(1);
+            addStep("TV初始化完成");
+        }
     }
 }

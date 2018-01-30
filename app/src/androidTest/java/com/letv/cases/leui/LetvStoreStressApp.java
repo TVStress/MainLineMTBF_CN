@@ -295,7 +295,7 @@ public class LetvStoreStressApp extends LetvTestCase {
             press_back(3);
     }
     public void LetvStoreUpdate() throws UiObjectNotFoundException, RemoteException {
-        BySelector upgradeBtnS = By.text(Pattern.compile("升 级|Upgrade"));
+        BySelector upgradeBtnS = By.text(Pattern.compile("升 级|Upgrade|立即更新"));
         UiObject2 upgradeBtn = phone.findObject(upgradeBtnS);
         if (upgradeBtn != null) {
             addStep("检测到升级按钮，升级乐视应用商店");

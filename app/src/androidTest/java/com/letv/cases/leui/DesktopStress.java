@@ -152,6 +152,9 @@ public class DesktopStress extends LetvTestCase {
         }
     }
 
+
+
+
     @Test
     @CaseName("桌面切换")
     public void testDeskSwitch() throws UiObjectNotFoundException, RemoteException {

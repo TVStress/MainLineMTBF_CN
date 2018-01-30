@@ -170,4 +170,6 @@ public class DeskManagerStress extends LetvTestCase{
         press_left(9);
     }
 
+
+
 }
