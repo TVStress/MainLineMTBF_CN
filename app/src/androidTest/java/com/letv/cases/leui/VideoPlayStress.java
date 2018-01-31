@@ -32,6 +32,8 @@ public class VideoPlayStress extends LetvTestCase {
     @CaseName("视频播放")
     public void testVideoPlay() throws UiObjectNotFoundException, RemoteException {
         gotoHomeScreen("应用");
+        press_down(1);
+        press_back(3);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep(".............looper : " + Loop);
             try {
@@ -41,6 +43,8 @@ public class VideoPlayStress extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     gotoHomeScreen("应用");
+                    press_down(1);
+                    press_back(3);
                     fileManageFirst();
                 }catch (RuntimeException re){
                     screenShot();
@@ -64,18 +68,18 @@ public class VideoPlayStress extends LetvTestCase {
         extStorageDevice1.click();
         check("未进入外接存储文件", menuBartext != null);
         sleepInt(1);
-        addStep("文件删除");
         sleepInt(1);
         press_right(2);
         UiObject2 copeAAAfile = phone.findObject(By.text("AAA"));
         check("未进入AAA文件夹", copeAAAfile != null);
         copeAAAfile.click();
         copeAAAfile.click();
-        sleepInt(1);
+        sleepInt(2);
         check("未进入外接存储文件", menuBartext != null);
         UiObject2 video= waitForObj(By.text("video"));
         video.click();
         video.click();
+        sleepInt(2);
         press_menu(1);
         press_down(2);
         UiObject2 screen= waitForObj(By.text("筛选"));
@@ -89,8 +93,10 @@ public class VideoPlayStress extends LetvTestCase {
         sleepInt(5);
         press_left(2);
         sleepInt(5);
-        for(int i=1;i<=10;i++){
+        addStep("进入视频播放中");
+        for(int i=1;i<=19;i++){
             UiObject2 videoplay=waitForObj(By.res("com.stv.filemanager:id/text_name").text("video"+i));
+            addStep("进入视频播放video"+i+"播放");
             check("未进入视频播放",videoplay!=null);
             videoplay.click();
             videoplay.click();
@@ -114,8 +120,6 @@ public class VideoPlayStress extends LetvTestCase {
             press_right(1);
             sleepInt(2);
         }
-
     }
-
 
 }
