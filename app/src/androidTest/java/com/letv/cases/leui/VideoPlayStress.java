@@ -30,7 +30,7 @@ public class VideoPlayStress extends LetvTestCase {
 
     @Test
     @CaseName("视频播放")
-    public void testTVPlay() throws UiObjectNotFoundException, RemoteException {
+    public void testVideoPlay() throws UiObjectNotFoundException, RemoteException {
         gotoHomeScreen("应用");
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep(".............looper : " + Loop);
@@ -100,15 +100,15 @@ public class VideoPlayStress extends LetvTestCase {
                 press_center(1);
             }
             sleepInt(5);
-            press_right(2);
+            press_right(3);
             sleepInt(10);
-            press_left(2);
-            sleepInt(10);
-            press_center(1);
+            press_left(3);
             sleepInt(10);
             press_center(1);
             sleepInt(10);
-            sleepInt(20);
+            press_center(1);
+            sleepInt(10);
+            sleepInt(40);
             press_back(1);
             sleepInt(2);
             press_right(1);
