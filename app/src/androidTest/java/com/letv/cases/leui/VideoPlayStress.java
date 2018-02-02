@@ -10,6 +10,8 @@ import com.letv.common.AppName;
 import com.letv.common.CaseName;
 import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.regex.Pattern;
@@ -54,7 +56,6 @@ public class VideoPlayStress extends LetvTestCase {
         }
         press_back(3);
     }
-
     public void fileManageFirst() throws UiObjectNotFoundException, RemoteException {
         launchApp(AppName.Filemanager,IntentConstants.Filemanager);
         addStep("进入文件管理");
@@ -94,7 +95,7 @@ public class VideoPlayStress extends LetvTestCase {
         press_left(2);
         sleepInt(5);
         addStep("进入视频播放中");
-        for(int i=1;i<=19;i++){
+        for(int i=1;i<=10;i++){
             UiObject2 videoplay=waitForObj(By.res("com.stv.filemanager:id/text_name").text("video"+i));
             addStep("进入视频播放video"+i+"播放");
             check("未进入视频播放",videoplay!=null);

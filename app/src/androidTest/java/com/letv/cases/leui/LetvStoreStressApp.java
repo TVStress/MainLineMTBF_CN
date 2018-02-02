@@ -273,29 +273,34 @@ public class LetvStoreStressApp extends LetvTestCase {
     }
 
     @Test
-    @CaseName("LetvStore应用Update")
+    @CaseName("LetvStoreUpdate")
     public void testLetvStoreUpdate() throws UiObjectNotFoundException, RemoteException {
         addStep("打开LetvStore");
-        launchApp(AppName.LeStore, IntentConstants.LeStore);
+        try{
+            LetvStoreUpdate();
+        }
+        catch (Exception e){
             try{
+                count++;
+                failCount(count,getIntParams("Loop"),e.getMessage());
                 LetvStoreUpdate();
             }
-            catch (Exception e){
-                try{
-                    count++;
-                    failCount(count,getIntParams("Loop"),e.getMessage());
-                    launchApp(AppName.LeStore, IntentConstants.LeStore);
-                    LetvStoreUpdate();
-                }
-                catch (RuntimeException re){
-                    screenShot();
-                    Assert.fail(re.getMessage());
-                }
+            catch (RuntimeException re){
+                screenShot();
+                Assert.fail(re.getMessage());
             }
-            press_back(3);
+        }
+        press_back(3);
     }
     public void LetvStoreUpdate() throws UiObjectNotFoundException, RemoteException {
-        BySelector upgradeBtnS = By.text(Pattern.compile("升 级|Upgrade|立即更新"));
+        launchApp(AppName.LeStore, IntentConstants.LeStore);
+        UiObject2 newdata=waitForObj(By.text("立即更新"));
+        if(newdata!=null){
+            clickAndWaitForNewWindow(newdata);
+            newdata.click();
+            sleepInt(60);
+        }
+        BySelector upgradeBtnS = By.text(Pattern.compile("升 级|Upgrade"));
         UiObject2 upgradeBtn = phone.findObject(upgradeBtnS);
         if (upgradeBtn != null) {
             addStep("检测到升级按钮，升级乐视应用商店");
@@ -303,6 +308,11 @@ public class LetvStoreStressApp extends LetvTestCase {
             sleepInt(60);
             press_right(4);
             sleepInt(10);
+        }
+        UiObject2 stopintall=waitForObj(By.res("com.letv.tvos.appstore:id/downloadTV").text("暂不安装"));
+        if (stopintall!=null){
+            stopintall.click();
+            stopintall.click();
         }
         UiObject2 install = phone.findObject(By.text("一键安装"));
         if (install != null) {
@@ -315,27 +325,187 @@ public class LetvStoreStressApp extends LetvTestCase {
             appupdate.click();
             appupdate.click();
             press_down(1);
-           UiObject2 one_appupdate=waitForObj(By.text("一键更新"));
+            UiObject2 one_appupdate=waitForObj(By.text("一键更新"));
             for (int i =0;i<6;i++){
-            clickAndWaitForNewWindow(one_appupdate);
+                clickAndWaitForNewWindow(one_appupdate);
+                sleepInt(60);
             }
         }
         exitApp();
+        press_home(1);
+
+
+        //进入CIBN高清影视
+        for(int k=0;k<2;k++) {
+            gotoHomeScreen("应用");
+            press_back(3);
+            press_down(1);
+            UiObject2 cinbapp = waitForObj(By.res(Pattern.compile("com.stv.plugin.app:id/poster_cellview_label|com.stv.plugin.app:id/cellview_label")).text("CIBN高清影视"));
+            check("未进入CIBN高清影视", cinbapp != null);
+            cinbapp.click();
+            cinbapp.click();
+
+            UiObject2 cibndownapp = waitForObj(By.res(Pattern.compile("com.letv.tvos.appstore:id/downloadTV")).text("下载"));
+            if (cibndownapp != null) {
+                check("未进入下载", cibndownapp != null);
+                cibndownapp.click();
+                clickAndWaitForNewWindow(cibndownapp);
+                sleepInt(30);
+            }
+            exitApp();
+            sleepInt(30);
+        }
+
+
+
+        //进入华数TV
+        for (int j = 0; j < 2; j++) {
+            gotoHomeScreen("应用");
+            press_back(3);
+            press_down(1);
+            UiObject2 hushuoapp = waitForObj(By.res(Pattern.compile("com.stv.plugin.app:id/poster_cellview_label|com.stv.plugin.app:id/cellview_label")).text("华数TV"));
+            check("未进入华数TV", hushuoapp != null);
+            hushuoapp.click();
+            hushuoapp.click();
+
+            UiObject2 hushuodownapp = waitForObj(By.res(Pattern.compile("com.letv.tvos.appstore:id/downloadTV")).text("下载"));
+            if (hushuodownapp != null) {
+                check("未进入下载", hushuoapp != null);
+                hushuodownapp.click();
+                clickAndWaitForNewWindow(hushuodownapp);
+                sleepInt(60);
+            }
+            UiObject2 seting = waitForObj(By.text("安装"));
+            if (seting != null) {
+                seting.click();
+                seting.click();
+            }
+            UiObject2 openhushuoapp = waitForObj(By.text(Pattern.compile("打开")));
+            if (hushuodownapp != null) {
+                check("未进入下载打开", openhushuoapp != null);
+                openhushuoapp.click();
+                clickAndWaitForNewWindow(openhushuoapp);
+                sleepInt(60);
+            }
+
+            press_down(1);
+            UiObject2 agree = waitForObj(By.res("cn.com.wasu.main:id/btn_agree").text("同意"));
+            if (agree != null) {
+                agree.click();
+                agree.click();
+            } else {
+                press_center(1);
+            }
+            exitApp();
+            press_back(3);
+            sleepInt(30);
+        }
+    }
+
+
+    @Test
+    @CaseName("LetvStoreInstallCIBN")
+    public void testLetvStoreInstallCIBN() throws UiObjectNotFoundException, RemoteException {
+        addStep("打开LetvStore");
+        try{
+            LetvStoreInstallCIBN();
+        }
+        catch (Exception e){
+            try{
+                count++;
+                failCount(count,getIntParams("Loop"),e.getMessage());
+                LetvStoreInstallCIBN();
+            }
+            catch (RuntimeException re){
+                screenShot();
+                Assert.fail(re.getMessage());
+            }
+        }
         press_back(3);
-        press_down(3);
-        UiObject2 cinbapp = waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("CIBN高清影视"));
-        check("未进入CIBN高清影视",cinbapp!=null);
+    }
+    public void LetvStoreInstallCIBN() throws UiObjectNotFoundException, RemoteException {
+        //进入CIBN高清影视
+        gotoHomeScreen("应用");
+        press_back(3);
+        press_down(1);
+        UiObject2 cinbapp = waitForObj(By.res(Pattern.compile("com.stv.plugin.app:id/poster_cellview_label|com.stv.plugin.app:id/cellview_label")).text("CIBN高清影视"));
+        check("未进入CIBN高清影视", cinbapp != null);
         cinbapp.click();
         cinbapp.click();
 
-        UiObject2 cibndownapp = waitForObj(By.res("com.letv.tvos.appstore:id/downloadTV").text("下载"));
-        if (cibndownapp!=null) {
+        UiObject2 cibndownapp = waitForObj(By.res(Pattern.compile("com.letv.tvos.appstore:id/downloadTV")).text("下载"));
+        if (cibndownapp != null) {
             check("未进入下载", cibndownapp != null);
             cibndownapp.click();
             clickAndWaitForNewWindow(cibndownapp);
+            sleepInt(30);
         }
         exitApp();
+        sleepInt(30);
+    }
 
+
+    @Test
+    @CaseName("LetvStoreInstallHuaShuoTV")
+    public void testLetvStoreInstallHuaShuoTV() throws UiObjectNotFoundException, RemoteException {
+        addStep("打开LetvStore");
+        try{
+            LetvStoreInstallHuaShuoTV();
+        }
+        catch (Exception e){
+            try{
+                count++;
+                failCount(count,getIntParams("Loop"),e.getMessage());
+                LetvStoreInstallHuaShuoTV();
+            }
+            catch (RuntimeException re){
+                screenShot();
+                Assert.fail(re.getMessage());
+            }
+        }
+        press_back(3);
+    }
+    public void LetvStoreInstallHuaShuoTV() throws UiObjectNotFoundException, RemoteException {
+        //进入华数TV
+        gotoHomeScreen("应用");
+        press_back(3);
+        press_down(1);
+        UiObject2 hushuoapp = waitForObj(By.res(Pattern.compile("com.stv.plugin.app:id/poster_cellview_label|com.stv.plugin.app:id/cellview_label")).text("华数TV"));
+        check("未进入华数TV", hushuoapp != null);
+        hushuoapp.click();
+        hushuoapp.click();
+
+        UiObject2 hushuodownapp = waitForObj(By.res(Pattern.compile("com.letv.tvos.appstore:id/downloadTV")).text("下载"));
+        if (hushuodownapp != null) {
+            check("未进入下载", hushuoapp != null);
+            hushuodownapp.click();
+            clickAndWaitForNewWindow(hushuodownapp);
+            sleepInt(60);
+        }
+        UiObject2 seting = waitForObj(By.text("安装"));
+        if (seting != null) {
+            seting.click();
+            seting.click();
+        }
+        UiObject2 openhushuoapp = waitForObj(By.text(Pattern.compile("打开")));
+        if (hushuodownapp != null) {
+            check("未进入下载打开", openhushuoapp != null);
+            openhushuoapp.click();
+            clickAndWaitForNewWindow(openhushuoapp);
+            sleepInt(60);
+        }
+
+        press_down(1);
+        UiObject2 agree = waitForObj(By.res("cn.com.wasu.main:id/btn_agree").text("同意"));
+        if (agree != null) {
+            agree.click();
+            agree.click();
+        } else {
+            press_center(1);
+        }
+        exitApp();
+        press_back(3);
+        sleepInt(30);
     }
 
 }

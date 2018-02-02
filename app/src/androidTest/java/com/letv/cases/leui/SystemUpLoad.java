@@ -62,7 +62,7 @@ public class SystemUpLoad extends LetvTestCase {
     public void testFactoryReset() throws RemoteException {
         addStep("恢复出厂设置");
         if (LetvUI(6.5)){
-            addStep("UI6.0版本恢复出厂");
+            addStep("UI6.5版本恢复出厂");
             gotoHomeScreen("应用");
             addStep("进入设置");
             phone.pressKeyCode(KEY_SETTING);
