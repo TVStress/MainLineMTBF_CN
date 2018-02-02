@@ -503,6 +503,7 @@ public class LetvStoreStressApp extends LetvTestCase {
         } else {
             press_center(1);
         }
+        press_back(3);
         exitApp();
         press_back(3);
         sleepInt(30);

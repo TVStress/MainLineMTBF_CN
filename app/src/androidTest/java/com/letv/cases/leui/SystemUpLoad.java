@@ -199,15 +199,19 @@ public class SystemUpLoad extends LetvTestCase {
             addStep("将首页设为开机默认桌面");
             press_right(10);
             UiObject2 deskmanage = waitForObj(By.res("com.stv.launcher:id/manager_bt"));
+            if(deskmanage != null){
             verify("桌面管理不存在", deskmanage != null);
             deskmanage.click();
+            }
             UiObject2 desk=waitForObj(By.res("com.stv.launcher:id/tv_page_title").text("桌面管理"));
-            verify("没有进入桌面管理",desk!=null);
+            if(desk != null) {
+            verify("没有进入桌面管理", desk != null);
             sleepInt(2);
             press_left(1);
             press_right(1);
             press_up(1);
             press_center(1);
             addStep("TV初始化完成");
+        }
     }
 }
