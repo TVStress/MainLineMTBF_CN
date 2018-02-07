@@ -15,6 +15,7 @@ import org.junit.Test;
 
 public class SystemUpLoad extends LetvTestCase {
     int count=0;
+
     @Test
     @CaseName("系统更新")
     public void testSystemUpgrade() throws UiObjectNotFoundException, RemoteException {
@@ -75,23 +76,8 @@ public class SystemUpLoad extends LetvTestCase {
     @Test
     @CaseName("恢复出厂")
     public void testFactoryReset() throws UiObjectNotFoundException, RemoteException {
-        try {
-            FactoryReset();
-        }catch (Exception e){
-            try {
-                count++;
-                failCount(count, getIntParams("Loop"), e.getMessage());
-                FactoryReset();
-            }catch (RuntimeException re){
-                screenShot();
-                junit.framework.Assert.fail(re.getMessage());
-            }
-        }
-    }
-    public void FactoryReset() throws UiObjectNotFoundException,RemoteException {
-        addStep("恢复出厂设置");
-        if (LetvUI(6.5)){
-            addStep("UI6.5版本恢复出厂");
+        for (int i =0;i<5;i++) {
+            addStep("恢复出厂设置");
             gotoHomeScreen("应用");
             addStep("进入设置");
             phone.pressKeyCode(KEY_SETTING);
@@ -105,55 +91,72 @@ public class SystemUpLoad extends LetvTestCase {
             general.click();
             addStep("进入恢复出厂");
             UiObject2 FactoryReset = waitForObj(By.text("恢复出厂"));
-            verify("恢复出厂没有找到", FactoryReset!=null);
+            verify("恢复出厂没有找到", FactoryReset != null);
+            FactoryReset.click();
             FactoryReset.click();
             press_right(1);
             UiObject2 FactoryResetSetting = waitForObj(By.res("com.stv.globalsetting:id/enter_button").text("恢复出厂设置"));
-            verify("恢复出厂设置没有找到", FactoryResetSetting!=null);
+            verify("恢复出厂设置没有找到", FactoryResetSetting != null);
+            FactoryResetSetting.click();
             FactoryResetSetting.click();
             addStep("点击恢复出厂设置");
-            UiObject2 ok=waitForObj(By.res("eui.tv:id/button_horizontal_first").text("确定"));
-            verify("确定按钮不存在",ok!=null);
+            UiObject2 ok = waitForObj(By.text("确定"));
+            if (ok != null) {
+                verify("确定按钮不存在", ok != null);
+                ok.click();
+                ok.click();
+            } else {
+                press_left(1);
+                press_center(1);
+            }
+            break;
+        }
+    }
+    public void FactoryReset() throws UiObjectNotFoundException,RemoteException {
+        addStep("恢复出厂设置");
+        gotoHomeScreen("应用");
+        addStep("进入设置");
+        phone.pressKeyCode(KEY_SETTING);
+        press_down(6);
+        UiObject2 systemsetting = waitForObj(By.res("com.stv.globalsetting:id/letv_setting_base_advance"));
+        verify("系统设置没有找到", systemsetting != null);
+        systemsetting.click();
+        systemsetting.click();
+        UiObject2 general = waitForObj(By.res("com.stv.globalsetting:id/advance_general"));
+        verify("通用没有找到", general != null);
+        general.click();
+        addStep("进入恢复出厂");
+        UiObject2 FactoryReset = waitForObj(By.text("恢复出厂"));
+        verify("恢复出厂没有找到", FactoryReset!=null);
+        FactoryReset.click();
+        FactoryReset.click();
+        press_right(1);
+        UiObject2 FactoryResetSetting = waitForObj(By.res("com.stv.globalsetting:id/enter_button").text("恢复出厂设置"));
+        verify("恢复出厂设置没有找到", FactoryResetSetting!=null);
+        FactoryResetSetting.click();
+        FactoryResetSetting.click();
+        addStep("点击恢复出厂设置");
+        UiObject2 ok=waitForObj(By.text("确定"));
+        if(ok!=null){
+        verify("确定按钮不存在",ok!=null);
             ok.click();
-            addStep("恢复出厂完成");
+            ok.click();
         }else {
-            addStep("UI6.0以下版本恢复出厂");
-            gotoHomeScreen("应用");
-            addStep("进入设置");
-            phone.pressKeyCode(KEY_SETTING);
-            UiObject2 systemsetting = waitForObj(By.res("com.stv.globalsetting:id/name_textview").text("系统设置"));
-            verify("系统设置没有找到", systemsetting != null);
-            systemsetting.click();
-            UiObject2 general = waitForObj(By.res("com.stv.globalsetting:id/title").text("通用"));
-            verify("通用没有找到", general != null);
-            general.click();
-            sleepInt(2);
-            press_down(4);
-            addStep("进入恢复出厂");
-            UiObject2 FactoryReset = waitForObj(By.text("恢复出厂"));
-            verify("恢复出厂没有被选中", FactoryReset.isFocused());
-            press_right(2);
-            UiObject2 FactoryResetSetting = waitForObj(By.res("com.stv.globalsetting:id/enter_button").text("恢复出厂设置"));
-            verify("恢复出厂设置没有被选中", FactoryResetSetting.isFocused());
-            FactoryResetSetting.click();
-            addStep("点击恢复出厂设置");
-            UiObject2 factoryReset = waitForObj(By.res("com.stv.globalsetting:id/first").text("恢复出厂"));
-            verify("恢复出厂按钮不存在", factoryReset != null);
-            factoryReset.click();
-            addStep("恢复出厂完成");
+            press_left(1);
+            press_center(1);
         }
     }
 
     @Test
     @CaseName("TV测试跳过开机向导")
-    public void testMTBFinitialize() throws UiObjectNotFoundException, RemoteException {
+    public void testskipinitialize() throws UiObjectNotFoundException, RemoteException {
             try {
-                MTBFinitialize();
+                skipinitialize();
             }catch (Exception e){
                 try {
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    MTBFinitialize();
+                    skipinitialize();
                 }catch (RuntimeException re){
                     screenShot();
                     junit.framework.Assert.fail(re.getMessage());
@@ -162,56 +165,69 @@ public class SystemUpLoad extends LetvTestCase {
             press_back(3);
             press_home(1);
     }
-    public void MTBFinitialize() throws UiObjectNotFoundException, RemoteException {
-        addStep("跳过引导界面");
-            addStep("TV跳过开机向导");
-            UiObject2 skip = phone.findObject(By.text("跳过向导"));
-            if(skip!=null) {
-                verify("跳过向导不存在", skip != null);
-                skip.click();
-                sleepInt(3);
-            }else {
-                press_down(1);
-                press_center(1);
-            }
-            sleepInt(3);
-            press_left(1);
-            UiObject2 ok = waitForObj(By.text("确定"));
-            if (ok!=null) {
-                check("未进入确定ok", ok != null);
-                ok.click();
-                sleepInt(3);
-            }else {
-                press_left(1);
-                press_center(1);
-            }
-            press_down(3);
-            UiObject2 greenAndcontion = phone.findObject(By.res("com.stv.guider:id/btn_next_continue").text("同意并继续"));
-            if (greenAndcontion!=null){
-                check("未进入同意并继续",greenAndcontion!=null);
-                greenAndcontion.click();
-                sleepInt(10);
-            }else {
-                press_down(3);
-                press_center(1);
-                sleepInt(10);
-            }
-            addStep("将首页设为开机默认桌面");
-            press_right(10);
-            UiObject2 deskmanage = waitForObj(By.res("com.stv.launcher:id/manager_bt"));
-            if(deskmanage != null){
-            verify("桌面管理不存在", deskmanage != null);
-            deskmanage.click();
-            }
-            UiObject2 desk=waitForObj(By.res("com.stv.launcher:id/tv_page_title").text("桌面管理"));
-            if(desk != null) {
-            verify("没有进入桌面管理", desk != null);
-            sleepInt(2);
-            press_left(1);
-            press_right(1);
-            press_up(1);
+    public void skipinitialize() throws UiObjectNotFoundException, RemoteException {
+            press_down(2);
             press_center(1);
-            addStep("TV初始化完成");
-        }
+            press_left(1);
+            press_center(1);
+            press_down(4);
+            press_center(1);
+            sleepInt(10);
+            press_back(4);
+//        addStep("跳过引导界面");
+//            addStep("TV跳过开机向导");
+//            UiObject2 skip = waitForObj(By.text("跳过向导"));
+//            if(skip!=null) {
+//                press_down(2);
+//                verify("跳过向导不存在", skip != null);
+//                skip.click();
+//                sleepInt(3);
+//            }else {
+//                press_down(2);
+//                press_center(1);
+//            }
+//            sleepInt(3);
+//            press_left(1);
+//            UiObject2 ok = waitForObj(By.text("确定"));
+//            if (ok!=null) {
+//                check("未进入确定ok", ok != null);
+//                press_left(1);
+//                ok.click();
+//                sleepInt(3);
+//            }else {
+//                press_left(1);
+//                press_center(1);
+//            }
+//            press_center(1);
+//            press_down(3);
+//            UiObject2 greenAndcontion = waitForObj(By.text("同意并继续"));
+//            if (greenAndcontion!=null){
+//                press_down(3);
+//                check("未进入同意并继续",greenAndcontion!=null);
+//                greenAndcontion.click();
+//                press_center(1);
+//                sleepInt(10);
+//            }else {
+//                press_down(3);
+//                press_center(1);
+//                sleepInt(10);
+//            }
+//            addStep("将首页设为开机默认桌面");
+//            press_right(10);
+//            UiObject2 deskmanage = waitForObj(By.res("com.stv.launcher:id/manager_bt"));
+//            if(deskmanage != null){
+//            verify("桌面管理不存在", deskmanage != null);
+//            deskmanage.click();
+//            }
+//            UiObject2 desk=waitForObj(By.res("com.stv.launcher:id/tv_page_title").text("桌面管理"));
+//            if(desk != null) {
+//            verify("没有进入桌面管理", desk != null);
+//            sleepInt(2);
+//            press_left(1);
+//            press_right(1);
+//            press_up(1);
+//            press_center(1);
+//            addStep("TV初始化完成");
+//        }
     }
 }
