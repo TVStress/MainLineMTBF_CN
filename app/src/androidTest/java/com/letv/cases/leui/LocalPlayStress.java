@@ -20,9 +20,6 @@ import org.junit.Test;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
-/**
- * Created by wangyaxiu on 2017/1/13.
- */
 
 public class LocalPlayStress extends LetvTestCase {
 
