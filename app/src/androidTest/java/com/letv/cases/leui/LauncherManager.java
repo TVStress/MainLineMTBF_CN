@@ -12,9 +12,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-/**
- * Created by zhoujine on 2016/9/5.
- */
+
 public class LauncherManager extends LetvTestCase {
     @Override
     public void tearDown() throws Exception {

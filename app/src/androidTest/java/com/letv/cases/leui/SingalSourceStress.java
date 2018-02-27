@@ -1,8 +1,5 @@
 package com.letv.cases.leui;
 
-/**
- * Created by zhoujine on 2016/4/30.
- */
 
 import android.os.Build;
 import android.os.RemoteException;

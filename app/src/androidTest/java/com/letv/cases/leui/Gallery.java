@@ -18,9 +18,7 @@ import org.junit.Test;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by zhoujine on 2016/4/28.
- */
+
 public class Gallery extends LetvTestCase{
     int count =0;
     BySelector bigToSmallS =By.text(Pattern.compile(".*Z到A"));

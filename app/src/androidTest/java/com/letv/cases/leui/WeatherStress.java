@@ -19,9 +19,6 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 
-/**
- * Created by wangyaxiu on 2016/12/23.
- */
 
 public class WeatherStress extends  LetvTestCase{
    int count = 0;

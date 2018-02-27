@@ -16,9 +16,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.regex.Pattern;
-/**
- * Created by wangyaxiu on 2016/12/14.
- */
+
 
 public class LeSoStress extends LetvTestCase{
     int count=0;

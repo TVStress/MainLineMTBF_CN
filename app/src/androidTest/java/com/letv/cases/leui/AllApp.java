@@ -17,9 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * Created by zhoujine on 2016/4/29.
- */
+
 public class AllApp extends LetvTestCase{
     ArrayList<String> listApps = new ArrayList<String>();
     int count =0;

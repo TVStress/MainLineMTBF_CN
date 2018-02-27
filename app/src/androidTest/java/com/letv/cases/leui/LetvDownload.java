@@ -1,8 +1,6 @@
 package com.letv.cases.leui;
 
-/**
- * Created by administrator1 on 2016/5/6.
- */
+
 
 import android.os.RemoteException;
 import android.support.test.uiautomator.By;

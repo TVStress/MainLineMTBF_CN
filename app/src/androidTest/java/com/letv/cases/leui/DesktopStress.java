@@ -15,9 +15,7 @@ import org.junit.Test;
 import java.util.Random;
 import java.util.regex.Pattern;
 
-/**
- * Created BY WYX on 2016/12/12
- */
+
 public class DesktopStress extends LetvTestCase {
 
     @Test

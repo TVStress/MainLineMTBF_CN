@@ -19,9 +19,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 
-/**
- * Created by Wuhaotian on 2017/3/9.
- */
 
 public class ThemesStress extends LetvTestCase{
     int count=0;
