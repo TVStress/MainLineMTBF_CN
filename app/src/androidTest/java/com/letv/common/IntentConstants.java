@@ -33,7 +33,7 @@ public class IntentConstants {
 	public static final String Download = "com.stv.downloads/.activity.DownloadActivity";
 	public static final String TvManager = "com.stv.helper.main/.LetvHelperActivity";
 	public static final String LeSearh = "com.letv.leso/.WelcomeActivity";
-	public static final String Music = " com.tencent.qqmusictv.qing/com.tencent.qqmusictv.app.activity.PlayerActivity";
+	public static final String Music = "com.stv.music/.MainActivity";
 	public static final String Help = "com.stv.userguider/.ViewPageActivity";
 	public static final String Weather = "com.stv.weather/.WeatherActivity";
 	public static final String WeatherCIBN = "sina.mobile.tianqitongstv/.ui.activity.MainActivity";

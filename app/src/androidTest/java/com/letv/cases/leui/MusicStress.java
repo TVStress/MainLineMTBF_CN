@@ -10,18 +10,102 @@ import com.letv.common.AppName;
 import com.letv.common.CaseName;
 import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
+import com.letv.common.PkgName;
 
 import org.junit.Test;
+
+import java.util.regex.Pattern;
 
 public class MusicStress extends LetvTestCase {
     int count=0;
 
+
+
     @Test
-    @CaseName("媒体中心里播放音频")
-    public void testPlayMusic() throws UiObjectNotFoundException, RemoteException {
+    @CaseName("音乐本地播放音频")
+    public void testLocalPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
-        launchApp(AppName.Music,IntentConstants.Music);
-        sleepInt(10);
+//        launchApp(AppName.Music,IntentConstants.Music);
+//        sleepInt(10);
+        exitPlayMusic();
+        for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
+            System.out.println(".............looper : " + Loop);
+            try {
+                LocalPlayMusic();
+            }catch (Exception e){
+                try {
+                    count ++;
+                    failCount(count, getIntParams("Loop"), e.getMessage());
+                    addStep("打开媒体中心");
+//                    launchApp(AppName.Music, IntentConstants.Music);
+                    exitPlayMusic();
+                    sleepInt(10);
+                    LocalPlayMusic();
+                }catch (RuntimeException re){
+                    screenShot();
+                    junit.framework.Assert.fail(re.getMessage());
+                }
+            }
+        }
+    }
+    public void LocalPlayMusic() throws UiObjectNotFoundException, RemoteException {
+        UiObject2 online=waitForObj(By.clazz("android.widget.LinearLayout").res("com.stv.music:id/localButton"));
+        check("未进本地播放音乐",online!=null);
+        online.click();
+        online.click();
+        UiObject2 title1=waitForObj(By.res("com.stv.music:id/common_title").text("是否播放推荐歌曲?"));
+        if(title1!=null){
+            UiObject2 cannel=waitForObj(By.res("com.stv.music:id/cancel_btn").text("取消"));
+            cannel.click();
+            cannel.click();
+        }
+        addStep("音乐播放、暂停、下一首、下一首");
+        for(int i=0;i<6;i++){
+            UiObject2 pause=waitForObj(By.res("com.stv.music:id/pause"));
+            check("播放暂停",pause!=null);
+            pause.click();
+            sleepInt(5);
+            UiObject2 next=waitForObj(By.res("com.stv.music:id/next"));
+            check("播放下一首",pause!=null);
+            next.click();
+            sleepInt(5);
+            UiObject2 prev=waitForObj(By.res("com.stv.music:id/prev"));
+            check("播放上一首",pause!=null);
+            prev.click();
+            sleepInt(5);
+        }
+        addStep("音乐播放列表连续播放");
+        press_menu(1);
+        UiObject2 play_list1 = waitForObj(By.res("com.stv.music:id/play_list").text("播放列表"));
+        play_list1.click();
+        UiObject2 play = waitForObj(By.res("com.stv.music:id/title_tv").text("播放列表"));
+        check("未进入播放列表", play != null);
+        press_up(10);
+        press_center(1);
+        sleepInt(5);
+        press_back(1);
+        for(int j=0;j<10;j++) {
+            press_menu(1);
+            UiObject2 play_list2 = waitForObj(By.res("com.stv.music:id/play_list").text("播放列表"));
+            play_list2.click();
+            check("未进入播放列表", play != null);
+            press_down(j+2);
+            press_center(1);
+            sleepInt(5);
+            press_back(1);
+        }
+        press_back(1);
+        sleepInt(5);
+    }
+
+
+    @Test
+    @CaseName("媒体中心里播放")
+    public void testMediaPlayMusic() throws UiObjectNotFoundException, RemoteException {
+        addStep("打开媒体中心");
+//        launchApp(AppName.Music,IntentConstants.Music);
+//        sleepInt(10);
+        exitPlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             try {
@@ -31,7 +115,8 @@ public class MusicStress extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
-                    launchApp(AppName.Music,IntentConstants.Music);
+//                    launchApp(AppName.Music, IntentConstants.Music);
+                    exitPlayMusic();
                     sleepInt(10);
                     PlayMusic();
                 }catch (RuntimeException re){
@@ -42,34 +127,127 @@ public class MusicStress extends LetvTestCase {
         }
 
     }
-
     public void PlayMusic() throws UiObjectNotFoundException, RemoteException {
-        addStep("播放音频文件50s");
+        UiObject2 online=waitForObj(By.clazz("android.widget.LinearLayout").res("com.stv.music:id/localButton"));
+        check("未进本地播放音乐",online!=null);
+        online.click();
+        online.click();
+        press_up(1);
         press_center(1);
-        sleepInt(10);
-       addStep("暂停，继续播放音频文件循环5次");
+        sleepInt(20);
+
+
+        addStep("暂停，继续播放音频文件循环5次");
         for (int i = 0;i<5;i++) {
             press_center(1);
             sleepInt(5);
             press_center(1);
             sleepInt(5);
-//            phone.pressKeyCode(KEY_MEDIA_PLAY_PAUSE);
-//            UiObject2 pause1 = waitForObj(By.res("com.tencent.qqmusictv.qing:id/play_full_screen_paly_btn"));
-//            check("music isn't paused", pause1 != null);
-//            pause1.click();
-//            phone.pressKeyCode(KEY_MEDIA_PLAY_PAUSE);
-//            sleepInt(5);
         }
         addStep("播放下一首音频文件5次");
         for (int i = 0;i<5;i++) {
             press_right(1);
-            sleepInt(1);
+            sleepInt(5);
         }
         addStep("播放上一首音频文件5次");
         for (int i = 0;i<5;i++) {
             press_left(1);
-            sleepInt(1);
+            sleepInt(5);
         }
+
+        addStep("打开播放列表任意选择5首每首播放10秒");
+        for(int i=0;i<5;i++) {
+            press_menu(1);
+            press_down(1);
+            UiObject2 playlist = waitForObj(By.text("播放列表"));
+            check(playlist != null);
+            press_center(1);
+            sleepInt(10);
+        }
+        press_menu(1);
+        press_up(6);
+        press_center(1);
+        sleepInt(10);
+
+        press_back(1);
+        sleepInt(2);
+    }
+
+    @Test
+    @CaseName("音乐在线播放音频")
+    public void testOnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
+        addStep("打开媒体中心");
+//        launchApp(AppName.Music,IntentConstants.Music);
+//        sleepInt(10);
+        exitPlayMusic();
+        for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
+            System.out.println(".............looper : " + Loop);
+            try {
+                LocalPlayMusic();
+            }catch (Exception e){
+                try {
+                    count ++;
+                    failCount(count, getIntParams("Loop"), e.getMessage());
+                    addStep("打开媒体中心");
+//                    launchApp(AppName.Music, IntentConstants.Music);
+                    exitPlayMusic();
+                    sleepInt(10);
+                    LocalPlayMusic();
+                }catch (RuntimeException re){
+                    screenShot();
+                    junit.framework.Assert.fail(re.getMessage());
+                }
+            }
+        }
+
+    }
+    public void OnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
+        UiObject2 online=waitForObj(By.clazz("android.widget.LinearLayout").res("com.stv.music:id/onlineButton"));
+        check("未进入在线音乐",online!=null);
+        online.click();
+        press_down(1);
+        UiObject2 view=waitForObj(By.res("com.letv.tv:id/channel_headview_view2"));
+        check("未进入音乐",view!=null);
+        view.click();
+        view.click();
+        UiObject2 item =waitForObj(By.res("com.letv.tv:id/video_topic_item"));
+        check("未进入音乐片源播放",view!=null);
+        item.click();
+        item.click();
+        press_left(1);
+        press_center(1);
+        for(int i=0;i<5;i++){
+            sleepInt(5);
+            press_center(1);
+            sleepInt(4);
+
+            press_center(1);
+            sleepInt(10);
+            press_right(2);
+            sleepInt(5);
+            press_left(2);
+        }
+        press_back(1);
+        sleepInt(2);
+        press_back(2);
+    }
+
+
+
+    public void exitPlayMusic(){
+        gotoHomeScreen("应用");
+        press_back(3);
+        press_down(1);
+        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
+        if(allapp!=null){
+            allapp.click();
+            sleepInt(5);
+            press_down(7);
+        }
+        UiObject2 music=waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("音乐"));
+        music.click();
+        music.click();
+        sleepInt(5);
     }
 
     @Test
@@ -97,7 +275,6 @@ public class MusicStress extends LetvTestCase {
         }
         press_back(4);
     }
-
     public void SearchPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开播放列表任意选择5首每首播放10秒");
         for(int i=0;i<5;i++) {

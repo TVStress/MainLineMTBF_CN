@@ -31,7 +31,7 @@ public class PkgName {
     public static final String Download = "com.stv.downloads";
     public static final String TvManager = "com.stv.helper.main";
     public static final String LeSearch = "com.letv.leso";
-    public static final String Music = "com.tencent.qqmusictv.qing";
+    public static final String Music = "com.stv.music/.MainActivity";
     public static final String Help = "com.stv.userguider";
     public static final String Weather = "com.stv.weather|sina.mobile.tianqitongstv";
     public static final String PlayHistory = "com.stv.videohistory";

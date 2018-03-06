@@ -113,7 +113,7 @@ public class VodPlayStress extends LetvTestCase {
     @Test
     @CaseName("乐见(视频)桌面播放视频")
     public void testTVPlay() throws UiObjectNotFoundException , RemoteException {
-        gotoHomeScreen("乐见");
+        gotoHomeScreen("找视频|乐见");
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep(".............looper : " + Loop);
             try {
@@ -174,7 +174,7 @@ public class VodPlayStress extends LetvTestCase {
     }
 
     public void initClarity() throws UiObjectNotFoundException , RemoteException {
-        gotoHomeScreen("视频|乐见");
+        gotoHomeScreen("找视频|乐见");
         sleepInt(5);
         press_down(2);
         checkAccountLogin();
@@ -315,7 +315,7 @@ public class VodPlayStress extends LetvTestCase {
     @Test
     @CaseName("乐见(视频)桌面进入搜索播放视频，切换集数")
     public void testChPay() throws UiObjectNotFoundException , RemoteException {
-        gotoHomeScreen("视频|乐见");
+        gotoHomeScreen("找视频|乐见");
         sleepInt(5);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
