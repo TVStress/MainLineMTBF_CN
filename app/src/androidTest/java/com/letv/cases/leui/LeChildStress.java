@@ -270,13 +270,15 @@ public class LeChildStress extends LetvTestCase {
         addStep("进入应用儿童TV");
         gotoHomeScreen("应用");
         retry();
+//        launchApp(AppName.ChildrenTV, IntentConstants.ChildrenTV);
         press_down(1);
         press_back(3);
-        press_down(3);
-        press_right(3);
+        press_down(2);
         UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
         if(allapp!=null){
             allapp.click();
+            press_down(5);
+        }else {
             press_down(5);
         }
         UiObject2 ChildrenTV=waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("儿童TV"));

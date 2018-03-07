@@ -794,6 +794,8 @@ public class LetvTestCase{
             allapp.click();
             sleepInt(5);
             press_down(5);
+        }else {
+            press_down(6);
         }
 
         UiObject2 deskno = phone.findObject(By.text("重试"));
