@@ -155,7 +155,7 @@ public class DesktopShoppingStress extends LetvTestCase{
         allShop.click();
         allShop.click();
         sleepInt(1);
-        String arr[] = {"首页", "家用电器", "个护美妆", "家居百货","食品茶酒","生活服务","母婴玩具","运动户外","女装/男装","文化创意","鞋包配饰"};
+        String arr[] = {"首页", "家用电器","家居百货","食品茶酒","鞋包配饰","个护美妆","母婴玩具", "生活服务","运动户外","文化创意"};
 
         for (int j = 0; j < arr.length; j++) {
             addStep("进入全部商品进入遍历");

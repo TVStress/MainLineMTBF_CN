@@ -180,16 +180,19 @@ public class MyLeFanStress extends LetvTestCase{
         press_down(1);
         press_back(2);
         press_down(3);
+
         addStep("进入我的卡券列表遍历");
         UiObject2 myCardVoucher=waitForObj(By.res("com.stv.plugin.ucenter:id/function_item1"));
         check("未进入我的卡券",myCardVoucher !=null);
         myCardVoucher.click();
         myCardVoucher.click();
         press_left(1);
-        press_up(7);
+        press_up(5);
+        sleep(2);
         String arrmycard[]={"全部","会员券","联名券","购物券","游戏券"};
         for(int i=0;i<arrmycard.length;i++) {
             press_left(1);
+            sleep(2);
             UiObject2 allcard = waitForObj(By.text(arrmycard[i]));
             check("未进入卡券列表中的"+arrmycard[i],allcard!=null);
             press_right(2);
@@ -223,17 +226,19 @@ public class MyLeFanStress extends LetvTestCase{
         check("未进入我的乐范我的卡券",complimentary !=null);
         complimentary.click();
         complimentary.click();
-        press_left(1);
-        press_up(3);
-        String arrcomplimentary[]={"CIBN会员","华数会员"};
-        for(int k=0;k<arrcomplimentary.length;k++) {
-            press_left(1);
-            UiObject2 allComplimentary = waitForObj(By.text(arrcomplimentary[k]));
-            check("未进入我的乐范我的订单列表中的"+arrcomplimentary[k],allComplimentary!=null);
-            press_right(2);
-            press_left(2);
-            press_down(1);
-        }
+        press_right(2);
+//        press_left(1);
+//        press_up(3);
+//        String arrcomplimentary[]={"CIBN会员","华数会员"};
+//        for(int k=0;k<arrcomplimentary.length;k++) {
+//            press_left(1);
+//            UiObject2 allComplimentary = waitForObj(By.text(arrcomplimentary[k]));
+//            check("未进入我的乐范我的订单列表中的"+arrcomplimentary[k],allComplimentary!=null);
+//            press_right(2);
+//            press_left(2);
+//            press_down(1);
+//        }
+
         press_back(1);
         sleepInt(3);
 
@@ -255,40 +260,25 @@ public class MyLeFanStress extends LetvTestCase{
         press_back(1);
         sleepInt(3);
 
-
-        addStep("进入我的乐范会员续费");
-        UiObject2 member=waitForObj(By.res("com.stv.plugin.ucenter:id/function_item6"));
-        check("未进入我的乐范我的卡券",member!=null);
-        member.click();
-        member.click();
-        press_left(1);
-        press_up(4);
-        String arrmember[]={"超级影视会员","超级体育会员","CIBN超级会员"};
-        for(int l=0;l<arrmember.length;l++) {
-            press_left(1);
-            UiObject2 allmember = waitForObj(By.text(arrmember[l]));
-            check("未进入我的乐范我的订单列表中的"+arrmember[l],allmember!=null);
-            press_right(2);
-            press_left(2);
-            press_down(1);
-        }
-        press_back(1);
-        sleepInt(2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//
+//        addStep("进入我的乐范会员续费");
+//        UiObject2 member=waitForObj(By.res("com.stv.plugin.ucenter:id/function_item6"));
+//        check("未进入我的乐范我的卡券",member!=null);
+//        member.click();
+//        member.click();
+//        press_left(1);
+//        press_up(4);
+//        String arrmember[]={"超级影视会员","超级体育会员","CIBN超级会员"};
+//        for(int l=0;l<arrmember.length;l++) {
+//            press_left(1);
+//            UiObject2 allmember = waitForObj(By.text(arrmember[l]));
+//            check("未进入我的乐范我的订单列表中的"+arrmember[l],allmember!=null);
+//            press_right(2);
+//            press_left(2);
+//            press_down(1);
+//        }
+//        press_back(1);
+//        sleepInt(2);
     }
 
 
