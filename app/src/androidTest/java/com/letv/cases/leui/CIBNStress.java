@@ -143,23 +143,29 @@ public class CIBNStress extends LetvTestCase {
         press_back(3);
         press_down(2);
         press_right(3);
-        UiObject2 allapp = phone.findObject(By.text(Pattern.compile("全部应用")));
-        check("未进入全部应用", allapp != null);
-        allapp.click();
-        sleepInt(1);
-        press_down(10);
-        sleepInt(2);
-        UiObject2 cibnapp = phone.findObject(By.text("CIBN推荐应用"));
-        cibnapp.click();
-        press_down(1);
-        UiObject2 cibn = phone.findObject(By.text(Pattern.compile("CIBN.*")));
-        if (cibn != null) {
-            cibn.click();
-            sleepInt(5);
-        } else {
-            press_center(1);
-            sleepInt(5);
-        }
+        addStep("进入cibn高清影视");
+        UiObject2 cibntv=waitForObj(By.res("com.stv.plugin.app:id/app_workspace_top_layout_center"));
+        check("未进入cibn高清影视",cibntv!=null);
+        cibntv.click();
+        cibntv.click();
+
+//        UiObject2 allapp = phone.findObject(By.text(Pattern.compile("全部应用")));
+//        check("未进入全部应用", allapp != null);
+//        allapp.click();
+//        sleepInt(1);
+//        press_down(10);
+//        sleepInt(2);
+//        UiObject2 cibnapp = phone.findObject(By.text("CIBN推荐应用"));
+//        cibnapp.click();
+//        press_down(1);
+//        UiObject2 cibn = phone.findObject(By.text(Pattern.compile("CIBN.*")));
+//        if (cibn != null) {
+//            cibn.click();
+//            sleepInt(5);
+//        } else {
+//            press_center(1);
+//            sleepInt(5);
+//        }
         UiObject2 retry=waitForObj(By.text("重试"));
         for(int k=0;k<3;k++){
             if(retry!=null){

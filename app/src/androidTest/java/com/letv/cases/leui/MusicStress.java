@@ -183,7 +183,7 @@ public class MusicStress extends LetvTestCase {
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             try {
-                LocalPlayMusic();
+                OnlinePlayMusic();
             }catch (Exception e){
                 try {
                     count ++;
@@ -192,7 +192,7 @@ public class MusicStress extends LetvTestCase {
 //                    launchApp(AppName.Music, IntentConstants.Music);
                     exitPlayMusic();
                     sleepInt(10);
-                    LocalPlayMusic();
+                    OnlinePlayMusic();
                 }catch (RuntimeException re){
                     screenShot();
                     junit.framework.Assert.fail(re.getMessage());
