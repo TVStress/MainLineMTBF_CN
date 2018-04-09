@@ -40,6 +40,11 @@ public class DeskManagerStress extends LetvTestCase{
         press_back(1);
     }
 
+
+
+
+
+
     @Test
     @CaseName("进入桌面管理调整桌面顺序")
     public void testDeskSwitch() throws UiObjectNotFoundException, RemoteException {

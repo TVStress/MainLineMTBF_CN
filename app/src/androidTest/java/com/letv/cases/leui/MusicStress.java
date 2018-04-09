@@ -27,7 +27,7 @@ public class MusicStress extends LetvTestCase {
         addStep("打开媒体中心");
 //        launchApp(AppName.Music,IntentConstants.Music);
 //        sleepInt(10);
-        exitPlayMusic();
+        enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             try {
@@ -38,7 +38,7 @@ public class MusicStress extends LetvTestCase {
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
 //                    launchApp(AppName.Music, IntentConstants.Music);
-                    exitPlayMusic();
+                    enter_PlayMusic();
                     sleepInt(10);
                     LocalPlayMusic();
                 }catch (RuntimeException re){
@@ -100,12 +100,79 @@ public class MusicStress extends LetvTestCase {
 
 
     @Test
+    @CaseName("音乐在线播放音频")
+    public void testOnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
+        addStep("打开媒体中心");
+//        launchApp(AppName.Music,IntentConstants.Music);
+//        sleepInt(10);
+        enter_PlayMusic();
+        for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
+            System.out.println(".............looper : " + Loop);
+            try {
+                OnlinePlayMusic();
+            }catch (Exception e){
+                try {
+                    count ++;
+                    failCount(count, getIntParams("Loop"), e.getMessage());
+                    addStep("打开媒体中心");
+//                    launchApp(AppName.Music, IntentConstants.Music);
+                    enter_PlayMusic();
+                    sleepInt(10);
+                    OnlinePlayMusic();
+                }catch (RuntimeException re){
+                    screenShot();
+                    junit.framework.Assert.fail(re.getMessage());
+                }
+            }
+        }
+
+    }
+    public void OnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
+        UiObject2 online=waitForObj(By.clazz("android.widget.LinearLayout").res("com.stv.music:id/onlineButton"));
+        check("未进入在线音乐",online!=null);
+        online.click();
+        press_down(1);
+        UiObject2 view=waitForObj(By.res("com.letv.tv:id/channel_headview_view2"));
+        check("未进入音乐",view!=null);
+        view.click();
+        view.click();
+        UiObject2 item =waitForObj(By.res("com.letv.tv:id/video_topic_item"));
+        check("未进入音乐片源播放",view!=null);
+        item.click();
+        item.click();
+        press_left(1);
+        press_center(1);
+        for(int i=0;i<5;i++){
+            sleepInt(5);
+            press_center(1);
+            sleepInt(4);
+
+            press_center(1);
+            sleepInt(10);
+            press_right(2);
+            sleepInt(5);
+            press_left(2);
+        }
+        press_back(1);
+        sleepInt(2);
+        press_back(2);
+    }
+
+
+
+
+
+
+
+
+
+    @Test
     @CaseName("媒体中心里播放")
     public void testMediaPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
 //        launchApp(AppName.Music,IntentConstants.Music);
 //        sleepInt(10);
-        exitPlayMusic();
+        enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             try {
@@ -116,7 +183,7 @@ public class MusicStress extends LetvTestCase {
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
 //                    launchApp(AppName.Music, IntentConstants.Music);
-                    exitPlayMusic();
+                    enter_PlayMusic();
                     sleepInt(10);
                     PlayMusic();
                 }catch (RuntimeException re){
@@ -173,68 +240,8 @@ public class MusicStress extends LetvTestCase {
         sleepInt(2);
     }
 
-    @Test
-    @CaseName("音乐在线播放音频")
-    public void testOnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
-        addStep("打开媒体中心");
-//        launchApp(AppName.Music,IntentConstants.Music);
-//        sleepInt(10);
-        exitPlayMusic();
-        for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
-            System.out.println(".............looper : " + Loop);
-            try {
-                OnlinePlayMusic();
-            }catch (Exception e){
-                try {
-                    count ++;
-                    failCount(count, getIntParams("Loop"), e.getMessage());
-                    addStep("打开媒体中心");
-//                    launchApp(AppName.Music, IntentConstants.Music);
-                    exitPlayMusic();
-                    sleepInt(10);
-                    OnlinePlayMusic();
-                }catch (RuntimeException re){
-                    screenShot();
-                    junit.framework.Assert.fail(re.getMessage());
-                }
-            }
-        }
 
-    }
-    public void OnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
-        UiObject2 online=waitForObj(By.clazz("android.widget.LinearLayout").res("com.stv.music:id/onlineButton"));
-        check("未进入在线音乐",online!=null);
-        online.click();
-        press_down(1);
-        UiObject2 view=waitForObj(By.res("com.letv.tv:id/channel_headview_view2"));
-        check("未进入音乐",view!=null);
-        view.click();
-        view.click();
-        UiObject2 item =waitForObj(By.res("com.letv.tv:id/video_topic_item"));
-        check("未进入音乐片源播放",view!=null);
-        item.click();
-        item.click();
-        press_left(1);
-        press_center(1);
-        for(int i=0;i<5;i++){
-            sleepInt(5);
-            press_center(1);
-            sleepInt(4);
-
-            press_center(1);
-            sleepInt(10);
-            press_right(2);
-            sleepInt(5);
-            press_left(2);
-        }
-        press_back(1);
-        sleepInt(2);
-        press_back(2);
-    }
-
-
-
-    public void exitPlayMusic(){
+    public void enter_PlayMusic(){
         gotoHomeScreen("应用");
         press_back(3);
         press_down(1);

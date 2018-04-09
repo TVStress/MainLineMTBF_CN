@@ -443,4 +443,92 @@ public class LetvStoreStressApp extends LetvTestCase {
         sleepInt(2);
     }
 
+
+    @Test
+    @CaseName("LetvStoreAllapp938")
+    public void testLetvStoreAllapp938() throws UiObjectNotFoundException, RemoteException {
+        for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
+
+            addStep("进入应用");
+            gotoHomeScreen("应用");
+            press_back(3);
+            press_down(1);
+            try {
+                LetvStoreAllapp938();
+            } catch (Exception e) {
+                try {
+                    count++;
+                    failCount(count, getIntParams("Loop"), e.getMessage());
+                    LetvStoreAllapp938();
+                } catch (RuntimeException re) {
+                    screenShot();
+                    Assert.fail(re.getMessage());
+                }
+            }
+            press_back(3);
+        }
+    }
+    public void LetvStoreAllapp938() throws UiObjectNotFoundException, RemoteException {
+        addStep("遍历应用桌面app");
+    for (int i=1;i<=7;i++) {
+        press_back(3);
+        press_down(i);
+        press_center(1);
+        press_home(1);
+        for (int p = 1; p < 5; p++) {
+            press_right(1);
+            press_center(1);
+            sleep(2);
+            press_home(1);
+            sleep(2);
+            }
+
+        }
+
+    }
+
+
+    @Test
+    @CaseName("LetvStoreAllapp648")
+    public void testLetvStoreAllapp648() throws UiObjectNotFoundException, RemoteException {
+        for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
+            addStep("进入应用");
+            gotoHomeScreen("应用");
+            press_back(3);
+            press_down(1);
+            try {
+                LetvStoreAllapp648();
+            } catch (Exception e) {
+                try {
+                    count++;
+                    failCount(count, getIntParams("Loop"), e.getMessage());
+                    LetvStoreAllapp648();
+                } catch (RuntimeException re) {
+                    screenShot();
+                    Assert.fail(re.getMessage());
+                }
+            }
+            press_back(3);
+        }
+    }
+    public void LetvStoreAllapp648() throws UiObjectNotFoundException, RemoteException {
+        addStep("遍历应用桌面app");
+        for (int i=1;i<=7;i++) {
+            press_back(3);
+            press_down(i);
+            press_center(1);
+            press_home(1);
+            for (int p = 1; p < 5; p++) {
+                press_right(1);
+                press_center(1);
+                sleep(2);
+                press_home(1);
+                sleep(2);
+            }
+
+        }
+
+    }
+
+
 }
