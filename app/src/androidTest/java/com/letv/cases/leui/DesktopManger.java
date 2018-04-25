@@ -82,6 +82,7 @@ public class DesktopManger extends LetvTestCase {
 
     }
 
+
     @Test
     @CaseName("进入桌面管理调整桌面购物")
     public void testDeskSwitchShoping() throws UiObjectNotFoundException, RemoteException {
@@ -266,8 +267,8 @@ public class DesktopManger extends LetvTestCase {
         sleepInt(2);
         for(int j=0;j<3;j++) {
             sleepInt(2);
-            UiObject2 launchLeVideo = waitForObj(By.res("com.stv.launcher:id/tv_title").text("我的乐范")).getParent();
-            if(launchLeVideo.isFocused()){
+            UiObject2 launchL1 = waitForObj(By.res("com.stv.launcher:id/tv_title").text("我的乐范")).getParent();
+            if(launchL1.isFocused()){
                 press_center(1);
                 press_up(1);
                 press_right(3);
@@ -351,27 +352,23 @@ public class DesktopManger extends LetvTestCase {
     }
 
 
-
-
-
-
     @Test
     @CaseName("进入桌面管理调整桌面顺序")
     public void testDeskSwitch648() throws UiObjectNotFoundException, RemoteException {
         addStep("进入管理桌面");
-        gotoHomeScreen("应用");
-        UiObject2 deskManager=null;
-        UiObject2 deskManager938=null;
-        deskManager=phone.findObject(By.text("桌面管理"));
-        deskManager938=phone.findObject(By.res("com.stv.launcher:id/manager_bt"));
-        if (deskManager!=null){
-            deskManager.click();
-        }else {
-            deskManager938.click();
-        }
-        verify("桌面管理没有找到", deskManager != null||deskManager938!=null);
-        sleepInt(1);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
+            gotoHomeScreen("应用");
+            UiObject2 deskManager=null;
+            UiObject2 deskManager938=null;
+            deskManager=phone.findObject(By.text("桌面管理"));
+            deskManager938=phone.findObject(By.res("com.stv.launcher:id/manager_bt"));
+            if (deskManager!=null){
+                deskManager.click();
+            }else {
+                deskManager938.click();
+            }
+            verify("桌面管理没有找到", deskManager != null||deskManager938!=null);
+            sleepInt(1);
             System.out.println(".............looper : " + Loop);
             try {
                 if (LetvUI(6.5)){
@@ -405,7 +402,7 @@ public class DesktopManger extends LetvTestCase {
                 }
             }
         }
-        press_back(2);
+        press_home(1);
     }
 
     public void DeskSwitch() throws UiObjectNotFoundException, RemoteException {
@@ -441,7 +438,6 @@ public class DesktopManger extends LetvTestCase {
     }
 
     public void DeskSwitch648() throws UiObjectNotFoundException, RemoteException {
-
         UiObject2 bigc =waitForObj(By.res("com.stv.launcher:id/rlv_to_add")).findObject(By.res("com.stv.launcher:id/tv_title").text("小C精选"));
         if(bigc!=null) {
             press_down(3);
@@ -475,11 +471,11 @@ public class DesktopManger extends LetvTestCase {
         check("没有将首页设置为主桌面",sethome==null);
         sleepInt(1);
         addStep("调整桌面顺序");
-        for(int i=0;i<6;i++){
+        for(int i=0;i<3;i++){
             press_right(1);
             press_center(1);
-            press_right(3);
-            press_left(3);
+            press_right(2);
+            press_left(2);
             press_back(1);
         }
         press_left(9);

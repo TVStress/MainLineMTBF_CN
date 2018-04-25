@@ -444,8 +444,11 @@ public class LetvStoreStressApp extends LetvTestCase {
     }
 
 
+
+
+
     @Test
-    @CaseName("LetvStoreAllapp938")
+    @CaseName("应用桌面app逐个遍历")
     public void testLetvStoreAllapp938() throws UiObjectNotFoundException, RemoteException {
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
 
@@ -469,7 +472,7 @@ public class LetvStoreStressApp extends LetvTestCase {
         }
     }
     public void LetvStoreAllapp938() throws UiObjectNotFoundException, RemoteException {
-        addStep("遍历应用桌面app");
+    addStep("遍历应用桌面app");
     for (int i=1;i<=7;i++) {
         press_back(3);
         press_down(i);
@@ -482,14 +485,12 @@ public class LetvStoreStressApp extends LetvTestCase {
             press_home(1);
             sleep(2);
             }
-
         }
-
     }
 
 
     @Test
-    @CaseName("LetvStoreAllapp648")
+    @CaseName("应用桌面app逐个遍历")
     public void testLetvStoreAllapp648() throws UiObjectNotFoundException, RemoteException {
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("进入应用");
@@ -508,12 +509,15 @@ public class LetvStoreStressApp extends LetvTestCase {
                     Assert.fail(re.getMessage());
                 }
             }
+            addStep("第"+ Loop +"次遍历");
             press_back(3);
         }
     }
     public void LetvStoreAllapp648() throws UiObjectNotFoundException, RemoteException {
         addStep("遍历应用桌面app");
-        for (int i=1;i<=7;i++) {
+
+        for (int i=1;i<7;i++) {
+
             press_back(3);
             press_down(i);
             press_center(1);
@@ -529,6 +533,4 @@ public class LetvStoreStressApp extends LetvTestCase {
         }
 
     }
-
-
 }

@@ -41,28 +41,24 @@ public class DeskManagerStress extends LetvTestCase{
     }
 
 
-
-
-
-
     @Test
     @CaseName("进入桌面管理调整桌面顺序")
     public void testDeskSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("进入管理桌面");
-        gotoHomeScreen("应用");
-        UiObject2 deskManager=null;
-        UiObject2 deskManager938=null;
-        deskManager=phone.findObject(By.text("桌面管理"));
-        deskManager938=phone.findObject(By.res("com.stv.launcher:id/manager_bt"));
-        if (deskManager!=null){
-            deskManager.click();
-        }else {
-            deskManager938.click();
-        }
-        verify("桌面管理没有找到", deskManager != null||deskManager938!=null);
-        sleepInt(1);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
+            gotoHomeScreen("应用");
+            UiObject2 deskManager=null;
+            UiObject2 deskManager938=null;
+            deskManager=phone.findObject(By.text("桌面管理"));
+            deskManager938=phone.findObject(By.res("com.stv.launcher:id/manager_bt"));
+            if (deskManager!=null){
+                deskManager.click();
+            }else {
+                deskManager938.click();
+            }
+            verify("桌面管理没有找到", deskManager != null||deskManager938!=null);
+            sleepInt(1);
             try {
                 if (LetvUI(6.5)){
                     DeskSwitch938();
@@ -94,10 +90,11 @@ public class DeskManagerStress extends LetvTestCase{
                     Assert.fail(re.getMessage());
                 }
             }
+            press_home(1);
+            sleep(2);
         }
-        press_back(2);
-    }
 
+    }
     public void DeskSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("调整开机默认桌面");
         UiObject2 home=waitForObj(By.res("com.stv.launcher:id/recycler_view"));
@@ -129,7 +126,6 @@ public class DeskManagerStress extends LetvTestCase{
             press_back(1);
         }
     }
-
     public void DeskSwitch938() throws UiObjectNotFoundException, RemoteException {
 
         UiObject2 bigc =waitForObj(By.res("com.stv.launcher:id/rlv_to_add")).findObject(By.res("com.stv.launcher:id/tv_title").text("小C精选"));
@@ -174,7 +170,6 @@ public class DeskManagerStress extends LetvTestCase{
         }
         press_left(9);
     }
-
 
 
 }
