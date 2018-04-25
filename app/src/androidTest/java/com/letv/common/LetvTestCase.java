@@ -786,17 +786,17 @@ public class LetvTestCase{
                 sleepInt(5);
                 return true;
             }
-            press_down(1);
+            press_down(5);
         }
         sleepInt(5);
-        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
-        if(allapp!=null){
-            allapp.click();
-            sleepInt(5);
-            press_down(5);
-        }else {
-            press_down(6);
-        }
+//        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
+//        if(allapp!=null){
+//            allapp.click();
+//            sleepInt(5);
+//            press_down(5);
+//        }else {
+//            press_down(6);
+//        }
 
         UiObject2 deskno = phone.findObject(By.text("重试"));
         for (int i = 0; i < 3; i++) {
