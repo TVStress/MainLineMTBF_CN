@@ -17,12 +17,11 @@ import org.junit.Test;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by pc7 on 7/28/17.
- */
 
 public class LeChildStress extends LetvTestCase {
     int count = 0;
+
+
     @Test
     @CaseName("儿童桌面分类视频随机播放")
     public void testDesktopVideo() throws UiObjectNotFoundException, RemoteException {
@@ -270,12 +269,12 @@ public class LeChildStress extends LetvTestCase {
         addStep("进入应用儿童TV");
         gotoHomeScreen("应用");
         retry();
-        launchApp(AppName.ChildrenTV, IntentConstants.ChildrenTV);
-//        press_back(3);
-//        press_down(8);
-//        UiObject2 ChildrenTV=waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("儿童TV"));
-//        check("未进入儿童TV",ChildrenTV!=null);
-//        clickAndWaitForNewWindow(ChildrenTV);
+//        launchApp(AppName.ChildrenTV, IntentConstants.ChildrenTV);
+        press_back(3);
+        press_down(8);
+        UiObject2 ChildrenTV=waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("儿童TV"));
+        check("未进入儿童TV",ChildrenTV!=null);
+        clickAndWaitForNewWindow(ChildrenTV);
         sleepInt(2);
     }
 }
