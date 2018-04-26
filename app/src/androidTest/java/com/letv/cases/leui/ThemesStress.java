@@ -50,13 +50,12 @@ public class ThemesStress extends LetvTestCase{
     public void Themes()throws UiObjectNotFoundException, RemoteException{
         press_down(1);
         press_back(2);
-        press_down(5);
-
+        press_down(7);
         UiObject2 themes = phone.findObject(By.res("com.stv.plugin.app:id/cellview_label").text("主题"));
 //        launchApp(AppName.Music,IntentConstants.Music);
         check("未进入主题",themes != null);
         themes.click();
-//        themes.click();
+        themes.click();
         sleepInt(2);
         press_right(2);
         addStep("进入全部主题");
@@ -97,13 +96,7 @@ public class ThemesStress extends LetvTestCase{
         press_down(1);
         press_back(2);
         sleepInt(1);
-        press_down(5);
-//        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
-//        if(allapp!=null){
-//            allapp.click();
-//            sleepInt(5);
-//            press_down(5);
-//        }
+        press_down(7);
         UiObject2 themes = phone.findObject(By.res("com.stv.plugin.app:id/cellview_label").text("主题"));
         check("未进入主题",themes != null);
         themes.click();
