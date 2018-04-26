@@ -266,19 +266,10 @@ public class ShoppingApplicationStress extends LetvTestCase{
         addStep("进入应用购物");
         gotoHomeScreen("应用");
         retry();
-        press_down(3);
-        press_right(3);
-        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
-        if(allapp!=null){
-            allapp.click();
-            press_down(5);
-        }
+        press_down(4);
         UiObject2 appshopTV=waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("购物"));
-        check("未进入儿童TV",appshopTV!=null);
+        check("未进入购物",appshopTV!=null);
         clickAndWaitForNewWindow(appshopTV);
         sleepInt(2);
     }
-
-
-
 }

@@ -26,7 +26,7 @@ public class MusicStress extends LetvTestCase {
     public void testLocalPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
 //        launchApp(AppName.Music,IntentConstants.Music);
-//        sleepInt(10);
+        sleepInt(2);
         enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
@@ -97,6 +97,24 @@ public class MusicStress extends LetvTestCase {
         press_back(1);
         sleepInt(5);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Test
