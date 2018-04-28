@@ -15,8 +15,14 @@ import org.junit.Test;
 public class Testfile extends LetvTestCase {
     @Test
     public void st(){
-
+        sleep(2);
+        sleepInt(2);
+        press_right(1);
+        press_center(1);
+        press_menu(1);
     }
+
+
 
 
 }

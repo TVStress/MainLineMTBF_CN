@@ -524,7 +524,9 @@ public class LetvTestCase{
         }
     }
 
-    public void sleep(int time){SystemClock.sleep(time);}
+    public void sleep(int time){
+        SystemClock.sleep(time);
+    }
 
     public String getStrParams(String key){return params.getString(key);}
 

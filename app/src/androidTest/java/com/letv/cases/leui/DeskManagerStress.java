@@ -45,6 +45,7 @@ public class DeskManagerStress extends LetvTestCase{
     @CaseName("进入桌面管理调整桌面顺序")
     public void testDeskSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("进入管理桌面");
+
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             gotoHomeScreen("应用");
@@ -60,11 +61,7 @@ public class DeskManagerStress extends LetvTestCase{
             verify("桌面管理没有找到", deskManager != null||deskManager938!=null);
             sleepInt(1);
             try {
-                if (LetvUI(6.5)){
-                    DeskSwitch938();
-//                }else {
-//                    DeskSwitch();
-                }
+                DeskSwitch938();
             }catch (Exception e){
                 try {
                     count ++;
@@ -81,10 +78,7 @@ public class DeskManagerStress extends LetvTestCase{
                     verify("桌面管理没有找到", deskManager != null||deskManager938!=null);
                     deskManager.click();
                     sleepInt(1);
-                    if (LetvUI(6.5)){
-                        DeskSwitch938();
-                    }else {
-                        DeskSwitch();}
+                    DeskSwitch938();
                 }catch (RuntimeException re){
                     screenShot();
                     Assert.fail(re.getMessage());
@@ -95,6 +89,44 @@ public class DeskManagerStress extends LetvTestCase{
         }
 
     }
+    public void DeskSwitch938() throws UiObjectNotFoundException, RemoteException {
+
+        UiObject2 bigc =waitForObj(By.res("com.stv.launcher:id/rlv_to_add")).findObject(By.res("com.stv.launcher:id/tv_title").text("小C精选"));
+        if(bigc!=null) {
+            press_down(3);
+            bigc.click();
+            press_center(1);
+            press_up(1);
+            press_right(2);
+            press_back(1);
+            press_left(6);
+        }
+        addStep("调整开机默认桌面");//ui6.0目前不支持click
+        UiObject2 singalSource=waitForObj(By.text(Pattern.compile("信号源"))).getParent();
+        for (int a=0;a<10;a++){
+            if (singalSource.isEnabled()){
+                break;
+            }
+            press_left(1);
+        }
+        UiObject2 home=waitForObj(By.res("com.stv.launcher:id/rlv_in_use"));
+        check("没有进入桌面管理",home!=null);
+        int homeCount=home.getChildCount();
+        sleepInt(1);
+        addStep("调整桌面顺序");
+        press_right(1);
+        press_center(1);
+        press_right(homeCount);
+        press_center(1);
+        press_home(1);
+        sleepInt(3);
+        press_left(homeCount);
+        press_home(1);
+    }
+
+
+
+
     public void DeskSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("调整开机默认桌面");
         UiObject2 home=waitForObj(By.res("com.stv.launcher:id/recycler_view"));
@@ -125,50 +157,6 @@ public class DeskManagerStress extends LetvTestCase{
             press_left(3);
             press_back(1);
         }
-    }
-    public void DeskSwitch938() throws UiObjectNotFoundException, RemoteException {
-
-        UiObject2 bigc =waitForObj(By.res("com.stv.launcher:id/rlv_to_add")).findObject(By.res("com.stv.launcher:id/tv_title").text("小C精选"));
-        if(bigc!=null) {
-            press_down(3);
-            bigc.click();
-            press_center(1);
-            press_up(1);
-            press_right(2);
-            press_back(1);
-            press_left(6);
-        }
-        addStep("调整开机默认桌面");//ui6.0目前不支持click
-        UiObject2 singalSource=waitForObj(By.text(Pattern.compile("信号源"))).getParent();
-        for (int a=0;a<10;a++){
-            if (singalSource.isEnabled()){
-                break;
-            }
-            press_left(1);
-        }
-        UiObject2 home=waitForObj(By.res("com.stv.launcher:id/rlv_in_use"));
-        check("没有进入桌面管理",home!=null);
-        int homeCount=home.getChildCount();
-        press_right(1);
-        UiObject2 live2=waitForObj(By.text(Pattern.compile("Live|LIVE|首页"))).getParent();
-        verify("live not focused",live2.isFocused());
-        UiObject2 sethome=phone.findObject(By.res("设为主桌面"));
-        if (sethome!=null){
-            press_up(1);
-            press_center(1);
-            press_down(1);
-        }
-        check("没有将首页设置为主桌面",sethome==null);
-        sleepInt(1);
-        addStep("调整桌面顺序");
-        for(int i=0;i<6;i++){
-            press_right(1);
-            press_center(1);
-            press_right(3);
-            press_left(3);
-            press_back(1);
-        }
-        press_left(9);
     }
 
 
