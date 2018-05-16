@@ -81,6 +81,8 @@ public class CIBNStress extends LetvTestCase {
     BySelector cibnPlay = By.text(Pattern.compile("播放|第.*集|继续播放"));
     BySelector exitPlay = By.text(Pattern.compile("退出播放|退出.*"));
 
+
+
     @Test
     @CaseName("CIBN高清影视应用里反复滑动")
     public void testCIBNSwipe() throws UiObjectNotFoundException, RemoteException {

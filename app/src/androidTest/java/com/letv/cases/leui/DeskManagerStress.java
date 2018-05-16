@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 
 public class DeskManagerStress extends LetvTestCase{
     int count=0;
+
     @After
     public void tearDown(){
         gotoHomeScreen("应用");
@@ -45,7 +46,6 @@ public class DeskManagerStress extends LetvTestCase{
     @CaseName("进入桌面管理调整桌面顺序")
     public void testDeskSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("进入管理桌面");
-
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             gotoHomeScreen("应用");
@@ -114,7 +114,7 @@ public class DeskManagerStress extends LetvTestCase{
         int homeCount=home.getChildCount();
         sleepInt(1);
         addStep("调整桌面顺序");
-        press_right(1);
+        press_right(2);
         press_center(1);
         press_right(homeCount);
         press_center(1);

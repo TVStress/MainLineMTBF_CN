@@ -468,7 +468,7 @@ public class LetvStoreStressApp extends LetvTestCase {
                     Assert.fail(re.getMessage());
                 }
             }
-            addStep("第"+ Loop+1 +"次遍历");
+            addStep("第"+ Loop +"次遍历");
             press_back(3);
         }
     }
@@ -514,7 +514,7 @@ public class LetvStoreStressApp extends LetvTestCase {
                     Assert.fail(re.getMessage());
                 }
             }
-            addStep("第"+ Loop+1 +"次遍历");
+            addStep("第"+ Loop +"次遍历");
             press_back(3);
         }
     }

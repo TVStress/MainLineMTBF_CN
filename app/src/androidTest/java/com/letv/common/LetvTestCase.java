@@ -124,7 +124,9 @@ public class LetvTestCase{
     public static final int STATUS_TITLE = 16;
     public static final int STATUS_SCREENSHOT = 17;
     public static final String TAG = LetvTestCase.class.getSimpleName();
+
     public Map<String,String> listApps = new HashMap<>();
+
     public static final String PACKAGE_HOME = "com.stv.launcher";
 
     // Define sdcard root directory
@@ -134,6 +136,9 @@ public class LetvTestCase{
     public static Long WAIT_TIME_OUT = 15000L;
     @Rule
     public final TestName name = new TestName();
+
+
+
 
     @Before
     public void setUp() throws Exception {
@@ -164,6 +169,11 @@ public class LetvTestCase{
         unregisterCommonWatcher();
         Log.i(TAG, "==========================case end time is :" + getCurrentTime());
 }
+
+
+
+
+
 
     public int GenerateRandom(int range){
 
@@ -206,7 +216,7 @@ public class LetvTestCase{
             press_back(1);
             return true;
         }
-        UiObject2 launcher = phone.findObject(By.pkg(Pattern.compile("com.stv.launcher|com.stv.signalsourcemanager")));
+        UiObject2 launcher = phone.findObject(By.pkg(Pattern.compile("com.stv.launcher||com.stv.signalsourcemanager")));
         if (launcher != null) {
             press_back(1);
         } else {
@@ -230,6 +240,7 @@ public class LetvTestCase{
         press_left(4);
         press_home(1);
         UiObject2 singal = phone.findObject(By.pkg(Pattern.compile("com.stv.launcher|com.stv.signalsourcemanager")));
+
         if (hs == "信号源") {
             verify("没有切换到信号源桌面", singal != null);
             return true;
@@ -401,6 +412,8 @@ public class LetvTestCase{
             Assert.fail(msg);
         }
     }
+
+
 
     public void check(String msg, boolean b) {
         if (msg.equals("")) {
@@ -951,6 +964,7 @@ public class LetvTestCase{
         map.put(AppName.Feedback ,PkgName.Feedback);
         map.put(AppName.Tool ,PkgName.Tool);
         map.put(AppName.ChildrenTV ,PkgName.ChildrenTV);
+
         return map;
     }
 }

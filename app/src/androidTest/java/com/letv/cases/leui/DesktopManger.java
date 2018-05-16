@@ -401,7 +401,6 @@ public class DesktopManger extends LetvTestCase {
         }
         press_home(1);
     }
-
     public void DeskSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("调整开机默认桌面");
         UiObject2 home=waitForObj(By.res("com.stv.launcher:id/recycler_view"));
@@ -433,7 +432,6 @@ public class DesktopManger extends LetvTestCase {
             press_back(1);
         }
     }
-
 
     public void DeskSwitch648() throws UiObjectNotFoundException, RemoteException {
         UiObject2 bigc =waitForObj(By.res("com.stv.launcher:id/rlv_to_add")).findObject(By.res("com.stv.launcher:id/tv_title").text("小C精选"));

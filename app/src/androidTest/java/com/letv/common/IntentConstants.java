@@ -55,5 +55,5 @@ public class IntentConstants {
 	public static final String Tianqi = "com.miui.weather2/.ActivityWeatherMain";
 	public static final String Cinemas = "com.golive.letvcinema/.MainActivity";
 	public static final String Tool = "com.stv.message/.MainActivity";
-	public static final String ChildrenTV ="com.letv.tv/letv.plugin.framework.activity.HostActivity";
+	public static final String ChildrenTV ="com.letv.tv.lechild";
 }

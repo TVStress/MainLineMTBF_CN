@@ -22,6 +22,14 @@ import java.util.regex.Pattern;
  */
 
 public class LeCameraStress extends  LetvTestCase{
+
+
+
+
+
+
+
+
     @Test
     @CaseName("test Camera")
     public void testCamera() throws UiObjectNotFoundException{
