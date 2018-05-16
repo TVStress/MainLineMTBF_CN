@@ -14,6 +14,7 @@ import android.support.test.uiautomator.BySelector;
 import android.support.test.uiautomator.Configurator;
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.Until;
 import android.util.Log;
 
@@ -967,4 +968,76 @@ public class LetvTestCase{
 
         return map;
     }
+
+    /*648平台桌面调整*/
+    public void DesktopAdjustment(String args) throws RemoteException, UiObjectNotFoundException {
+        int count=0;
+        addStep("进入管理桌面");
+        gotoHomeScreen("应用");
+        UiObject2 deskManager = waitForObj(By.res("com.stv.launcher:id/manager_bt"));
+        check("桌面管理没有找到", deskManager != null);
+        deskManager.click();
+        deskManager.click();
+        sleepInt(1);
+        try {
+//              if (LetvUI(6.5)){
+            DeskSwitchScarchMyLefan(args);
+//                }else {
+//                DeskSwitch();
+//                }
+        } catch (Exception e) {
+            try {
+                count++;
+                failCount(count, getIntParams("Loop"), e.getMessage());
+                DeskSwitchScarchMyLefan(args);
+            } catch (RuntimeException re) {
+                screenShot();
+                junit.framework.Assert.fail(re.getMessage());
+            }
+            press_back(2);
+            }
+        }
+
+    public void DeskSwitchScarchMyLefan(String args) throws UiObjectNotFoundException, RemoteException {
+        for(int i =0;i<4;i++) {
+            sleepInt(2);
+            UiObject2 launchLeVideo = waitForObj(By.res("com.stv.launcher:id/tv_title").text("应用")).getParent();
+            if(launchLeVideo.isFocused()){
+                press_center(1);
+                press_right(3);
+                press_center(1);
+                press_left(1);
+                press_center(1);
+                press_right(3);
+                press_down(1);
+                press_center(1);
+                break;
+            }
+            else {
+                press_right(1);
+            }
+        }
+        sleepInt(2);
+        addStep("调整到"+args);
+        for(int j=0;j<4;j++) {
+            sleepInt(2);
+            UiObject2 launchLeVideo = waitForObj(By.res("com.stv.launcher:id/tv_title").text(Pattern.compile(args))).getParent();
+            if(launchLeVideo.isFocused()){
+                press_center(1);
+                press_up(1);
+                press_right(3);
+                press_center(1);
+                break;
+            }
+            else {
+                press_left(1);
+            }
+        }
+
+    }
+
+
+
+
+
 }

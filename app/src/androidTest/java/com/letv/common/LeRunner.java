@@ -8,9 +8,7 @@ import org.junit.runners.model.Statement;
 
 import java.util.List;
 
-/**
- * Created by letv on 16-8-15.
- */
+
 public class LeRunner extends BlockJUnit4ClassRunner {
 
     /**

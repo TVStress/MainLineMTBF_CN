@@ -34,7 +34,8 @@ public class AccountStress extends LetvTestCase{
     @Override
     public void tearDown() throws Exception {
         //   super.tearDown();
-    }*/
+    }
+    */
 
     @Test
     @CaseName("删除、登录、乐视账号")

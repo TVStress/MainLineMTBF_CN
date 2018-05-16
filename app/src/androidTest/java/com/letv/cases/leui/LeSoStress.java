@@ -26,69 +26,9 @@ public class LeSoStress extends LetvTestCase{
     }
 
     @Test
-    @CaseName("进入桌面管理调整桌面搜索")
+    @CaseName("进入桌面管理调整到桌面搜索")
     public void testDeskSwitchScarch() throws UiObjectNotFoundException, RemoteException {
-        addStep("进入管理桌面");
-        gotoHomeScreen("应用");
-        UiObject2 deskManager = waitForObj(By.res("com.stv.launcher:id/manager_bt"));
-        check("桌面管理没有找到", deskManager != null);
-        deskManager.click();
-        deskManager.click();
-        sleepInt(1);
-        try {
-//              if (LetvUI(6.5)){
-            DeskSwitchScarch();
-//                }else {
-//                DeskSwitch();
-//                }
-        } catch (Exception e) {
-            try {
-                count++;
-                failCount(count, getIntParams("Loop"), e.getMessage());
-                DeskSwitchScarch();
-            } catch (RuntimeException re) {
-                screenShot();
-                junit.framework.Assert.fail(re.getMessage());
-            }
-            press_back(2);
-        }
-    }
-    public void DeskSwitchScarch() throws UiObjectNotFoundException, RemoteException {
-
-        for(int i =0;i<4;i++) {
-            sleepInt(2);
-            UiObject2 launchLeVideo = waitForObj(By.res("com.stv.launcher:id/tv_title").text("应用")).getParent();
-            if(launchLeVideo.isFocused()){
-                press_center(1);
-                press_right(3);
-                press_center(1);
-                press_left(1);
-                press_center(1);
-                press_right(3);
-                press_down(1);
-                press_center(1);
-                break;
-            }
-            else {
-                press_right(1);
-            }
-        }
-        sleepInt(2);
-        for(int j=0;j<3;j++) {
-            sleepInt(2);
-            UiObject2 launchLeVideo = waitForObj(By.res("com.stv.launcher:id/tv_title").text("搜索")).getParent();
-            if(launchLeVideo.isFocused()){
-                press_center(1);
-                press_up(1);
-                press_right(3);
-                press_center(1);
-                break;
-            }
-            else {
-                press_left(1);
-            }
-        }
-
+    DesktopAdjustment("搜索");
     }
 
     @Test
