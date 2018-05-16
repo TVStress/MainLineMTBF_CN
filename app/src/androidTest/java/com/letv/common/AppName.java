@@ -27,7 +27,7 @@ public class AppName {
     public static final String LeStore = ".*应用商店.*";
     public static final String GameCenter = "乐视游戏中心";
     public static final String GunGame = "枪王争霸";
-    public static final String HomeTime = "HomeTime|HomeTime";
+    public static final String HomeTime = "HomeTime";
     public static final String Message = "消息中心";
     public static final String Calendar = "日历";
     public static final String Download = "下载中心";

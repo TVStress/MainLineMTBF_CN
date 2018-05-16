@@ -109,14 +109,9 @@ int count=0;
         gotoHomeScreen("应用");
         press_down(1);
         press_back(2);
-        press_down(3);
+        press_down(6);
         sleepInt(1);
-        press_right(4);
-        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
-        if(allapp!=null){
-            allapp.click();
-            press_down(5);
-        }
+
 
     }
 

@@ -838,6 +838,47 @@ public class LetvTestCase{
     }
 
 
+
+    public boolean launchApp(String pkg) {
+        return launchApp(pkg,true);
+    }
+
+    public boolean launchApp(String pkg, boolean flag) {
+        // verify the app is not null
+
+        gotoHomeScreen("应用");
+        retry();
+        press_down(5);
+        sleepInt(5);
+        UiObject2 deskno = phone.findObject(By.text("重试"));
+        for (int i = 0; i < 3; i++) {
+            if (deskno != null) {
+                deskno.click();
+                sleepInt(5);
+            }
+        }
+        // launchapp by package
+        if(Build.VERSION.SDK_INT >20) {
+            if (pkg.equals("") || pkg == null) {
+                System.out.println("the App name can't be null!!!");
+            } else {
+                addStep("launch app by package");
+                callShell("am start -S " + pkg);
+                sleepInt(5);
+//                verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+
+
     public boolean verifyByImg(String target, int x, int y, int x1, int y1,
                                double percent) {
         int width = x1 - x;

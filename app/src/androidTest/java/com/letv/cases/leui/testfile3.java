@@ -17,8 +17,9 @@ public class testfile3 extends LetvTestCase{
     @Test
     @CaseName("t")
     public void test()throws UiObjectNotFoundException,RemoteException{
-    launchApp(AppName.Calendar, IntentConstants.Calendar);
+//    launchApp(AppName.Calendar, IntentConstants.Calendar);
 //        launchApp(AppName.ChildrenTV, IntentConstants.ChildrenTV);
 
+        launchApp(IntentConstants.HomeTime);
     }
 }
