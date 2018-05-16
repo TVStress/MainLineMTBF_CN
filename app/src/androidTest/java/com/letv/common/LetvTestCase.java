@@ -750,6 +750,70 @@ public class LetvTestCase{
         }
     }
 
+/*
+    public boolean launchApp(String appName,String pkg) {
+        return launchApp(appName,pkg,true);
+    }
+
+    public boolean launchApp(String app,String pkg, boolean flag) {
+        // verify the app is not null
+        if (app == "" || app == null) {
+            System.out.println("the App name can't be null!!!");
+            return false;
+        }
+        // verify if the app is a valid App
+        if (!(listApps.containsKey(app))) {
+            screenShot();
+            if (flag) {
+                Assert.fail("The app " + app + "is not a valid App, please check the App name.");
+            }
+            System.out.println("The app " + app + "is not a valid App, please check the App name.");
+            return false;
+        }
+        // go to App desk
+        gotoHomeScreen("应用");
+        ArrayList<String> alrealyEnterFoler = new ArrayList<>();
+        UiObject2 appItem;
+        List<UiObject2> folders;
+        for (int i = 0; i < 4; i++) {
+            appItem = phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile(app)));
+            if (appItem != null) { // find the app oncurrent window
+                appItem.click();
+                sleepInt(1);
+                for(int k=0;k<3;k++) {
+                    appItem = phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile(app)));
+                    if (appItem != null) {
+                        appItem.click();
+                        sleepInt(1);
+                    }
+                }
+                UiObject2 appItem2 = phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile(app)));
+                if (appItem2 != null) {
+                    if (pkg.equals("") || pkg == null) {
+                        System.out.println("the App name can't be null!!!");
+                    } else {
+                        startActivity(pkg);
+                    }
+                }
+                verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
+                sleepInt(5);
+                return true;
+            }
+            press_down(2);
+        }
+
+        // launchapp by package
+        if (pkg.equals("") || pkg == null) {
+            System.out.println("the App name can't be null!!!");
+        } else {
+            addStep("launch app by package");
+            startActivity(pkg);
+            verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
+            return true;
+        }
+        return false;
+    }
+*/
     public boolean launchApp(String appName,String pkg) {
         return launchApp(appName,pkg,true);
     }
@@ -805,14 +869,6 @@ public class LetvTestCase{
             press_down(5);
         }
         sleepInt(5);
-//        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
-//        if(allapp!=null){
-//            allapp.click();
-//            sleepInt(5);
-//            press_down(5);
-//        }else {
-//            press_down(6);
-//        }
 
         UiObject2 deskno = phone.findObject(By.text("重试"));
         for (int i = 0; i < 3; i++) {
@@ -843,33 +899,29 @@ public class LetvTestCase{
         return launchApp(pkg,true);
     }
 
-    public boolean launchApp(String pkg, boolean flag) {
-        // verify the app is not null
+    public boolean launchApp(String pkg, boolean flag){
+        if (pkg.equals("") || pkg == null) {
+            System.out.println("the pkg name can't be null!!!");
+            return false;
+        } else {
+            addStep("launch app by package");
+            startActivity(pkg);
+//            verify("Can not found " + pkg, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
+            return true;
+        }
 
-        gotoHomeScreen("应用");
-        retry();
-        press_down(5);
-        sleepInt(5);
-        UiObject2 deskno = phone.findObject(By.text("重试"));
-        for (int i = 0; i < 3; i++) {
-            if (deskno != null) {
-                deskno.click();
-                sleepInt(5);
-            }
-        }
-        // launchapp by package
-        if(Build.VERSION.SDK_INT >20) {
-            if (pkg.equals("") || pkg == null) {
-                System.out.println("the App name can't be null!!!");
-            } else {
-                addStep("launch app by package");
-                callShell("am start -S " + pkg);
-                sleepInt(5);
-//                verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
-                return true;
-            }
-        }
-        return false;
+//        return false;
+    }
+
+    public void startActivity(String pkg) {
+
+        Context context = InstrumentationRegistry.getInstrumentation().getContext();
+        //sets the intent to start your app
+        Intent intent = context.getPackageManager().getLaunchIntentForPackage(pkg);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //starts the app
+        context.startActivity(intent);
+        sleepInt(10);
     }
 
 

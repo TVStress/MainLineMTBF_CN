@@ -7,6 +7,7 @@ import com.letv.common.AppName;
 import com.letv.common.CaseName;
 import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
+import com.letv.common.PkgName;
 
 import org.junit.Test;
 
@@ -17,9 +18,6 @@ public class testfile3 extends LetvTestCase{
     @Test
     @CaseName("t")
     public void test()throws UiObjectNotFoundException,RemoteException{
-//    launchApp(AppName.Calendar, IntentConstants.Calendar);
-//        launchApp(AppName.ChildrenTV, IntentConstants.ChildrenTV);
-
-        launchApp(IntentConstants.HomeTime);
+        launchApp(PkgName.HomeTime);
     }
 }
