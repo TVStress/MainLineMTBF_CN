@@ -41,7 +41,6 @@ public class AccountStress extends LetvTestCase{
     @CaseName("删除、登录、乐视账号")
     public void testAccountLogin() throws UiObjectNotFoundException, RemoteException {
 //        SuperTV();
-        gotoHomeScreen("应用");
         launchApp(AppName.LeAccount,IntentConstants.LeAccount);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
