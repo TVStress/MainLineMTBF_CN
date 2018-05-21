@@ -12,8 +12,13 @@ import com.letv.common.AppName;
 import com.letv.common.CaseName;
 import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
+import com.letv.common.LetvTestCase_test;
+import com.letv.common.PkgName;
+
 import junit.framework.Assert;
+
 import org.junit.Test;
+
 import java.util.regex.Pattern;
 
 public class AccountStress extends LetvTestCase{
@@ -102,8 +107,8 @@ public class AccountStress extends LetvTestCase{
                 sleepInt(2);
                 break;
             }
-//            launchApp(AppName.LeAccount,PkgName.LeAccount);
-            SuperTV();
+            launchApp(AppName.LeAccount,PkgName.LeAccount);
+//            SuperTV();
         }
         sleepInt(2);
         UiObject2 userName = phone.findObject(By.text(Pattern.compile("乐视帐号|会员帐号"))).getParent().findObject(By.clazz("android.widget.EditText"));
