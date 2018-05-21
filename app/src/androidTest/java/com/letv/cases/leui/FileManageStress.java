@@ -12,7 +12,7 @@ import android.support.test.uiautomator.UiSelector;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.After;
@@ -46,7 +46,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测本地存储aaa复制到外接存储文件")
     public void testLocalCopyaaaFolder() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         addStep("进入文件管理");
         press_right(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);
@@ -84,7 +84,7 @@ public class FileManageStress extends LetvTestCase {
                 count++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
                 addStep("进入文件管理器，打开存储设备");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 fileManageFirst1();
                 localcopyAAAFolder();
             } catch (RuntimeException re) {
@@ -133,7 +133,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测本地存储复制到外接存储文件")
     public void testLocalCopyAAAFolder() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst1();
         try {
             localcopyAAAFolder();
@@ -142,7 +142,7 @@ public class FileManageStress extends LetvTestCase {
                 count++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
                 addStep("进入文件管理器，打开存储设备");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 fileManageFirst1();
                 localcopyAAAFolder();
             } catch (RuntimeException re) {
@@ -235,7 +235,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测外接存储文件复制到本地")
     public void testCopyAAAFolder() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst();
         addStep("文件删除");
         sleepInt(1);
@@ -258,7 +258,7 @@ public class FileManageStress extends LetvTestCase {
                 count++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
                 addStep("进入文件管理器，打开存储设备");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 fileManageFirst();
                 copyAAAFolder();
             } catch (RuntimeException re) {
@@ -305,7 +305,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测外接存储文件删除")
     public void testDelAAAFolder() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst();
         try {
             delAAAFolder();
@@ -314,7 +314,7 @@ public class FileManageStress extends LetvTestCase {
                 count++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
                 addStep("进入文件管理器，打开存储设备");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 fileManageFirst();
                 delAAAFolder();
             } catch (RuntimeException re) {
@@ -375,7 +375,7 @@ public class FileManageStress extends LetvTestCase {
             press_center(1);
             sleepInt(3);
         }else {
-            launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+            launchApp(AppName.Filemanager, PkgName.Filemanager);
             sleepInt(2);
         }*/
             UiObject2 storageDevice = waitForObj(storageDeviceS);
@@ -426,7 +426,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测外接存储文件筛选")
     public void testFiltrate() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst();
         try {
             Filtrate();
@@ -435,7 +435,7 @@ public class FileManageStress extends LetvTestCase {
                 count++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
                 addStep("进入相册");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 Filtrate();
             } catch (RuntimeException re) {
                 screenShot();
@@ -480,7 +480,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测外接存储文件排序")
     public void testSorting() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst();
         try {
             Sorting();
@@ -489,7 +489,7 @@ public class FileManageStress extends LetvTestCase {
                 count++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
                 addStep("进入相册");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 Sorting();
             } catch (RuntimeException re) {
                 screenShot();
@@ -533,7 +533,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测外接存储文件视图")
     public void testSwitchView() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep(".............looper : " + Loop);
@@ -564,7 +564,7 @@ public class FileManageStress extends LetvTestCase {
     @Test
     @CaseName("压测外接存储文件隐藏")
     public void testSwitchHidden() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         fileManageFirst();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep(".............looper : " + Loop);
@@ -622,7 +622,7 @@ public class FileManageStress extends LetvTestCase {
     @CaseName("压测反复打开外接存储设备")
     public void testEntryExternalDevice() throws UiObjectNotFoundException, RemoteException {
         addStep("进入到应用桌面");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("..........................Looper " + Loop);
             addStep("进入文件管理");
@@ -647,7 +647,7 @@ public class FileManageStress extends LetvTestCase {
     @CaseName("压测反复打开文件管理")
     public void testOpenFileManager() throws UiObjectNotFoundException, RemoteException {
         addStep("进入到应用桌面");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("......Loop" + Loop);
             try{
@@ -656,7 +656,7 @@ public class FileManageStress extends LetvTestCase {
                 try {
                     count++;
                     failCount(count,getIntParams("Loop"),e.getMessage());
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     OpenFileManager();
                 }catch (RuntimeException re){
                     screenShot();
@@ -688,7 +688,7 @@ public class FileManageStress extends LetvTestCase {
             filemanager1.click();
         }
         else {
-            launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+            launchApp(AppName.Filemanager, PkgName.Filemanager);
         }
 
     }
@@ -698,7 +698,7 @@ public class FileManageStress extends LetvTestCase {
     @CaseName("文件管理中反复打开SMB远程存储")
     public void testOpenSMB() throws UiObjectNotFoundException, RemoteException {
         addStep("进入文件管理");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         press_right(5);
         addStep("进入共享设备");
         UiObject2 shareDevice = waitForObj(shareDeviceS);
@@ -909,7 +909,7 @@ public class FileManageStress extends LetvTestCase {
     public void addSMBset_login() throws UiObjectNotFoundException, RemoteException {
         for(int i=0;i<2;i++) {
             addStep("进入到应用桌面");
-            launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+            launchApp(AppName.Filemanager, PkgName.Filemanager);
             press_right(5);
             addStep("进入共享设备");
             UiObject2 shareDevice = waitForObj(shareDeviceS);
@@ -981,7 +981,7 @@ public class FileManageStress extends LetvTestCase {
     public void addftpset_login() throws UiObjectNotFoundException, RemoteException {
         for(int i=0;i<2;i++) {
             addStep("进入到应用桌面");
-            launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+            launchApp(AppName.Filemanager, PkgName.Filemanager);
             press_right(2);
             addStep("进入共享设备");
             UiObject2 shareDevice = waitForObj(shareDeviceS);
@@ -1046,7 +1046,7 @@ public class FileManageStress extends LetvTestCase {
     @CaseName("文件管理中反复进入SMB")
     public void testSMBenter() throws UiObjectNotFoundException, RemoteException {
         addStep("进入到应用桌面");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         press_right(2);
         addStep("进入共享设备");
         UiObject2 shareDevice = waitForObj(shareDeviceS);
@@ -1077,7 +1077,7 @@ public class FileManageStress extends LetvTestCase {
     @CaseName("文件管理中反复进入FTP")
     public void testFTPenter() throws UiObjectNotFoundException, RemoteException {
         addStep("进入到应用桌面");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         press_right(1);
         addStep("进入共享设备");
         UiObject2 shareDevice = waitForObj(shareDeviceS);

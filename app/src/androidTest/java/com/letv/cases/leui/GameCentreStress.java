@@ -11,7 +11,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.After;
@@ -75,7 +75,7 @@ public class GameCentreStress extends LetvTestCase{
     @CaseName("游戏中心菜单列表遍列")
     public void testGameCenterlist()throws UiObjectNotFoundException, RemoteException {
         addStep("打开应用桌面");
-        launchApp(AppName.GameCenter, IntentConstants.GameCenter);
+        launchApp(AppName.GameCenter, PkgName.GameCenter);
        try {
            GameCenterlist();
        }
@@ -83,7 +83,7 @@ public class GameCentreStress extends LetvTestCase{
            try{
                count++;
                failCount(count,getIntParams("Loop"),e.getMessage());
-               launchApp(AppName.GameCenter, IntentConstants.GameCenter);
+               launchApp(AppName.GameCenter, PkgName.GameCenter);
                GameCenterlist();
            }
            catch (RuntimeException re){
@@ -136,7 +136,7 @@ public class GameCentreStress extends LetvTestCase{
 
     public void GameCenteloadApp()throws UiObjectNotFoundException, RemoteException{
         addStep("打开应用桌面");
-        launchApp(AppName.GameCenter, IntentConstants.GameCenter);
+        launchApp(AppName.GameCenter, PkgName.GameCenter);
         addStep("进入游戏中心");
         for (int i = 0; i < 6; i++) {
             UiObject2 tigan = waitForObj(By.text("体感"));

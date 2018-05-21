@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.After;
@@ -49,7 +49,7 @@ public class CalendarStress extends LetvTestCase{
     }
     public void EntryCalendar() throws UiObjectNotFoundException,RemoteException{
         addStep("打开日历App");
-        launchApp(AppName.Calendar, IntentConstants.Calendar);
+        launchApp(AppName.Calendar, PkgName.Calendar);
         int sysDate[] = {0,0,0};
         int calendarDate[] = {0,0,0};
         boolean isToday = checkCurrentDate(sysDate,calendarDate);
@@ -82,7 +82,7 @@ public class CalendarStress extends LetvTestCase{
             }
             if (calendar == null)
             {
-                launchApp(AppName.Calendar, IntentConstants.Calendar);
+                launchApp(AppName.Calendar, PkgName.Calendar);
             }else
             {
                 verify("can not find calendar in app",calendar != null);
@@ -107,7 +107,7 @@ public class CalendarStress extends LetvTestCase{
             //Calendar();
             try {
                 addStep("打开日历App");
-                launchApp(AppName.Calendar, IntentConstants.Calendar);
+                launchApp(AppName.Calendar, PkgName.Calendar);
                 Calendar(Loop);
                 addStep("检查是否是当日的日期");
                 int sysDate[] = {0,0,0};
@@ -119,7 +119,7 @@ public class CalendarStress extends LetvTestCase{
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开日历App");
-                    launchApp(AppName.Calendar, IntentConstants.Calendar);
+                    launchApp(AppName.Calendar, PkgName.Calendar);
                     Calendar(Loop);
                     addStep("检查是否是当日的日期");
                     int sysDate[] = {0,0,0};
@@ -201,7 +201,7 @@ public class CalendarStress extends LetvTestCase{
     }
     public void GetCalendarCurrentDate( int calendarDate[]){
         addStep("打开日历");
-        launchApp(AppName.Calendar, IntentConstants.Calendar);
+        launchApp(AppName.Calendar, PkgName.Calendar);
         addStep("检查日期是否是当期日期");
         UiObject2 currentMonth = waitForObj(By.res("com.stv.calendar:id/home_date"));
         check("don't show current year and month", currentMonth != null);

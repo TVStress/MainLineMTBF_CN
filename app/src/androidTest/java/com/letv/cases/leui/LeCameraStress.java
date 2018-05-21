@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiWatcher;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import java.io.IOException;
 
@@ -41,7 +41,7 @@ public class LeCameraStress extends  LetvTestCase{
             addStep("打开乐拍");
             UiObject2 Tools = waitForObj(By.text(Pattern.compile("工具")));
             if (Tools == null) {
-                launchApp(AppName.Camera,IntentConstants.Camera);
+                launchApp(AppName.Camera,PkgName.Camera);
             }else {
                 Tools.click();
                 press_center(1);
@@ -77,14 +77,14 @@ public class LeCameraStress extends  LetvTestCase{
     public void testTakePhoto() throws UiObjectNotFoundException{
 
         addStep("进入相册查找已有照片数");
-        launchApp(AppName.Gallery,IntentConstants.Gallery);
+        launchApp(AppName.Gallery,PkgName.Gallery);
         UiObject2 photoCount = waitForObj(By.res("com.android.gallery3d:id/title_photocount"));
         verify("没找到照片数",photoCount != null);
         String phCount = photoCount.getText();
         int phCountBefore =   GetPhotoAccount(phCount);
 
         addStep("打开乐拍");
-        launchApp(AppName.Camera,IntentConstants.Camera);
+        launchApp(AppName.Camera,PkgName.Camera);
 
         addStep("查看乐拍界面");
         UiObject2 Camera = waitForObj(By.res("com.stv.camera:id/primary_function_iv"));
@@ -103,7 +103,7 @@ public class LeCameraStress extends  LetvTestCase{
 
         addStep("进入相册查找拍照之后照片数");
         exitApp();
-        launchApp(AppName.Gallery,IntentConstants.Gallery);
+        launchApp(AppName.Gallery,PkgName.Gallery);
          photoCount = waitForObj(By.res("com.android.gallery3d:id/title_photocount"));
         verify("没找到照片数",photoCount != null);
         phCount = photoCount.getText();
@@ -122,7 +122,7 @@ public class LeCameraStress extends  LetvTestCase{
     public void testSwitchPhotoCamera() throws UiObjectNotFoundException {
 
         addStep("打开乐拍");
-        launchApp(AppName.Camera, IntentConstants.Camera);
+        launchApp(AppName.Camera, PkgName.Camera);
 
         addStep("查看乐拍界面");
         UiObject2 Camera = waitForObj(By.res("com.stv.camera:id/primary_function_iv"));
@@ -154,7 +154,7 @@ public class LeCameraStress extends  LetvTestCase{
     public void testTakeVediofor1hr() throws UiObjectNotFoundException{
 
         addStep("打开乐拍");
-        launchApp(AppName.Camera, IntentConstants.Camera);
+        launchApp(AppName.Camera, PkgName.Camera);
 
         addStep("查看乐拍界面");
         UiObject2 Camera = waitForObj(By.res("com.stv.camera:id/primary_function_iv"));
@@ -210,7 +210,7 @@ public class LeCameraStress extends  LetvTestCase{
 
 
         addStep("打开乐拍");
-        launchApp(AppName.Camera,IntentConstants.Camera);
+        launchApp(AppName.Camera,PkgName.Camera);
 
         addStep("查看乐拍界面");
         UiObject2 Camera = waitForObj(By.res("com.stv.camera:id/primary_function_iv"));

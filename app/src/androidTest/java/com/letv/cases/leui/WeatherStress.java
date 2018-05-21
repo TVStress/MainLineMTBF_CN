@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -47,7 +47,7 @@ public class WeatherStress extends  LetvTestCase{
 
         addStep("进入天气应用");
        // gotoHomeScreen("应用");
-        launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+        launchApp(AppName.Weather, PkgName.WeatherCIBN);
 
         addStep("查看天气显示");
         sleepInt(1);
@@ -79,7 +79,7 @@ public class WeatherStress extends  LetvTestCase{
 
                 addStep("进入天气应用");
               //  gotoHomeScreen("应用");
-                launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+                launchApp(AppName.Weather, PkgName.WeatherCIBN);
 
                 //更新天气和切换城市
                 String cityName =  Weather();
@@ -88,7 +88,7 @@ public class WeatherStress extends  LetvTestCase{
                 press_back(2);
 
                 addStep("再次进入天气应用");
-                launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+                launchApp(AppName.Weather, PkgName.WeatherCIBN);
 
                 addStep("查看天气界面");
 
@@ -113,7 +113,7 @@ public class WeatherStress extends  LetvTestCase{
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入天气应用");
                  //   gotoHomeScreen("应用");
-                    launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+                    launchApp(AppName.Weather, PkgName.WeatherCIBN);
                     //更新天气和切换城市
                     String cityName =  Weather();
 
@@ -121,7 +121,7 @@ public class WeatherStress extends  LetvTestCase{
                     press_back(2);
 
                     addStep("再次进入天气应用");
-                    launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+                    launchApp(AppName.Weather, PkgName.WeatherCIBN);
 
                     addStep("查看天气界面");
 
@@ -161,7 +161,7 @@ public class WeatherStress extends  LetvTestCase{
             try {
                 addStep("打开应用桌面，进入天气应用");
                 gotoHomeScreen("应用");
-                launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+                launchApp(AppName.Weather, PkgName.WeatherCIBN);
 
                 //更新天气和切换城市
                 Weather();
@@ -174,7 +174,7 @@ public class WeatherStress extends  LetvTestCase{
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开应用桌面，进入天气应用");
                     //gotoHomeScreen("应用");
-                    launchApp(AppName.Weather, IntentConstants.WeatherCIBN);
+                    launchApp(AppName.Weather, PkgName.WeatherCIBN);
 
                     //更新天气和切换城市
                     Weather();

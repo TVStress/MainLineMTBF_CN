@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.Assert;
@@ -23,7 +23,7 @@ public class LeCamera extends LetvTestCase {
     @CaseName("进入乐拍，拍摄照片")
     public void testTakePicture() throws UiObjectNotFoundException, RemoteException {
         addStep("打开电视乐拍");
-        launchApp(AppName.Camera,IntentConstants.Camera);
+        launchApp(AppName.Camera,PkgName.Camera);
         sleepInt(5);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
@@ -34,7 +34,7 @@ public class LeCamera extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开电视乐拍");
-                    launchApp(AppName.Camera,IntentConstants.Camera);
+                    launchApp(AppName.Camera,PkgName.Camera);
                     sleepInt(5);
                     TakePicture();
                 }catch (RuntimeException re){
@@ -139,7 +139,7 @@ public class LeCamera extends LetvTestCase {
     @CaseName("乐拍录制视频")
     public void testVideoRecorder() throws UiObjectNotFoundException, RemoteException {
         addStep("打开乐拍");
-        launchApp(AppName.Camera,IntentConstants.Camera);
+        launchApp(AppName.Camera,PkgName.Camera);
         UiObject2 camera = phone.findObject(By.res("com.stv.camera:id/primary_function_iv"));
         UiObject2 filter = phone.findObject(By.res("com.stv.camera:id/filter_btn"));
         UiObject2 photoframe = phone.findObject(By.res("com.stv.camera:id/photo_frame_btn"));
@@ -157,7 +157,7 @@ public class LeCamera extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("Open Lecamera");
-                    launchApp(AppName.Camera,IntentConstants.Camera);
+                    launchApp(AppName.Camera,PkgName.Camera);
                     UiObject2 camera1 = phone.findObject(By.res("com.stv.camera:id/primary_function_iv"));
                     UiObject2 filter2 = phone.findObject(By.res("com.stv.camera:id/filter_btn"));
                     UiObject2 photoframe1 = phone.findObject(By.res("com.stv.camera:id/photo_frame_btn"));

@@ -11,7 +11,7 @@ import android.support.test.uiautomator.UiWatcher;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -83,7 +83,7 @@ public class Browser extends LetvTestCase {
     @Test
     public void testActionBar() throws UiObjectNotFoundException, RemoteException {
         addStep("Enter into Browser");
-        launchApp(AppName.Browser, IntentConstants.Browser);
+        launchApp(AppName.Browser, PkgName.Browser);
         sleepInt(5);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
@@ -94,7 +94,7 @@ public class Browser extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("Enter into Browser");
-                    launchApp(AppName.Browser, IntentConstants.Browser);
+                    launchApp(AppName.Browser, PkgName.Browser);
                     sleepInt(5);
                     ActionBar();
                 }catch (RuntimeException re){
@@ -198,7 +198,7 @@ public class Browser extends LetvTestCase {
 
     public void Lable() throws UiObjectNotFoundException, RemoteException {
         addStep("进入浏览器,回到浏览器主页面");
-        launchApp(AppName.Browser, IntentConstants.Browser);
+        launchApp(AppName.Browser, PkgName.Browser);
         sleepInt(3);
         press_menu(1);
         press_up(1);
@@ -291,7 +291,7 @@ public class Browser extends LetvTestCase {
     @CaseName("Download and open music file")
     public void testPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("Enter into browser");
-        launchApp(AppName.Browser, IntentConstants.Browser);
+        launchApp(AppName.Browser, PkgName.Browser);
         sleepInt(3);
         press_menu(1);
         press_up(1);
@@ -307,7 +307,7 @@ public class Browser extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("Enter into browser");
-                    launchApp(AppName.Browser, IntentConstants.Browser);
+                    launchApp(AppName.Browser, PkgName.Browser);
                     sleepInt(3);
                     press_menu(1);
                     press_up(1);
@@ -435,7 +435,7 @@ public class Browser extends LetvTestCase {
     @CaseName("Download and open picture")
     public void testDownloadPicture() throws UiObjectNotFoundException, RemoteException {
         addStep("Enter into browser");
-        launchApp(AppName.Browser, IntentConstants.Browser);
+        launchApp(AppName.Browser, PkgName.Browser);
         press_menu(1);
         press_up(1);
         press_center(1);
@@ -450,7 +450,7 @@ public class Browser extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("Enter into browser");
-                    launchApp(AppName.Browser, IntentConstants.Browser);
+                    launchApp(AppName.Browser, PkgName.Browser);
                     press_menu(1);
                     press_up(1);
                     press_center(1);
@@ -580,7 +580,7 @@ public class Browser extends LetvTestCase {
     @CaseName("下载视频文件并打开")
     public void testPlayVideo() throws UiObjectNotFoundException, RemoteException {
         addStep("打开浏览器");
-        launchApp(AppName.Browser, IntentConstants.Browser);
+        launchApp(AppName.Browser, PkgName.Browser);
         press_menu(1);
         press_up(1);
         press_center(1);
@@ -595,7 +595,7 @@ public class Browser extends LetvTestCase {
                     count ++;
                     failCount(count, Loop, e.getMessage());
                     addStep("打开浏览器");
-                    launchApp(AppName.Browser, IntentConstants.Browser);
+                    launchApp(AppName.Browser, PkgName.Browser);
                     press_menu(1);
                     press_up(1);
                     press_center(1);

@@ -13,7 +13,7 @@ import android.support.test.uiautomator.Until;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -391,7 +391,7 @@ public class LeTVStress extends LetvTestCase{
         exitApp();
         addStep("进入下载中心播放正在下载的视频");
 //        launchAppByPackage(PkgName.Download);
-        launchApp(AppName.Download,IntentConstants.Download);
+        launchApp(AppName.Download,PkgName.Download);
         UiObject2 downloadUI = waitForObj(By.text("已完成"));
         check("未进入到下载界面", downloadUI != null);
         for (int a=0;a<15;a++){
@@ -445,7 +445,7 @@ public class LeTVStress extends LetvTestCase{
 
     public void enter() throws UiObjectNotFoundException {
         addStep("进入乐视视频");
-        launchApp(AppName.LeTv,IntentConstants.LeTv);
+        launchApp(AppName.LeTv,PkgName.LeTv);
         sleepInt(5);
         updateLeTV();
         check("未进入到乐视网TV版", waitForExist(letvS, 15000));
@@ -678,7 +678,7 @@ public class LeTVStress extends LetvTestCase{
     @CaseName("观看一个电影10分钟，并收藏")
     public void testPlayMovie()throws UiObjectNotFoundException,RemoteException {
         addStep("进入乐视网TV版");
-        launchApp(AppName.LeTv,IntentConstants.LeTv);
+        launchApp(AppName.LeTv,PkgName.LeTv);
         sleepInt(5);
         updateLeTV();
         loginAccount();
@@ -704,7 +704,7 @@ public class LeTVStress extends LetvTestCase{
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入乐视网TV版");
-                    launchApp(AppName.LeTv, IntentConstants.LeTv);
+                    launchApp(AppName.LeTv, PkgName.LeTv);
                     sleepInt(5);
                     updateLeTV();
                     loginAccount();

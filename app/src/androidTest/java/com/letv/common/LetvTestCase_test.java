@@ -17,17 +17,17 @@ public class LetvTestCase_test extends LetvTestCase{
 
     @Test
     public void testLaunchApp(){
-        launchApp(AppName.Browser,IntentConstants.Browser);
-        launchApp(AppName.Filemanager,IntentConstants.Filemanager);
-        launchApp(AppName.LeAccount,IntentConstants.LeAccount);
-        launchApp(AppName.Calendar, IntentConstants.Calendar);
-        launchApp(AppName.LeStore, IntentConstants.LeStore);
-        launchApp(AppName.Gallery, IntentConstants.Gallery);
-        launchApp(AppName.LeTv, IntentConstants.LeTv);
-        launchApp(AppName.Music,IntentConstants.Music);
-        launchApp(AppName.Weather, IntentConstants.Weather);
-        launchApp(AppName.LeSo, IntentConstants.LeSo);
-        launchApp(AppName.Cinemas, IntentConstants.Cinemas);
+        launchApp(AppName.Browser,PkgName.Browser);
+        launchApp(AppName.Filemanager,PkgName.Filemanager);
+        launchApp(AppName.LeAccount,PkgName.LeAccount);
+        launchApp(AppName.Calendar, PkgName.Calendar);
+        launchApp(AppName.LeStore, PkgName.LeStore);
+        launchApp(AppName.Gallery, PkgName.Gallery);
+        launchApp(AppName.LeTv, PkgName.LeTv);
+        launchApp(AppName.Music,PkgName.Music);
+        launchApp(AppName.Weather, PkgName.Weather);
+        launchApp(AppName.LeSo, PkgName.LeSo);
+        launchApp(AppName.Cinemas, PkgName.Cinemas);
 
     }
 

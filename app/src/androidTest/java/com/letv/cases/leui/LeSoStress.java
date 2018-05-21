@@ -7,7 +7,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -107,7 +107,7 @@ public class LeSoStress extends LetvTestCase{
     @Test
     @CaseName("从应用桌面打开乐看搜索，反复搜索")
     public void testLesoAppDesk() throws UiObjectNotFoundException, RemoteException {
-//    launchApp(AppName.LeSo, IntentConstants.LeSo);
+//    launchApp(AppName.LeSo, PkgName.LeSo);
     AppSearch();
     sleepInt(3);
     UiObject2 leSo = waitForObj(By.pkg("com.letv.leso"));

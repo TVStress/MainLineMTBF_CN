@@ -7,8 +7,8 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
+import com.letv.common.PkgName;
 
 import junit.framework.Assert;
 
@@ -21,7 +21,7 @@ public class HousekeeperStress extends LetvTestCase{
     @CaseName("电视管家进行多次一键体检和清理内存以及清除数据")
     public void testHousekeeper() throws UiObjectNotFoundException,RemoteException{
         addStep("进入电视管家应用");
-        launchApp(AppName.Housekeeper, IntentConstants.Housekeeper);
+        launchApp(AppName.Housekeeper, PkgName.Housekeeper);
         for (int Loop = 0; Loop < getIntParams("Loop");Loop++) {
             addStep(".............looper : " + Loop);
             try{
@@ -32,7 +32,7 @@ public class HousekeeperStress extends LetvTestCase{
                     count++;
                     failCount(count,getIntParams("Loop"),e.getMessage());
                     addStep("进入电视管家应用");
-                    launchApp(AppName.Housekeeper, IntentConstants.Housekeeper);
+                    launchApp(AppName.Housekeeper, PkgName.Housekeeper);
                     Housekeeper();
                 }
                 catch (RuntimeException re){

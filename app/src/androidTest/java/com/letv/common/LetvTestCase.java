@@ -147,7 +147,7 @@ public class LetvTestCase{
         phone = UiDevice.getInstance(instrumentation);
         params = InstrumentationRegistry.getArguments();
         Configurator.getInstance().setWaitForSelectorTimeout(20000);
-        Log.i(TAG, "=====================case start time is :" + getCurrentTime());
+        Log.i(TAG, "==================case start time is :" + getCurrentTime());/*获取查看case开始当时的时间*/
         Method currentTestMethod = getClass().getDeclaredMethod(name.getMethodName()
         );
         if (currentTestMethod.isAnnotationPresent(CaseName.class)) {
@@ -166,9 +166,9 @@ public class LetvTestCase{
     public void tearDown() throws Exception {
         press_back(3);
         exitApp();
-        System.out.println("The phone type is: " + Build.MODEL);
+        System.out.println("The phone type is: " + Build.MODEL);/*查看电视的型号*/
         unregisterCommonWatcher();
-        Log.i(TAG, "==========================case end time is :" + getCurrentTime());
+        Log.i(TAG, "====================case end time is :" + getCurrentTime());/*获取查看case结束当时的时间*/
 }
 
 
@@ -837,10 +837,9 @@ public class LetvTestCase{
         gotoHomeScreen("应用");
         retry();
         ArrayList<String> alrealyEnterFoler = new ArrayList<>();
-        UiObject2 appItem;
         List<UiObject2> folders;
         for (int i = 0; i < 3; i++) {
-                    appItem = phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile(app)));
+                   UiObject2 appItem = phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile(app)));
                     if (appItem != null) { // find the app oncurrent window
                         appItem.click();
                         sleepInt(1);
@@ -862,7 +861,7 @@ public class LetvTestCase{
                         }
                     }
                 }
-                verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
+                verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(pkg))));
                 sleepInt(5);
                 return true;
             }
@@ -884,7 +883,7 @@ public class LetvTestCase{
                 System.out.println("the App name can't be null!!!");
             } else {
                 addStep("launch app by package");
-                callShell("am start -S " + pkg);
+                startActivity(pkg);
                 sleepInt(5);
                 verify("Can not found " + app, waitForExist(By.pkg(Pattern.compile(listApps.get(app)))));
                 return true;
@@ -1058,11 +1057,13 @@ public class LetvTestCase{
         map.put(AppName.Feedback ,PkgName.Feedback);
         map.put(AppName.Tool ,PkgName.Tool);
         map.put(AppName.ChildrenTV ,PkgName.ChildrenTV);
+        map.put(AppName.Housekeeper, PkgName.Housekeeper);
+        map.put(AppName.Weather, PkgName.WeatherCIBN);
 
         return map;
     }
 
-    /*648平台桌面调整*/
+    /*648平台桌面调整-1*/
     public void DesktopAdjustment(String args) throws RemoteException, UiObjectNotFoundException {
         int count=0;
         addStep("进入管理桌面");
@@ -1090,7 +1091,7 @@ public class LetvTestCase{
             press_back(2);
             }
         }
-
+    /*648平台桌面调整-2*/
     public void DeskSwitchScarchMyLefan(String args) throws UiObjectNotFoundException, RemoteException {
         for(int i =0;i<4;i++) {
             sleepInt(2);

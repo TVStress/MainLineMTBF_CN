@@ -11,7 +11,7 @@ import android.support.test.uiautomator.UiWatcher;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -171,7 +171,7 @@ public class LeSportsStress extends LetvTestCase {
     public void LanuchSport()throws UiObjectNotFoundException,RemoteException{
     for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         upgrade();
         press_right(5);
         addStep("退出超级体育");
@@ -187,7 +187,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复切换顶部标签")
     public void testSwitchItem() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         upgrade();
         try{
             SwitchItem();
@@ -197,7 +197,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 SwitchItem();
             }
             catch (RuntimeException re){
@@ -224,7 +224,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育视频反复播放")
     public void testEntryMatch() throws UiObjectNotFoundException ,RemoteException{
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         upgrade();
         press_right(1);
         sleepInt(1);
@@ -236,7 +236,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 EntryMatch();
             }
             catch (RuntimeException re){
@@ -279,7 +279,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复进入赛事")
     public void testEntrySportVideo() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         upgrade();
         press_right(1);
         sleepInt(1);
@@ -291,7 +291,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 EntrySportVideo();
             }
             catch (RuntimeException re){
@@ -342,7 +342,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育视频反复暂停播放")
     public void testPauseSportVideo() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         try {
             PauseSportVideo();
         }
@@ -351,7 +351,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 PauseSportVideo();
             }
             catch (RuntimeException re){
@@ -392,7 +392,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复切换清晰度")
     public void testSwitchClarity() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         try {
             SwitchClarity();
         }
@@ -401,7 +401,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 SwitchClarity();
             }
             catch (RuntimeException re){
@@ -446,7 +446,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复切换画面比例")
     public void testSwitchRatio() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         try {
             SwitchRatio();
         }
@@ -455,7 +455,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 SwitchRatio();
             }
             catch (RuntimeException re){
@@ -500,7 +500,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复更改默认清晰度")
     public void testSwitchAutoClarity() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         try {
             SwitchAutoClarity();
         }
@@ -509,7 +509,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 SwitchAutoClarity();
             }
             catch (RuntimeException re){
@@ -551,7 +551,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复更改默认画面比例")
     public void testSwitchAutoRatio() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         try {
             SwitchAutoRatio();
         }
@@ -560,7 +560,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 SwitchAutoRatio();
             }
             catch (RuntimeException re){
@@ -602,7 +602,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复进入个人资料")
     public void testEnterPersonData() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         PersonData();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("..........Loop :"+Loop);
@@ -613,7 +613,7 @@ public class LeSportsStress extends LetvTestCase {
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入超级体育");
-                    launchApp(AppName.LeSports, IntentConstants.LeSports);
+                    launchApp(AppName.LeSports, PkgName.LeSports);
                     PersonData();
                     EnterPersonData();
                 } catch (RuntimeException re) {
@@ -649,7 +649,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复进入购买会员")
     public void testBuyAccount() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         PersonData();
         try{
             BuyAccount();
@@ -659,7 +659,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 PersonData();
                 BuyAccount();
             }
@@ -695,7 +695,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复进入会员协议")
     public void testMemberAgreement() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         PersonData();
         try{
             MemberAgreement();
@@ -705,7 +705,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 PersonData();
                 MemberAgreement();
             }
@@ -739,7 +739,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复进入消费记录")
     public void testExpensRecord() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         PersonData();
         try{
             ExpensRecord();
@@ -749,7 +749,7 @@ public class LeSportsStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 PersonData();
                 ExpensRecord();
             }
@@ -783,7 +783,7 @@ public class LeSportsStress extends LetvTestCase {
     @CaseName("超级体育反复进入退出登录")
     public void testLogout() throws UiObjectNotFoundException,RemoteException {
         addStep("进入超级体育");
-        launchApp(AppName.LeSports, IntentConstants.LeSports);
+        launchApp(AppName.LeSports, PkgName.LeSports);
         PersonData();
         try{
             Logout();
@@ -792,7 +792,7 @@ public class LeSportsStress extends LetvTestCase {
             try{
                 failCount(count++,getIntParams("Loop"),e.getMessage());
                 addStep("进入超级体育");
-                launchApp(AppName.LeSports, IntentConstants.LeSports);
+                launchApp(AppName.LeSports, PkgName.LeSports);
                 PersonData();
                 Logout();
             }
@@ -901,7 +901,7 @@ public class LeSportsStress extends LetvTestCase {
                 sleepInt(2);
                 break;
             }
-//            launchApp(AppName.LeAccount,IntentConstants.LeAccount);
+//            launchApp(AppName.LeAccount,PkgName.LeAccount);
             SuperTV();
         }
         if(Build.DEVICE.contains("U4")){

@@ -273,7 +273,7 @@ public class MyLeFanStress extends LetvTestCase{
                 sleepInt(2);
                 break;
             }
-//            launchApp(AppName.LeAccount,IntentConstants.LeAccount);
+//            launchApp(AppName.LeAccount,PkgName.LeAccount);
             SuperTV();
         }
         if(Build.DEVICE.contains("U4")){

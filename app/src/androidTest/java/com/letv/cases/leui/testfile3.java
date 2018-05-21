@@ -5,7 +5,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+//import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 

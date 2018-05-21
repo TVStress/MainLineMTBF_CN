@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.Assert;
@@ -20,7 +20,7 @@ public class Calendar extends LetvTestCase{
     @CaseName("进入日历切换日期")
     public void testCalendar() throws UiObjectNotFoundException, RemoteException {
         addStep("打开日历App");
-        launchApp(AppName.Calendar, IntentConstants.Calendar);
+        launchApp(AppName.Calendar, PkgName.Calendar);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             //Calendar();
@@ -31,7 +31,7 @@ public class Calendar extends LetvTestCase{
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开日历App");
-                    launchApp(AppName.Calendar, IntentConstants.Calendar);
+                    launchApp(AppName.Calendar, PkgName.Calendar);
                     Calendar();
                 }catch (RuntimeException re){
                     screenShot();

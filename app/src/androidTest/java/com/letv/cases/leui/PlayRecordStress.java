@@ -10,7 +10,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -64,7 +64,7 @@ public class PlayRecordStress extends LetvTestCase{
 //        }
 //        else{
         addStep("进入播放记录");
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);
         addStep("退出播放记录");
         press_down(1);
         press_back(1);
@@ -75,7 +75,7 @@ public class PlayRecordStress extends LetvTestCase{
     @CaseName("播放记录中标签切换")
     public void testPlayRecordSwitch() throws UiObjectNotFoundException, RemoteException {
         addStep("进入播放记录");
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);
         for (int Loop = 0; Loop < getIntParams("Loop");Loop++) {
             addStep(".............Looper " + Loop);
             UiObject2 supertv=phone.findObject(By.text("超级影视"));
@@ -98,7 +98,7 @@ public class PlayRecordStress extends LetvTestCase{
     public void testDeleteOne()throws UiObjectNotFoundException, RemoteException {
         addStep("进入播放记录");
         fileManageFirst();
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);{
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);{
             try {
                 DeleteOne();
             }catch (Exception e){
@@ -106,7 +106,7 @@ public class PlayRecordStress extends LetvTestCase{
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入播放记录");
-                    launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+                    launchApp(AppName.PlayHistory,PkgName.PlayHistory);
                     DeleteOne();
                 }catch (RuntimeException re){
                     screenShot();
@@ -145,7 +145,7 @@ public class PlayRecordStress extends LetvTestCase{
     public void testDeleteAllcalloff()throws UiObjectNotFoundException, RemoteException {
         addStep("进入播放记录");
 //        fileManageFirst();
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);{
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);{
             try {
                 DeleteAllcalloff();
             }catch (Exception e){
@@ -154,7 +154,7 @@ public class PlayRecordStress extends LetvTestCase{
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入播放记录");
                     fileManageFirst();
-                    launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+                    launchApp(AppName.PlayHistory,PkgName.PlayHistory);
                     DeleteAllcalloff();
                 }catch (RuntimeException re){
                     screenShot();
@@ -211,7 +211,7 @@ public class PlayRecordStress extends LetvTestCase{
     public void testPlaycontion()throws UiObjectNotFoundException, RemoteException {
         addStep("进入播放记录");
         fileManageFirst();
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);{
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);{
             try {
                 Playcontion();
             }catch (Exception e){
@@ -220,7 +220,7 @@ public class PlayRecordStress extends LetvTestCase{
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入播放记录");
                     fileManageFirst();
-                    launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+                    launchApp(AppName.PlayHistory,PkgName.PlayHistory);
                     Playcontion();
                 }catch (RuntimeException re){
                     screenShot();
@@ -259,7 +259,7 @@ public class PlayRecordStress extends LetvTestCase{
     public void testPlayStart()throws UiObjectNotFoundException, RemoteException {
         addStep("进入播放记录");
         fileManageFirst();
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);{
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);{
             try {
                 PlayStart();
             }catch (Exception e){
@@ -268,7 +268,7 @@ public class PlayRecordStress extends LetvTestCase{
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入播放记录");
                     fileManageFirst();
-                    launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+                    launchApp(AppName.PlayHistory,PkgName.PlayHistory);
                     PlayStart();
                 }catch (RuntimeException re){
                     screenShot();
@@ -317,7 +317,7 @@ public class PlayRecordStress extends LetvTestCase{
     public void testDeleteAll()throws UiObjectNotFoundException, RemoteException {
         addStep("进入播放记录");
         fileManageFirst();
-        launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);{
+        launchApp(AppName.PlayHistory,PkgName.PlayHistory);{
             try {
                 DeleteAll();
             }catch (Exception e){
@@ -326,7 +326,7 @@ public class PlayRecordStress extends LetvTestCase{
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入播放记录");
                     fileManageFirst();
-                    launchApp(AppName.PlayHistory,IntentConstants.PlayHistory);
+                    launchApp(AppName.PlayHistory,PkgName.PlayHistory);
                     DeleteAll();
                 }catch (RuntimeException re){
                     screenShot();
@@ -404,7 +404,7 @@ public class PlayRecordStress extends LetvTestCase{
     }
 
     public void fileManageFirst1() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager,IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager,PkgName.Filemanager);
         addStep("进入文件管理");
         press_right(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);
@@ -506,7 +506,7 @@ public class PlayRecordStress extends LetvTestCase{
         press_down(4);
         UiObject2 FileManager = waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("文件管理"));
         if (FileManager == null) {
-            launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+            launchApp(AppName.Filemanager, PkgName.Filemanager);
         }else {
             verify("没有通过RES ID 找到文件管理",FileManager != null);
             FileManager.click();
@@ -794,7 +794,7 @@ public class PlayRecordStress extends LetvTestCase{
     }
 
     public void fileManageFirst() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager,IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager,PkgName.Filemanager);
         addStep("进入文件管理");
         press_right(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);

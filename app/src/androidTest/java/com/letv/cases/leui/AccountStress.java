@@ -10,15 +10,10 @@ import android.support.test.uiautomator.UiSelector;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
-import com.letv.common.LetvTestCase;
-import com.letv.common.LetvTestCase_test;
 import com.letv.common.PkgName;
-
+import com.letv.common.LetvTestCase;
 import junit.framework.Assert;
-
 import org.junit.Test;
-
 import java.util.regex.Pattern;
 
 public class AccountStress extends LetvTestCase{
@@ -41,7 +36,7 @@ public class AccountStress extends LetvTestCase{
     @CaseName("删除、登录、乐视账号")
     public void testAccountLogin() throws UiObjectNotFoundException, RemoteException {
 //        SuperTV();
-        launchApp(AppName.LeAccount,IntentConstants.LeAccount);
+        launchApp(AppName.LeAccount,PkgName.LeAccount);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             addStep("删除、登录、乐视账号 Loop "+Loop);
@@ -58,7 +53,7 @@ public class AccountStress extends LetvTestCase{
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入乐视帐号");
-                    launchApp(AppName.LeAccount,IntentConstants.LeAccount);
+                    launchApp(AppName.LeAccount,PkgName.LeAccount);
 //                    SuperTV();
                     sleepInt(2);
                     if(LetvUI(6.0)){
@@ -75,7 +70,7 @@ public class AccountStress extends LetvTestCase{
             }
         }
         sleepInt(2);
-        launchApp(AppName.LeAccount, IntentConstants.LeAccount);
+        launchApp(AppName.LeAccount, PkgName.LeAccount);
 //        SuperTV();
         press_center(1);
         sleepInt(2);
@@ -107,7 +102,7 @@ public class AccountStress extends LetvTestCase{
                 sleepInt(2);
                 break;
             }
-//            launchApp(AppName.LeAccount,IntentConstants.LeAccount);
+//            launchApp(AppName.LeAccount,PkgName.LeAccount);
             SuperTV();
         }
         sleepInt(2);
@@ -208,7 +203,7 @@ public class AccountStress extends LetvTestCase{
                 sleepInt(2);
                 break;
             }
-//            launchApp(AppName.LeAccount,IntentConstants.LeAccount);
+//            launchApp(AppName.LeAccount,PkgName.LeAccount);
             SuperTV();
         }
         if(Build.DEVICE.contains("U4")){

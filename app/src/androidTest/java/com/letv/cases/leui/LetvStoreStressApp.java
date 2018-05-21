@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -24,7 +24,7 @@ public class LetvStoreStressApp extends LetvTestCase {
     @CaseName("LetvStore里下载应用")
     public void testDownloadApp() throws UiObjectNotFoundException, RemoteException {
         addStep("打开LetvStore");
-        launchApp(AppName.LeStore, IntentConstants.LeStore);
+        launchApp(AppName.LeStore, PkgName.LeStore);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("...........looper : " + Loop);
             try{
@@ -34,7 +34,7 @@ public class LetvStoreStressApp extends LetvTestCase {
                 try{
                     count++;
                     failCount(count,getIntParams("Loop"),e.getMessage());
-                    launchApp(AppName.LeStore, IntentConstants.LeStore);
+                    launchApp(AppName.LeStore, PkgName.LeStore);
                     DownloadApp();
                 }
                 catch (RuntimeException re){
@@ -164,7 +164,7 @@ public class LetvStoreStressApp extends LetvTestCase {
         BySelector upgradeBtnS = By.text("升 级");
         BySelector storeS = By.pkg("com.letv.tvos.appstore");
         addStep("打开应用商店，选择搜索图标");
-        launchApp(AppName.LeStore, IntentConstants.LeStore);
+        launchApp(AppName.LeStore, PkgName.LeStore);
             UiObject2 upgradeBtn = phone.findObject(upgradeBtnS);
             if (upgradeBtn != null) {
                 addStep("检测到升级按钮，升级乐视应用商店");
@@ -189,7 +189,7 @@ public class LetvStoreStressApp extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开应用商店，选择搜索图标，按确定键输入");
-                    launchApp(AppName.LeStore, IntentConstants.LeStore);
+                    launchApp(AppName.LeStore, PkgName.LeStore);
                     UiObject2 upgradeBtn1 = phone.findObject(upgradeBtnS);
                     if (upgradeBtn1 != null) {
                         addStep("检测到升级按钮，升级乐视应用商店");
@@ -296,7 +296,7 @@ public class LetvStoreStressApp extends LetvTestCase {
         gotoHomeScreen("应用");
         press_down(1);
         press_back(3);
-        launchApp(AppName.LeStore, IntentConstants.LeStore);
+        launchApp(AppName.LeStore, PkgName.LeStore);
         UiObject2 newdata=waitForObj(By.text("立即更新"));
         if(newdata!=null){
             clickAndWaitForNewWindow(newdata);

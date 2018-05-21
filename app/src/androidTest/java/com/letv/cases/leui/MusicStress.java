@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+//import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -25,9 +25,9 @@ public class MusicStress extends LetvTestCase {
     @CaseName("音乐本地播放音频")
     public void testLocalPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
-//        launchApp(AppName.Music,IntentConstants.Music);
-        sleepInt(2);
-        enter_PlayMusic();
+        launchApp(AppName.Music,PkgName.Music);
+//        sleepInt(2);
+//        enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             try {
@@ -37,9 +37,9 @@ public class MusicStress extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
-//                    launchApp(AppName.Music, IntentConstants.Music);
-                    enter_PlayMusic();
-                    sleepInt(10);
+                    launchApp(AppName.Music, PkgName.Music);
+//                    enter_PlayMusic();
+//                    sleepInt(10);
                     LocalPlayMusic();
                 }catch (RuntimeException re){
                     screenShot();
@@ -121,7 +121,7 @@ public class MusicStress extends LetvTestCase {
     @CaseName("音乐在线播放音频")
     public void testOnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
-//        launchApp(AppName.Music,IntentConstants.Music);
+//        launchApp(AppName.Music,PkgName.Music);
 //        sleepInt(10);
         enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
@@ -133,7 +133,7 @@ public class MusicStress extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
-//                    launchApp(AppName.Music, IntentConstants.Music);
+//                    launchApp(AppName.Music, PkgName.Music);
                     enter_PlayMusic();
                     sleepInt(10);
                     OnlinePlayMusic();
@@ -188,7 +188,7 @@ public class MusicStress extends LetvTestCase {
     @CaseName("媒体中心里播放")
     public void testMediaPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
-//        launchApp(AppName.Music,IntentConstants.Music);
+//        launchApp(AppName.Music,PkgName.Music);
 //        sleepInt(10);
         enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
@@ -200,7 +200,7 @@ public class MusicStress extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
-//                    launchApp(AppName.Music, IntentConstants.Music);
+//                    launchApp(AppName.Music, PkgName.Music);
                     enter_PlayMusic();
                     sleepInt(10);
                     PlayMusic();
@@ -279,7 +279,7 @@ public class MusicStress extends LetvTestCase {
     @CaseName("媒体中心里进入播放各列表音频")
     public void testSearchPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
-        launchApp(AppName.Music,IntentConstants.Music);
+        launchApp(AppName.Music,PkgName.Music);
         sleepInt(10);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep(".........loop:" + Loop);
@@ -289,7 +289,7 @@ public class MusicStress extends LetvTestCase {
                 try {
                     failCount(count++, getIntParams("Loop"), e.getMessage());
                     addStep("打开媒体中心");
-                    launchApp(AppName.Music,IntentConstants.Music);
+                    launchApp(AppName.Music,PkgName.Music);
                     sleepInt(10);
                     SearchPlayMusic();
                 }catch (RuntimeException re){

@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.Assert;
@@ -57,7 +57,7 @@ public class VideoPlayStress extends LetvTestCase {
         press_back(3);
     }
     public void fileManageFirst() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager,IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager,PkgName.Filemanager);
         addStep("进入文件管理");
         press_right(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);

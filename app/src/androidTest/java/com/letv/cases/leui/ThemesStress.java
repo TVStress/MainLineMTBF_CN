@@ -7,7 +7,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -52,7 +52,7 @@ public class ThemesStress extends LetvTestCase{
         press_back(2);
         press_down(7);
         UiObject2 themes = phone.findObject(By.res("com.stv.plugin.app:id/cellview_label").text("主题"));
-//        launchApp(AppName.Music,IntentConstants.Music);
+//        launchApp(AppName.Music,PkgName.Music);
         check("未进入主题",themes != null);
         themes.click();
         themes.click();

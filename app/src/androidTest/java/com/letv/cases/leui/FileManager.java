@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiWatcher;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -44,7 +44,7 @@ public class FileManager extends LetvTestCase {
 
     //TV-17408:15.进入文件管理器打开、删除文件
     public void delAAAFolder() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);
         verify("没有找到存储设备",storageDevice!=null);
@@ -90,7 +90,7 @@ public class FileManager extends LetvTestCase {
     }
 
     public void copyAAAFolder() throws RemoteException {
-        launchApp(AppName.Filemanager,IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager,PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);
         clickAndWaitForNewWindow(storageDevice);
@@ -164,7 +164,7 @@ public class FileManager extends LetvTestCase {
     // TV-44260:文件管理中打开本地存储和外接存储中音视频图片文件
     public void testFileManager_playMedia() throws UiObjectNotFoundException, RemoteException {
         addStep("进入文件管理器，打开存储设备");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
@@ -175,7 +175,7 @@ public class FileManager extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入文件管理器，打开存储设备");
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     sleepInt(3);
                     FileManager_playMedia();
                 }catch (RuntimeException re){
@@ -256,7 +256,7 @@ public class FileManager extends LetvTestCase {
     @CaseName("播放本地存储中视频")
     public void testLocalVideo() throws UiObjectNotFoundException, RemoteException {
         addStep("进入文件管理器，打开存储设备");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);
         verify("存储设备不存在", storageDevice != null);
@@ -294,7 +294,7 @@ public class FileManager extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入文件管理器，打开存储设备");
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     sleepInt(3);
                     UiObject2 storageDevice1 = waitForObj(storageDeviceS);
                     check("存储设备不存在", storageDevice1 != null);
@@ -458,7 +458,7 @@ public class FileManager extends LetvTestCase {
     @Test
     @CaseName("播放外接存储中视频")
     public void testExtVideo() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = phone.findObject(storageDeviceS);
         verify("存储设备没有找到",storageDevice!=null);
@@ -489,7 +489,7 @@ public class FileManager extends LetvTestCase {
                 try {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     sleepInt(3);
                     UiObject2 storageDevice1 = phone.findObject(storageDeviceS);
                     verify("存储设备没有找到",storageDevice1!=null);
@@ -526,7 +526,7 @@ public class FileManager extends LetvTestCase {
     @CaseName("播放本地存储中音频，进行操作")
     public void testLocalMedia() throws UiObjectNotFoundException, RemoteException {
         addStep("进入文件管理器，打开存储设备");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = phone.findObject(storageDeviceS);
         verify("没有找到存储设备", storageDevice != null);
@@ -573,7 +573,7 @@ public class FileManager extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("进入文件管理器，打开存储设备");
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     sleepInt(3);
                     UiObject2 storageDevice1 = phone.findObject(storageDeviceS);
                     check("没有找到存储设备", storageDevice1 != null);
@@ -618,7 +618,7 @@ public class FileManager extends LetvTestCase {
     @Test
     @CaseName("播放外接存储中音频，进行操作")
     public void testExtMedia() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = phone.findObject(storageDeviceS);
         clickAndWaitForNewWindow(storageDevice);
@@ -658,7 +658,7 @@ public class FileManager extends LetvTestCase {
                 try {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     sleepInt(3);
                     UiObject2 storageDevice1 = phone.findObject(storageDeviceS);
                     clickAndWaitForNewWindow(storageDevice1);
@@ -738,7 +738,7 @@ public class FileManager extends LetvTestCase {
     @CaseName("播放本地存储中音频，进行操作")
     public void testPlayMedia() throws UiObjectNotFoundException, RemoteException {
         addStep("进入文件管理器，打开存储设备");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 video = phone.findObject(By.text("视频"));
         UiObject2 videoFile = phone.findObject(By.text("视频文件"));
@@ -792,7 +792,7 @@ public class FileManager extends LetvTestCase {
     @Test
     @CaseName("文件管理器中打开和删除文件/文件夹")
     public void testAddDelFiles() throws UiObjectNotFoundException, RemoteException {
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(3);
         UiObject2 storageDevice = waitForObj(storageDeviceS);
         verify("没有找到存储设备", storageDevice != null);
@@ -815,7 +815,7 @@ public class FileManager extends LetvTestCase {
                 try {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                    launchApp(AppName.Filemanager, PkgName.Filemanager);
                     sleepInt(3);
                     UiObject2 storageDevice1 = waitForObj(storageDeviceS);
                     verify("存储设备不存在",storageDevice1!=null);

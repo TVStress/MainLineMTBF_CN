@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -24,7 +24,7 @@ public class LetvDownload extends LetvTestCase {
     @CaseName("乐视视频里下载视频")
     public void testLetvDownload() throws UiObjectNotFoundException, RemoteException {
         gotoHomeScreen("应用");
-        launchApp(AppName.LeTv, IntentConstants.LeTv);
+        launchApp(AppName.LeTv, PkgName.LeTv);
         sleepInt(5);
         loginAccount();
         UiObject2 skip =phone.findObject(By.text("跳过"));
@@ -41,7 +41,7 @@ public class LetvDownload extends LetvTestCase {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     gotoHomeScreen("应用");
-                    launchApp(AppName.LeTv, IntentConstants.LeTv);
+                    launchApp(AppName.LeTv, PkgName.LeTv);
                     sleepInt(5);
                     loginAccount();
                     UiObject2 skip1 =phone.findObject(By.text("跳过"));

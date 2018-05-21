@@ -9,7 +9,7 @@ import android.util.Log;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -28,7 +28,7 @@ public class Gallery extends LetvTestCase{
     @CaseName("相册排序切换")
     public void testgalleryRank()throws UiObjectNotFoundException, RemoteException{
         addStep("进入相册");
-        launchApp(AppName.Gallery,IntentConstants.Gallery);
+        launchApp(AppName.Gallery,PkgName.Gallery);
         try{
             galleryRank();
         }
@@ -37,7 +37,7 @@ public class Gallery extends LetvTestCase{
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入相册");
-                launchApp(AppName.Gallery,IntentConstants.Gallery);
+                launchApp(AppName.Gallery,PkgName.Gallery);
                 galleryRank();
             }
             catch (RuntimeException re){
@@ -163,7 +163,7 @@ public class Gallery extends LetvTestCase{
 
     public void enterAlbum() throws UiObjectNotFoundException, RemoteException {
         addStep("进入相册");
-        launchApp(AppName.Gallery,IntentConstants.Gallery);
+        launchApp(AppName.Gallery,PkgName.Gallery);
         UiObject2 album = waitForObj(By.text("按菜单键有更多功能"));
         verify("未进入相册", album != null);
         addStep("相册从大到小排序");
@@ -300,7 +300,7 @@ public class Gallery extends LetvTestCase{
 
     public void initAlbum() throws UiObjectNotFoundException,RemoteException{
         addStep("打开相册");
-        launchApp(AppName.Gallery, IntentConstants.Gallery);
+        launchApp(AppName.Gallery, PkgName.Gallery);
         sleepInt(5);
         UiObject2 gallery = phone.findObject(By.text("相册"));
         verify("gallery not opened", gallery != null);

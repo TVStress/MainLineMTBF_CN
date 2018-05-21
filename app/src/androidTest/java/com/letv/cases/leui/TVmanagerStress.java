@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -32,7 +32,7 @@ public class TVmanagerStress extends LetvTestCase{
 
             try {
                 addStep("打开应用桌面，进入电视管家");
-                launchApp(AppName.TvManager, IntentConstants.TvManager);
+                launchApp(AppName.TvManager, PkgName.TvManager);
 
                 UiObject2 OneKeyExam = waitForObj(By.res("com.stv.helper.main:id/onekey_exam_label").text(Pattern.compile("一键体检")));
 

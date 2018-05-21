@@ -10,7 +10,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import org.junit.After;
@@ -58,7 +58,7 @@ public class DownLoadStress extends LetvTestCase {
     @CaseName("下载中心添加下载")
     public void testLoadCenterAdd()throws UiObjectNotFoundException,RemoteException{
         addStep("进入到应用文件管理");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         press_down(1);
         try {
             LoadCenterAdd();
@@ -68,7 +68,7 @@ public class DownLoadStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入到应用文件管理");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 press_down(1);
                 LoadCenterAdd();
             }
@@ -157,7 +157,7 @@ public class DownLoadStress extends LetvTestCase {
     public void addSMBset_login() throws UiObjectNotFoundException, RemoteException {
         for(int i=0;i<2;i++) {
             addStep("进入到应用桌面");
-            launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+            launchApp(AppName.Filemanager, PkgName.Filemanager);
             press_right(5);
             addStep("进入共享设备");
             UiObject2 shareDevice = waitForObj(shareDeviceS);
@@ -230,7 +230,7 @@ public class DownLoadStress extends LetvTestCase {
     @CaseName("下载中心删除")
     public void testDownloadAndDelete() throws UiObjectNotFoundException, RemoteException{
         addStep("进入到应用文件管理");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         press_down(1);
         try {
             loadAndDelete();
@@ -240,7 +240,7 @@ public class DownLoadStress extends LetvTestCase {
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
                 addStep("进入到应用文件管理");
-                launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+                launchApp(AppName.Filemanager, PkgName.Filemanager);
                 press_down(1);
                 loadAndDelete();
             }
@@ -253,7 +253,7 @@ public class DownLoadStress extends LetvTestCase {
     public void loadAndDelete() throws UiObjectNotFoundException, RemoteException{
         LoadCenterAdd();
         addStep("进入下载中心");
-        launchApp(AppName.Download,IntentConstants.Download);
+        launchApp(AppName.Download,PkgName.Download);
         press_down(1);
         addStep("进入下载完成的");
         UiObject2 overed=phone.findObject(By.text(Pattern.compile("已完成")));
@@ -348,7 +348,7 @@ public class DownLoadStress extends LetvTestCase {
         press_back(4);
         exitApp();
         addStep("进入下载中心播放正在下载的视频");
-        launchAppByPackage(IntentConstants.Download);
+        launchAppByPackage(PkgName.Download);
         UiObject2 downloadUI = waitForObj(By.text("已完成"));
         check("未进入到下载界面", downloadUI != null);
         for (int a=0;a<15;a++){
@@ -401,7 +401,7 @@ public class DownLoadStress extends LetvTestCase {
     }
     public void enter() throws UiObjectNotFoundException {
         addStep("进入乐视视频");
-        launchApp(AppName.LeTv,IntentConstants.LeTv);
+        launchApp(AppName.LeTv,PkgName.LeTv);
         sleepInt(5);
         updateLeTV();
         verify("未进入到乐视网TV版", waitForExist(letvS, 15000));

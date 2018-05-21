@@ -7,7 +7,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -35,7 +35,7 @@ public class SystemUpLoad extends LetvTestCase {
     public void SystemUpgrade() throws UiObjectNotFoundException,RemoteException {
         addStep("进入系统更新");
         press_back(3);
-        launchApp(AppName.SystemUpdate, IntentConstants.SystemUpdate);
+        launchApp(AppName.SystemUpdate, PkgName.SystemUpdate);
         addStep("点击离线更新");
         UiObject2 offineUpdate = waitForObj(By.text("离线更新"));
         verify("office update button does not exist",offineUpdate!=null);

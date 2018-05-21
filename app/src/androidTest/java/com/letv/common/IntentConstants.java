@@ -1,5 +1,5 @@
 package com.letv.common;
-
+/*
 public class IntentConstants {
 	public static final String GoogleSearch = "com.google.android.katniss/.search.SearchActivity";
 	public static final String TVlive = "com.letv.android.tv.letvlive/com.letv.android.letvlive.LiveActivity";
@@ -57,3 +57,4 @@ public class IntentConstants {
 	public static final String Tool = "com.stv.message/.MainActivity";
 	public static final String ChildrenTV ="com.letv.tv.lechild";
 }
+*/

@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiWatcher;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 
 import junit.framework.Assert;
@@ -27,9 +27,10 @@ int count=0;
     @CaseName("test HomeTime")
     public void testHomeTime() throws UiObjectNotFoundException,RemoteException {
         addStep("打开Hometime");
-//      launchApp(AppName.HomeTime,IntentConstants.HomeTime);
+//      launchApp(AppName.HomeTime,PkgName.HomeTime);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
-            LaunchHomeTime();
+//            LaunchHomeTime();
+            launchApp(AppName.HomeTime,PkgName.HomeTime);
             try {
                 HomeTime();
             } catch (Exception e) {
@@ -37,7 +38,8 @@ int count=0;
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开Hometime");
-                    LaunchHomeTime();
+//                    LaunchHomeTime();
+                    launchApp(AppName.HomeTime,PkgName.HomeTime);
                     HomeTime();
                 } catch (RuntimeException re) {
                     screenShot();

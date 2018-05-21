@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -236,7 +236,7 @@ public class LocalPlayStress extends LetvTestCase {
 
     public void LaunchFileManager() throws UiObjectNotFoundException {
         addStep("进入文件管理");
-        launchApp(AppName.Filemanager, IntentConstants.Filemanager);
+        launchApp(AppName.Filemanager, PkgName.Filemanager);
         sleepInt(1);
         addStep("进入外部存储");
         press_right(4);

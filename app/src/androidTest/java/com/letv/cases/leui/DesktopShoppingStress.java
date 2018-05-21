@@ -9,7 +9,8 @@ import android.support.test.uiautomator.UiSelector;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
+//import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -243,8 +244,8 @@ public class DesktopShoppingStress extends LetvTestCase{
                 sleepInt(2);
                 break;
             }
-//            launchApp(AppName.LeAccount,IntentConstants.LeAccount);
-            SuperTV();
+            launchApp(AppName.LeAccount,PkgName.LeAccount);
+//            SuperTV();
         }
         if(Build.DEVICE.contains("U4")){
             press_back(1);

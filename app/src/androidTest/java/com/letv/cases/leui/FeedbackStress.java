@@ -8,7 +8,7 @@ import android.support.test.uiautomator.UiObject2;
 
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import com.letv.common.PkgName;
 
@@ -27,7 +27,7 @@ public class FeedbackStress extends LetvTestCase{
     @CaseName("问题反馈标签切换")
     public void testFeedbackLabel() throws ObjectStreamException,RemoteException {
         addStep("进入问题反馈");
-        launchApp(AppName.Feedback, IntentConstants.Feedback);
+        launchApp(AppName.Feedback, PkgName.Feedback);
         for(int Loop=0;Loop<getIntParams("Loop");Loop++) {
             addStep(".........Loop"+Loop);
             addStep("切换标签");
@@ -48,7 +48,7 @@ public class FeedbackStress extends LetvTestCase{
     @CaseName("问题反馈提交问题")
     public void testFeedbackSubmitQuestion() throws ObjectStreamException,RemoteException {
         addStep("进入问题反馈");
-        launchApp(AppName.Feedback, IntentConstants.Feedback);
+        launchApp(AppName.Feedback, PkgName.Feedback);
         for(int Loop=0;Loop<getIntParams("Loop");Loop++) {
             addStep("..........Loop"+Loop);
         try{
@@ -58,7 +58,7 @@ public class FeedbackStress extends LetvTestCase{
             try{
                 count++;
                 failCount(count,getIntParams("Loop"),e.getMessage());
-                launchApp(AppName.Feedback, IntentConstants.Feedback);
+                launchApp(AppName.Feedback, PkgName.Feedback);
                 SubmitQuestion();
             }
             catch (RuntimeException re){
@@ -111,7 +111,7 @@ public class FeedbackStress extends LetvTestCase{
     @CaseName("问题反馈我的反馈")
     public void testMySubitQuestion()throws ObjectStreamException, RemoteException {
         addStep("进入问题反馈");
-        launchApp(AppName.Feedback, IntentConstants.Feedback);
+        launchApp(AppName.Feedback, PkgName.Feedback);
         for(int Loop=0;Loop<getIntParams("Loop");Loop++) {
             addStep("..........Loop"+Loop);
             try{
@@ -121,7 +121,7 @@ public class FeedbackStress extends LetvTestCase{
                 try{
                     count++;
                     failCount(count,getIntParams("Loop"),e.getMessage());
-                    launchApp(AppName.Feedback, IntentConstants.Feedback);
+                    launchApp(AppName.Feedback, PkgName.Feedback);
                     MySubitQuestion();
                 }
                 catch (RuntimeException re){
@@ -167,7 +167,7 @@ public class FeedbackStress extends LetvTestCase{
     @CaseName("问题反馈我的反馈")
     public void testCommonProblem()throws ObjectStreamException, RemoteException {
         addStep("进入问题反馈");
-        launchApp(AppName.Feedback, IntentConstants.Feedback);
+        launchApp(AppName.Feedback, PkgName.Feedback);
         for(int Loop=0;Loop<getIntParams("Loop");Loop++) {
             addStep("..........Loop"+Loop);
             try{
@@ -177,7 +177,7 @@ public class FeedbackStress extends LetvTestCase{
                 try{
                     count++;
                     failCount(count,getIntParams("Loop"),e.getMessage());
-                    launchApp(AppName.Feedback, IntentConstants.Feedback);
+                    launchApp(AppName.Feedback, PkgName.Feedback);
                     CommonProblem();
                 }
                 catch (RuntimeException re){

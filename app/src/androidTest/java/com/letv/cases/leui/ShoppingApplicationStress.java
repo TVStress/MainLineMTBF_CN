@@ -9,7 +9,7 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiSelector;
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+//import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class ShoppingApplicationStress extends LetvTestCase{
     @Test
     @CaseName("进入购物应用")
     public void testApplicationLeShop()throws UiObjectNotFoundException,RemoteException {
-//        launchApp(AppName.Shop, IntentConstants.Shop);
+//        launchApp(AppName.Shop, PkgName.Shop);
         addStep("进入应用购物");
         appshopTV();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {

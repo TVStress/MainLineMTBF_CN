@@ -5,7 +5,7 @@ import android.support.test.uiautomator.UiObject2;
 import android.support.test.uiautomator.UiObjectNotFoundException;
 import com.letv.common.AppName;
 import com.letv.common.CaseName;
-import com.letv.common.IntentConstants;
+import com.letv.common.PkgName;
 import com.letv.common.LetvTestCase;
 import org.junit.Test;
 import java.util.regex.Pattern;
@@ -18,7 +18,7 @@ public class MessageStress extends LetvTestCase {
         addStep("进入消息中心");
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             addStep("........Loop"+Loop);
-            launchApp(AppName.Message, IntentConstants.Message);
+            launchApp(AppName.Message, PkgName.Message);
             addStep("消息中心标签切换");
             for(int i=0; i<3;i++){
                 UiObject2 messageA=phone.findObject(By.text(Pattern.compile("消息.*")));
