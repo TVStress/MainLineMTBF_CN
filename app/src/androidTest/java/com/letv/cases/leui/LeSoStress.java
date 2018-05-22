@@ -107,22 +107,9 @@ public class LeSoStress extends LetvTestCase{
     @Test
     @CaseName("从应用桌面打开乐看搜索，反复搜索")
     public void testLesoAppDesk() throws UiObjectNotFoundException, RemoteException {
-//    launchApp(AppName.LeSo, PkgName.LeSo);
-    AppSearch();
+    launchApp(AppName.LeSo, PkgName.LeSo);
     sleepInt(3);
-    UiObject2 leSo = waitForObj(By.pkg("com.letv.leso"));
-    verify("未进入乐看搜索", leSo != null);
     addStep("进入乐看搜索");
-    UiObject2 search=null;
-    search=waitForObj(By.res("com.letv.leso:id/search_box"));
-    for (int i=0;i<5;i++){
-        search=waitForObj(By.res("com.letv.leso:id/search_box"));
-        if (search==null){
-            sleepInt(3);
-        }
-    }
-    verify("can't enter the leso", search != null);
-    clickAndWaitForNewWindow(search);
     for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
         System.out.println(".............looper : " + Loop);
         try {
@@ -131,11 +118,7 @@ public class LeSoStress extends LetvTestCase{
             try {
                 count ++;
                 failCount(count, getIntParams("Loop"), e.getMessage());
-                AppSearch();
-//                launchApp(AppName.LeSo, PkgName.LeSo);
-                sleepInt(1);
-                UiObject2 leSo1 = waitForObj(By.pkg("com.letv.leso"));
-                check("未进入乐看搜索", leSo1 != null);
+                launchApp(AppName.LeSo, PkgName.LeSo);
                 LesoAppDesk();
             }catch (RuntimeException re){
                 screenShot();
@@ -148,28 +131,19 @@ public class LeSoStress extends LetvTestCase{
 }
 
     public void LesoAppDesk() throws UiObjectNotFoundException, RemoteException {
-        sleepInt(2);
-        press_center(1);
-        UiObject2 clear=null;
-        clear = waitForObj(By.res(Pattern.compile("com.letv.leso:id/searchboard_clear_btn|com.letv.search.plugin:id/searchboard_clear_btn")));
-        check("没有找到清空内容的按钮", clear != null);
-        sleepInt(1);
-        clear.click();
-        clear.click();
-        sleepInt(1);
-        addStep("选择电视剧榜单");
-        press_right(4);
-        sleepInt(3);
-        press_right(3);
-        UiObject2 listAll = phone.findObject(By.clazz("android.widget.TextView").textContains("全部"));
-        check("全部榜单不存在",listAll!=null);
-        listAll.click();
-        listAll.click();
-        sleepInt(2);
-        press_down(3);
-        press_center(1);
-        sleepInt(2);
-        press_left(5);
+
+        UiObject2 search=waitForObj(By.res("com.letv.leso:id/search_box"));
+        for (int i=0;i<5;i++){
+            search=waitForObj(By.res("com.letv.leso:id/search_box"));
+            if (search==null){
+                sleepInt(3);
+            }
+        }
+        verify("can't enter the leso", search != null);
+        clickAndWaitForNewWindow(search);
+
+        UiObject2 clear=waitForObj(By.res("com.letv.search.plugin:id/clear_btn_tx").text("清空"));
+        check("清除按钮不存在",clear!=null);
         clear.click();
         clear.click();
         addStep("搜索WMNCQ，得到电视剧武媚娘传奇");
@@ -180,27 +154,27 @@ public class LeSoStress extends LetvTestCase{
         UiObject2 C = phone.findObject(By.clazz("android.widget.TextView").text("C"));
         UiObject2 Q = phone.findObject(By.clazz("android.widget.TextView").text("Q"));
         W.click();W.click();M.click();M.click();N.click();N.click();C.click();C.click();Q.click();Q.click();
+        sleepInt(1);
+        UiObject2 playSets =waitForObj(By.text(Pattern.compile("武媚娘传奇.*")));
+        check ("搜索结果不存在",playSets!=null);
+
+        press_right(7);
         sleepInt(3);
-        UiObject2 playSets = waitForObj(By.text(Pattern.compile("武媚娘传奇.*")));
-        verify ("搜索结果不存在",playSets!=null);
+        UiObject2 listAll = waitForObj(By.clazz("android.widget.TextView").text("全部"));
+        check("全部榜单不存在",listAll!=null);
+        listAll.click();
+        press_center(1);
+        sleepInt(2);
+        press_down(3);
+        press_center(1);
+        sleepInt(1);
+        press_left(5);
+        sleepInt(4);
         press_back(1);
+        sleepInt(2);
+
     }
 
-    public void AppSearch()throws UiObjectNotFoundException, RemoteException{
-        addStep("搜索");
-        gotoHomeScreen("应用");
-        sleepInt(5);
-        UiObject2 allapp=phone.findObject(By.text(Pattern.compile("全部应用")));
-        if(allapp!=null){
-            allapp.click();
-            sleepInt(5);
-            press_down(5);
-        }else {
-            press_down(5);
-        }
-        UiObject2 watchingHot=waitForObj(By.res("com.stv.plugin.app:id/cellview_label").text("万象搜索"));
-        watchingHot.click();
-        watchingHot.click();
-    }
+
 
 }
