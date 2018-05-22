@@ -17,12 +17,12 @@ public class LetvTestCase_test extends LetvTestCase{
 
     @Test
     public void testLaunchApp(){
-        launchApp(AppName.Browser,PkgName.Browser);
+//        launchApp(AppName.Browser,PkgName.Browser);
         launchApp(AppName.Filemanager,PkgName.Filemanager);
         launchApp(AppName.LeAccount,PkgName.LeAccount);
         launchApp(AppName.Calendar, PkgName.Calendar);
         launchApp(AppName.LeStore, PkgName.LeStore);
-        launchApp(AppName.Gallery, PkgName.Gallery);
+//        launchApp(AppName.Gallery, PkgName.Gallery);
         launchApp(AppName.LeTv, PkgName.LeTv);
         launchApp(AppName.Music,PkgName.Music);
         launchApp(AppName.Weather, PkgName.Weather);

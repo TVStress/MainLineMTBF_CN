@@ -750,7 +750,7 @@ public class LetvTestCase{
         }
     }
 
-/*
+
     public boolean launchApp(String appName,String pkg) {
         return launchApp(appName,pkg,true);
     }
@@ -813,7 +813,10 @@ public class LetvTestCase{
         }
         return false;
     }
-*/
+
+
+
+    /* 这个方法已经不用了
     public boolean launchApp(String appName,String pkg) {
         return launchApp(appName,pkg,true);
     }
@@ -893,6 +896,7 @@ public class LetvTestCase{
         return false;
     }
 
+    */
 
 
     public boolean launchApp(String pkg) {

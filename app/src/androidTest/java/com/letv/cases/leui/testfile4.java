@@ -12,12 +12,6 @@ import org.junit.Test;
 
 class le {
 
-    public void verify(boolean b) {
-        if (!b) {
-//            screenShot();
-            Assert.fail();
-        }
-    }
     public void verify(String msg, boolean b) {
         if (msg.equals("")) {
             verify(b);
@@ -27,6 +21,13 @@ class le {
         }
     }
 
+
+    public void verify(boolean b) {
+        if (!b) {
+//            screenShot();
+            Assert.fail();
+        }
+    }
 }
 public class testfile4 {
 
@@ -36,6 +37,11 @@ public class testfile4 {
     public void test5(){
         lt.verify(2==4);
 
+    }
+
+    @Test
+    public void test6(){
+        lt.verify("a=b", 1==6);
     }
 
 

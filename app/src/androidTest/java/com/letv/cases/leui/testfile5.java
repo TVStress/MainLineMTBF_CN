@@ -86,7 +86,7 @@ public class testfile5 extends LetvTestCase{
 //        launchApp(AppName.PlayHistory,PkgName.PlayHistory);
 //        launchApp(AppName.Shop, PkgName.Shop);
 //        launchApp(AppName.Weather, PkgName.WeatherCIBN);
-            launchApp(AppName.LeSo, PkgName.LeSo);
+            launchApp(AppName.LeSo,PkgName.LeSo);
 
 
 
