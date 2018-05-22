@@ -85,7 +85,7 @@ public class LeSoStress extends LetvTestCase{
         press_center(1);
         sleepInt(1);
         press_left(5);
-        UiObject2 clear=waitForObj(By.res("com.letv.search.plugin:id/searchboard_clear_btn"));
+        UiObject2 clear=waitForObj(By.res("com.letv.search.plugin:id/clear_btn_tx").text("清空"));
         check("清除按钮不存在",clear!=null);
         clear.click();
         clear.click();

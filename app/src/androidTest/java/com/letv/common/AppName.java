@@ -46,7 +46,7 @@ public class AppName {
     public static final String Gallery = "相册";
     public static final String Voice = "超级语音";
     public static final String Housekeeper = "电视管家";
-    public static final String LeSo = "乐看搜索";
+    public static final String LeSo = "万象搜索";
     public static final String CIBN = "CIBN高清影视";
     public static final String Cinemas ="同步院线|CIBN同步院线";
     public static final String Tianqi = "天气";
