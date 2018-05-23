@@ -27,10 +27,7 @@ int count=0;
     @CaseName("test HomeTime")
     public void testHomeTime() throws UiObjectNotFoundException,RemoteException {
         addStep("打开Hometime");
-//      launchApp(AppName.HomeTime,PkgName.HomeTime);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
-//            LaunchHomeTime();
-            launchApp(AppName.HomeTime,PkgName.HomeTime);
             try {
                 HomeTime();
             } catch (Exception e) {
@@ -38,8 +35,6 @@ int count=0;
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
                     addStep("打开Hometime");
-//                    LaunchHomeTime();
-                    launchApp(AppName.HomeTime,PkgName.HomeTime);
                     HomeTime();
                 } catch (RuntimeException re) {
                     screenShot();
@@ -54,12 +49,13 @@ int count=0;
         }
     }
     public void HomeTime() throws UiObjectNotFoundException,RemoteException{
-        UiObject2 hometime = phone.findObject(By.res("com.stv.plugin.app:id/cellview_label").text(Pattern.compile("HomeTime.*")));
-        check("未进入HomeTime",hometime!= null);
-        hometime.click();
+        launchApp(AppName.HomeTime,PkgName.HomeTime);
+//        UiObject2 hometime = phone.findObject(By.res("com.stv.plugin.app:id/cellview_label").text(Pattern.compile("HomeTime.*")));
+//        check("未进入HomeTime",hometime!= null);
 //        hometime.click();
-        loginAccount();
-        sleepInt(2);
+////        hometime.click();
+//        loginAccount();
+//        sleepInt(2);
         press_right(6);
         press_left(5);
         sleepInt(2);

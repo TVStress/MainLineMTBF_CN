@@ -86,7 +86,7 @@ public class CIBNStress extends LetvTestCase {
     @Test
     @CaseName("CIBN高清影视应用里反复滑动")
     public void testCIBNSwipe() throws UiObjectNotFoundException, RemoteException {
-        cibnEnter();
+        launchApp(AppName.CIBN,PkgName.CIBN);
         UiObject2 install = phone.findObject(By.text("下载"));
         if (install != null) {
             install.click();
@@ -111,7 +111,7 @@ public class CIBNStress extends LetvTestCase {
                 try {
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    cibnEnter();
+                    launchApp(AppName.CIBN,PkgName.CIBN);
                     CIBNSwipe();
                 } catch (RuntimeException re) {
                     screenShot();
@@ -138,50 +138,7 @@ public class CIBNStress extends LetvTestCase {
             check("不在CIBN高清影视应用", CIBN2 != null);
         }
     }
-    public void cibnEnter() throws UiObjectNotFoundException {
-        press_back(2);
-        gotoHomeScreen("应用");
-        press_down(1);
-        press_back(3);
-        press_down(2);
-        press_right(3);
-        addStep("进入cibn高清影视");
-        UiObject2 cibntv=waitForObj(By.res("com.stv.plugin.app:id/app_workspace_top_layout_center"));
-        check("未进入cibn高清影视",cibntv!=null);
-        cibntv.click();
-        cibntv.click();
 
-//        UiObject2 allapp = phone.findObject(By.text(Pattern.compile("全部应用")));
-//        check("未进入全部应用", allapp != null);
-//        allapp.click();
-//        sleepInt(1);
-//        press_down(10);
-//        sleepInt(2);
-//        UiObject2 cibnapp = phone.findObject(By.text("CIBN推荐应用"));
-//        cibnapp.click();
-//        press_down(1);
-//        UiObject2 cibn = phone.findObject(By.text(Pattern.compile("CIBN.*")));
-//        if (cibn != null) {
-//            cibn.click();
-//            sleepInt(5);
-//        } else {
-//            press_center(1);
-//            sleepInt(5);
-//        }
-        UiObject2 retry=waitForObj(By.text("重试"));
-        for(int k=0;k<3;k++){
-            if(retry!=null){
-                retry.click();
-                retry.click();
-            }
-        }
-        UiObject2 close = phone.findObject(By.text("立即关闭"));
-        if (close!=null) {
-            check("未出现关闭", close!=null);
-            close.click();
-            close.click();
-        }
-    }
 
 
     @Test
@@ -189,13 +146,13 @@ public class CIBNStress extends LetvTestCase {
     public void testtLiveChannel() throws UiObjectNotFoundException, RemoteException {
         for (int Loop=0;Loop<getIntParams("Loop");Loop++) {
             try {
-                cibnEnter();
+
                 LiveChannel();
             } catch (Exception e) {
                 try {
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    cibnEnter();
+
                     LiveChannel();
                 } catch (RuntimeException re) {
                     screenShot();
@@ -205,6 +162,7 @@ public class CIBNStress extends LetvTestCase {
         }
     }
     public void LiveChannel() throws UiObjectNotFoundException, RemoteException {
+        launchApp(AppName.CIBN,PkgName.CIBN);
         press_down(4);
         sleepInt(1);
         String arr[] = {"首页", "会员", "分类", "发现", "我的"};
