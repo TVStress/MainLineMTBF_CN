@@ -66,9 +66,9 @@ public class VodPlayStress extends LetvTestCase {
                 try {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    gotoHomeScreen("乐见|视频");
+                    gotoHomeScreen("找视频|乐见");
                     press_down(1);
-                    UiObject2 poster2=waitForObj(By.res("com.stv.plugin.video:id/poster_small_1"));
+                    UiObject2 poster2=waitForObj(By.clazz("android.widget.FrameLayout").res("com.stv.plugin.video:id/poster_large"));
                     check("视频桌面没有找到海报", poster2 != null);
                     poster2.click();
                     poster2.click();
@@ -88,7 +88,7 @@ public class VodPlayStress extends LetvTestCase {
         addStep("在乐见(视频)桌面选择任意海报，进入");
         updateAPP();
         press_down(1);
-        UiObject2 poster1=waitForObj(By.clazz("android.widget.FrameLayout").res("com.stv.plugin.video:id/poster_small_3"));
+        UiObject2 poster1=waitForObj(By.clazz("android.widget.FrameLayout").res("com.stv.plugin.video:id/poster_large"));
         check("视频桌面没有找到海报", poster1 != null);
         poster1.click();
         poster1.click();
@@ -112,8 +112,8 @@ public class VodPlayStress extends LetvTestCase {
         sleepInt(2);
         press_back(3);
         sleepInt(1);
-        UiObject2 desktop1=phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile("视频|乐见")).selected(true));
-        UiObject2 desktop2=phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile("视频|乐见")).focused(true));
+        UiObject2 desktop1=phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile("找视频|乐见")).selected(true));
+        UiObject2 desktop2=phone.findObject(By.pkg("com.stv.launcher").text(Pattern.compile("找视频|乐见")).focused(true));
         verify("没有返回到视频桌面", desktop1 != null || desktop2 != null);
     }
 
@@ -123,6 +123,7 @@ public class VodPlayStress extends LetvTestCase {
         press_down(2);
         checkAccountLogin();
         addStep("进入视频桌面的搜索");
+//        UiObject2 search1 = waitForObj(By.res("com.stv.plugin.video:id/poster_no_title_2"));
         UiObject2 search1 = waitForObj(By.res("com.stv.plugin.video:id/poster_no_title_2"));
         UiObject2 search2 = waitForObj(By.res("com.stv.plugin.video:id/poster_no_title_2"));
         verify("没有找到乐见桌面的搜索框",search1!=null||search2!=null);
@@ -269,7 +270,7 @@ public class VodPlayStress extends LetvTestCase {
                 try {
                     count ++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    gotoHomeScreen("视频|乐见");
+                    gotoHomeScreen("找视频|乐见");
                     sleepInt(5);
                     ChPlay();
                 }catch (RuntimeException re){

@@ -16,7 +16,7 @@ public class DesktopSwitchStress extends LetvTestCase{
         addStep("切换到应用桌面");
         gotoHomeScreen("应用");
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
-            addStep(".............looper : " + Loop);
+            addStep(".............looper : " + (Loop+1));
             addStep("在桌面向左滑动15次");
             press_left(15);
             press_down(1);

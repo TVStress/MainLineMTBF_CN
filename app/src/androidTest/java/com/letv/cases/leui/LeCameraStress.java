@@ -17,17 +17,8 @@ import org.junit.Test;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by wangyaxiu on 2016/12/14.
- */
 
 public class LeCameraStress extends  LetvTestCase{
-
-
-
-
-
-
 
 
     @Test

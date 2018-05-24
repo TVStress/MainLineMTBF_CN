@@ -11,7 +11,9 @@ import org.junit.Test;
 import java.util.regex.Pattern;
 
 public class MessageStress extends LetvTestCase {
+
     int count=0;
+
     @Test
     @CaseName("消息压力测试")
     public void testMessage()throws UiObjectNotFoundException,RemoteException {
