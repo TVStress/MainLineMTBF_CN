@@ -61,8 +61,8 @@ public class AccountStress extends LetvTestCase{
                     launchApp(AppName.LeAccount,PkgName.LeAccount);
 //                    SuperTV();
                     sleepInt(2);
-                    if(LetvUI(6.0)){
-                        addStep("UI6.0");
+                    if(LetvUI(6.5)){
+                        addStep("UI6.5");
                         AccountLogin938();
                     }else {
                         addStep("UI5.9");

@@ -99,6 +99,7 @@ public class LiveStress extends LetvTestCase{
         }
     }
 
+
     @Test
     @CaseName("Live桌面任意视频切换画面比例")
     public void testScreenRatio() throws UiObjectNotFoundException, RemoteException {
@@ -151,12 +152,16 @@ public class LiveStress extends LetvTestCase{
     }
     public void ScreenRatio() throws UiObjectNotFoundException, RemoteException{
             addStep("切换画面比例");
-            press_menu(1);
-//            sleepInt(1);
             press_down(1);
-//            UiObject2 menu_one = waitForObj(By.res("com.letv.android.tv.letvlive:id/tv_setting").text("菜单"));
-//
-//            check("没有菜单或者收藏该节目按钮",menu_one !=null);
+            press_back(1);
+            press_menu(1);
+            press_down(1);
+            addStep("切换当前的画面比例");
+            for (int i=0;i<12;i++){
+                press_center(1);
+                sleepInt(4);
+            }
+
 ////            press_down(1);
 //            if(menu_one!=null) {
 //                check("没有菜单或者收藏该节目按钮", menu_one != null);
@@ -167,31 +172,33 @@ public class LiveStress extends LetvTestCase{
 //                check("没有菜单或者收藏该节目按钮", menu2 != null);
 //                press_down(1);
 //            }
+//        UiObject2 screenRatio = waitForObj(By.res("com.letv.android.tv.letvlive:id/menuLable").text("画面比例"));
+//        check("没有找到画面比例", screenRatio != null);
+//            press_right(1);
+//            sleepInt(5);
+//            for (int i = 0; i < 5; i++) {
+//                UiObject2 screenRatioP = screenRatio.getParent().getParent();
+//                if (!screenRatioP.isFocused()) {
+//                    press_down(1);
+//                } else break;
+//            }
+//            press_center(1);
+//            sleepInt(5);
 
-            UiObject2 screenRatio = waitForObj(By.res("com.letv.android.tv.letvlive:id/menuLable").text("画面比例"));
-            check("没有找到画面比例", screenRatio != null);
-            press_right(1);
-            sleepInt(5);
-            for (int i = 0; i < 5; i++) {
-                UiObject2 screenRatioP = screenRatio.getParent().getParent();
-                if (!screenRatioP.isFocused()) {
-                    press_down(1);
-                } else break;
-            }
-            UiObject2 currentRat = screenRatio.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
-            addStep("当前的画面比例为" + currentRat.getText());
-            sleepInt(1);
-            press_right(1);
-            sleepInt(15);
-
-            currentRat = screenRatio.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
-            addStep("切换为" + currentRat.getText());
-
-            press_right(1);
-            sleepInt(15);
-            addStep("退出菜单");
-            press_menu(1);
-            sleepInt(2);
+//            UiObject2 currentRat = screenRatio.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
+//            addStep("当前的画面比例为" + currentRat.getText());
+//            sleepInt(1);
+//            press_right(1);
+//            sleepInt(15);
+//
+//            currentRat = screenRatio.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
+//            addStep("切换为" + currentRat.getText());
+//
+//            press_right(1);
+//            sleepInt(15);
+//            addStep("退出菜单");
+//            press_menu(1);
+//            sleepInt(2);
     }
 
     @Test
@@ -253,10 +260,20 @@ public class LiveStress extends LetvTestCase{
         press_back(3);
     }
     public void Clarify() throws UiObjectNotFoundException, RemoteException {
-            addStep("切换画面清晰度");
-
-            press_menu(1);
-            press_down(2);
+        addStep("切换画面比例");
+        press_down(1);
+        press_back(1);
+        press_menu(1);
+        press_down(3);
+        addStep("切换当前的清晰度");
+        for (int i=0;i<12;i++){
+            press_center(1);
+            sleepInt(4);
+        }
+//            addStep("切换画面清晰度");
+//
+//            press_menu(1);
+//            press_down(2);
     //            sleepInt(1);
 //            UiObject2 menu_one = waitForObj(By.res("com.letv.android.tv.letvlive:id/tv_setting").text("菜单"));
 //
@@ -271,33 +288,33 @@ public class LiveStress extends LetvTestCase{
 //                check("没有菜单或者收藏该节目按钮", menu2 != null);
 //                press_down(2);
 //            }
-            UiObject2 screenClarify = waitForObj(By.res("com.letv.android.tv.letvlive:id/menuLable").text("清晰度"));
-            check("没有找到清晰度",screenClarify != null);
-            for(int i=0;i<5;i++){
-                UiObject2 screenRatioP = screenClarify.getParent().getParent();
-                if(!screenRatioP.isFocused()){
-                    press_down(1);
-                }else break;
-            }
-
-            UiObject2 currentRat = screenClarify.getParent().findObject(By.clazz("android.widget.LinearLayout")).findObject(By.clazz("android.widget.TextView"));
-            addStep("当前的清晰度为" + currentRat.getText());
-            press_right(1);
-            sleepInt(3);
-
-            currentRat = screenClarify.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
-            addStep("切换为" + currentRat.getText());
-            press_right(1);
-            sleepInt(6);
-
-            currentRat = screenClarify.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
-            addStep("切换为" + currentRat.getText());
-            press_right(1);
-            sleepInt(3);
-
-            addStep("退出菜单");
-            press_menu(1);
-            sleepInt(2);
+//            UiObject2 screenClarify = waitForObj(By.res("com.letv.android.tv.letvlive:id/menuLable").text("清晰度"));
+//            check("没有找到清晰度",screenClarify != null);
+//            for(int i=0;i<5;i++){
+//                UiObject2 screenRatioP = screenClarify.getParent().getParent();
+//                if(!screenRatioP.isFocused()){
+//                    press_down(1);
+//                }else break;
+//            }
+//
+//            UiObject2 currentRat = screenClarify.getParent().findObject(By.clazz("android.widget.LinearLayout")).findObject(By.clazz("android.widget.TextView"));
+//            addStep("当前的清晰度为" + currentRat.getText());
+//            press_right(1);
+//            sleepInt(3);
+//
+//            currentRat = screenClarify.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
+//            addStep("切换为" + currentRat.getText());
+//            press_right(1);
+//            sleepInt(6);
+//
+//            currentRat = screenClarify.getParent().findObject(By.clazz("android.widget.TextSwitcher")).findObject(By.clazz("android.widget.TextView"));
+//            addStep("切换为" + currentRat.getText());
+//            press_right(1);
+//            sleepInt(3);
+//
+//            addStep("退出菜单");
+//            press_menu(1);
+//            sleepInt(2);
     }
 
 

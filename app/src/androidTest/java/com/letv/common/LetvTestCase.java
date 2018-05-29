@@ -623,6 +623,15 @@ public class LetvTestCase{
     public void press_menu(int times) {
         press_keyevent(times, KEY_MENU);
     }
+    public void press_menu1(int times){
+        if (times<=0){
+            return;
+        }
+        for (int i=0;i<times;i++) {
+            phone.pressMenu();
+            sleep(5000);
+        }
+    }
     public void press_voice(int times) {
         press_keyevent(times, KEY_VOICE);
     }
