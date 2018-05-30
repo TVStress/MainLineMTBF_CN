@@ -26,8 +26,6 @@ public class MusicStress extends LetvTestCase {
     public void testLocalPlayMusic() throws UiObjectNotFoundException, RemoteException {
         addStep("打开媒体中心");
         launchApp(AppName.Music,PkgName.Music);
-//        sleepInt(2);
-//        enter_PlayMusic();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             try {
@@ -49,7 +47,7 @@ public class MusicStress extends LetvTestCase {
         }
     }
     public void LocalPlayMusic() throws UiObjectNotFoundException, RemoteException {
-        UiObject2 online=waitForObj(By.clazz("android.widget.LinearLayout").res("com.stv.music:id/localButton"));
+        UiObject2 online=waitForObj(By.clazz("android.widget.TextView").text("本地音乐"));
         check("未进本地播放音乐",online!=null);
         online.click();
         online.click();
