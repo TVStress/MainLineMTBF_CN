@@ -51,6 +51,8 @@ public class MusicStress extends LetvTestCase {
         check("未进本地播放音乐",online!=null);
         online.click();
         online.click();
+        press_center(1);
+        sleepInt(5);
         UiObject2 title1=waitForObj(By.res("com.stv.music:id/common_title").text("是否播放推荐歌曲?"));
         if(title1!=null){
             UiObject2 cannel=waitForObj(By.res("com.stv.music:id/cancel_btn").text("取消"));
