@@ -76,10 +76,8 @@ public class BTStress extends LetvTestCase{
     @Test
     @CaseName("多次关闭开启蓝牙")
     public void testSwitchBlueTooth() throws UiObjectNotFoundException, RemoteException {
-
         gotoHomeScreen("应用");
-
-        String[] desktops={"信号源","搜索","应用","LIVE|Live|首页","乐见","游戏","体育","购物"};
+        String desktops[]={"信号源","搜索","应用","首页|LIVE|Live","找视频|乐见","购物"};
         press_left(7);
         for(int j=0;j<desktops.length;j++) {
 
@@ -108,7 +106,7 @@ public class BTStress extends LetvTestCase{
             sytemSetting.click();
             press_center(1);*/
             sleepInt(1);
-            press_down(1);
+            press_up(1);
             press_center(1);
             /*UiObject2 accessory = waitForObj(By.res("com.stv.globalsetting:id/advance_accessory"));
             verify("没有找到配件", accessory != null);
@@ -120,11 +118,12 @@ public class BTStress extends LetvTestCase{
 
 
             /*开启关闭蓝牙Loop次*/
-            int Loop = getIntParams("Loop");
-            //
-            //
-            //
-            press_back(6);
+            press_right(1);
+            for (int i=0;i<5;i++){
+                press_center(1);
+                sleepInt(5);
+            }
+
           }
 
     }
