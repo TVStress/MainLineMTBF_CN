@@ -103,20 +103,6 @@ public class MusicStress extends LetvTestCase {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     @CaseName("音乐在线播放音频")
     public void testOnlinePlayMusic() throws UiObjectNotFoundException, RemoteException {
