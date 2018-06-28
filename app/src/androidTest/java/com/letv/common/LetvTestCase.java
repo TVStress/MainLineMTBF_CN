@@ -1075,6 +1075,7 @@ public class LetvTestCase{
         map.put(AppName.Feedback ,PkgName.Feedback);
         map.put(AppName.Tool ,PkgName.Tool);
         map.put(AppName.ChildrenTV ,PkgName.ChildrenTV);
+        map.put(AppName.MyLeFan ,PkgName.MyLeFan);
 
         return map;
     }

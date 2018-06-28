@@ -52,4 +52,5 @@ public class AppName {
     public static final String Tianqi = "天气";
     public static final String Tool = "工具";
     public static final String ChildrenTV = "儿童TV";
+    public static final String MyLeFan = "我的乐范";
 }

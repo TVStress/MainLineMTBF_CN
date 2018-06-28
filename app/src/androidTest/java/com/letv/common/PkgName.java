@@ -52,5 +52,5 @@ public class PkgName {
     public static final String ChildrenTV= "com.letv.tv.lechild";
     public static final String Housekeeper= "com.stv.helper.main";
     public static final String WeatherCIBN = "sina.mobile.tianqitongstv";
-
+    public static final String MyLeFan = "com.stv.ucenter";
 }
