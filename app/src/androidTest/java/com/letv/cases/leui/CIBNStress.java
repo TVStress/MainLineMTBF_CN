@@ -101,6 +101,12 @@ public class CIBNStress extends LetvTestCase {
             }
         }
         sleepInt(10);
+
+        UiObject2 close = phone.findObject(By.res("cn.cibntv.ott:id/btn_close").text("立即关闭"));
+        if (close!=null){
+            close.click();
+            close.click();
+        }
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             System.out.println(".............looper : " + Loop);
             loginAccount();
@@ -163,6 +169,12 @@ public class CIBNStress extends LetvTestCase {
     }
     public void LiveChannel() throws UiObjectNotFoundException, RemoteException {
         launchApp(AppName.CIBN,PkgName.CIBN);
+        UiObject2 close = phone.findObject(By.res("cn.cibntv.ott:id/btn_close").text("立即关闭"));
+        if (close!=null){
+            press_right(1);
+            close.click();
+            close.click();
+        }
         press_down(4);
         sleepInt(1);
         String arr[] = {"首页", "会员", "分类", "发现", "我的"};
@@ -187,11 +199,13 @@ public class CIBNStress extends LetvTestCase {
             check("未进入电影", film != null);
             film.click();
             film.click();
-            UiObject2 all1 = waitForObj(alltv);
-            all1.click();
-            all1.click();
-            sleepInt(2);
-            press_right(1);
+
+//            UiObject2 all1 = waitForObj(alltv);
+//            all1.click();
+//            all1.click();
+//            sleepInt(2);
+            press_down(1);
+            press_right(getRandom(5));
             press_down(1);
             press_center(1);
             UiObject2 play1 = waitForObj(cibnPlay);
@@ -245,31 +259,33 @@ public class CIBNStress extends LetvTestCase {
             UiObject2 bigC = phone.findObject(By.text("小C精选"));
             check("未在小C精选画面", bigC != null);
         }
+
         press_back(2);
         press_down(4);
         addStep("进入为你推荐播放");
         UiObject2 foryouRecomment1 = phone.findObject(By.text("为你推荐"));
         check("未进入为你推荐界面", foryouRecomment1 != null);
-        for (int j = 0; j < 5; j++) {
+
+
+
+        press_center(1);
+        sleepInt(1);
+        UiObject2 play2 = waitForObj(cibnPlay);
+        check("未进入播放", play2 != null);
+        play2.click();
+//            addStep("播放视频1分钟");
+            sleepInt(10);
+        addStep("播放视频反复播放、暂停10次");
+        for (int i = 0; i < 10; i++) {
+            sleepInt(1);
+            press_right(2);
             press_center(1);
-            sleepInt(1);
-            UiObject2 play2 = waitForObj(cibnPlay);
-            check("未进入播放", play2 != null);
-            play2.click();
-            addStep("播放视频1分钟");
-            sleepInt(60);
-            addStep("播放视频反复播放、暂停10次");
-            for (int i = 0; i < 10; i++) {
-                press_center(1);
-                sleepInt(2);
-                press_center(1);
-                sleepInt(4);
-            }
-            press_back(1);
-            exitplayTV();
-            press_down(1);
-            sleepInt(1);
+            sleepInt(2);
+            press_center(1);
+            sleepInt(4);
         }
+        press_back(1);
+        exitplayTV();
         press_back(2);
     }
     public void exitplayTV(){

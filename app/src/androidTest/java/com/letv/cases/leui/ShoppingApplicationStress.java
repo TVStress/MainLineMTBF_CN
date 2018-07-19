@@ -11,6 +11,8 @@ import com.letv.common.AppName;
 import com.letv.common.CaseName;
 //import com.letv.common.IntentConstants;
 import com.letv.common.LetvTestCase;
+import com.letv.common.PkgName;
+
 import junit.framework.Assert;
 import org.junit.Test;
 import java.util.regex.Pattern;
@@ -22,9 +24,9 @@ public class ShoppingApplicationStress extends LetvTestCase{
     @Test
     @CaseName("进入购物应用")
     public void testApplicationLeShop()throws UiObjectNotFoundException,RemoteException {
-//        launchApp(AppName.Shop, PkgName.Shop);
         addStep("进入应用购物");
-        appshopTV();
+        launchApp(AppName.Shop, PkgName.Shop);
+//        appshopTV();
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             try {
                 ApplicationLeShop();
@@ -32,8 +34,7 @@ public class ShoppingApplicationStress extends LetvTestCase{
                 try {
                     count++;
                     failCount(count, getIntParams("Loop"), e.getMessage());
-                    gotoHomeScreen("应用");
-                    appshopTV();
+                    launchApp(AppName.Shop, PkgName.Shop);
                     ApplicationLeShop();
                 } catch (RuntimeException re) {
                     screenShot();
@@ -86,18 +87,19 @@ public class ShoppingApplicationStress extends LetvTestCase{
     @Test
     @CaseName("进入搜索商品购买、加入购物车、删除")
     public void testApplicationSeekShop()throws UiObjectNotFoundException,RemoteException{
-//        launchApp(AppName.Shop, IntentConstants.Shop);
-        appshopTV();
+//        launchApp(AppName.Shop, PkgName.Shop);
+//        appshopTV();
         addStep("进入应用购物");
         for (int Loop=0;Loop<getIntParams("Loop");Loop++){
             try {
+                launchApp(AppName.Shop, PkgName.Shop);
                 ApplicationSeekShop();
             }catch (Exception e){
                 try {
                     count++;
                     failCount(count,getIntParams("Loop"),e.getMessage());
-//                    launchApp(AppName.Shop, IntentConstants.Shop);
-                    appshopTV();
+                    launchApp(AppName.Shop, PkgName.Shop);
+//                    appshopTV();
                     ApplicationSeekShop();
                 }catch (RuntimeException re){
                     screenShot();
@@ -115,16 +117,17 @@ public class ShoppingApplicationStress extends LetvTestCase{
         addStep("进入购物搜索商品");
         UiObject2 seekshopin=waitForObj(By.res("com.stv.shopping:id/searchboard_left_panel")).findObject(By.res("com.stv.shopping:id/search_edit_tips_tv"));
         check("未进入购物搜索输入",seekshopin!=null);
-        UiObject2 X = phone.findObject(By.clazz("android.widget.TextView").text("X"));
-        UiObject2 H = phone.findObject(By.clazz("android.widget.TextView").text("H"));
+        UiObject2 X = phone.findObject(By.clazz("android.widget.TextView").text("M"));
+        UiObject2 H = phone.findObject(By.clazz("android.widget.TextView").text("Y"));
         UiObject2 L = phone.findObject(By.clazz("android.widget.TextView").text("L"));
-        UiObject2 J = phone.findObject(By.clazz("android.widget.TextView").text("J"));
-        X.click();X.click();H.click();H.click();L.click();L.click();J.click();J.click();
+        X.click();H.click();H.click();L.click();L.click();
         sleepInt(3);
-        UiObject2 xhlj=waitForObj(By.text("西湖龙井"));
+        press_right(5);
+        UiObject2 xhlj=waitForObj(By.text("沐浴露"));
         xhlj.click();
         xhlj.click();
         sleepInt(3);
+        press_center(1);
         UiObject2 shopParticulars=phone.findObject(By.text("商品详情"));
         check("未进入商品详情中",shopParticulars!=null);
         addStep("选择商品购买");
