@@ -38,6 +38,7 @@ public class AccountStress extends LetvTestCase{
     */
 
 
+
     @Test
     @CaseName("删除、登录、乐视账号")
     public void testAccountLogin() throws UiObjectNotFoundException, RemoteException {
