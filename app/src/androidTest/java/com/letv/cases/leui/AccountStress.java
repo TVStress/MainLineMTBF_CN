@@ -156,6 +156,7 @@ public class AccountStress extends LetvTestCase{
                 check("there is no account loged in before", delAccount != null);
                 sleepInt(1);
                 delAccount.click();
+                delAccount.click();
                 sleepInt(1);
                 UiObject2 confirm = phone.findObject(By.text("确定"));
                 check("delete account note don't exists", confirm != null);
@@ -178,7 +179,7 @@ public class AccountStress extends LetvTestCase{
                 check("there is no account loged in before1", accountUsed != null);
                 press_menu(1);
                 sleepInt(1);
-                UiObject2 delAccount = phone.findObject(By.res(Pattern.compile("eui.tv:id/list_item_1_title|com.stv.t2.account:id/menu_item_delete")).text("删除帐号"));
+                UiObject2 delAccount = phone.findObject(By.res(Pattern.compile("com.stv.t2.account:id/list_item_1_title|eui.tv:id/list_item_1_title|com.stv.t2.account:id/menu_item_delete")).text("删除帐号"));
                 check("there is no account loged in before2", delAccount != null);
                 sleepInt(1);
                 delAccount.click();

@@ -935,7 +935,7 @@ public class FileManageStress extends LetvTestCase {
             IP.setText("10.58.81.227");
             sleepInt(2);
 //            弹出输入窗口需要返回
-            press_back(1);
+//            press_back(1);
             press_down(2);
             UiObject2 ok = waitForObj(By.text("确定"));
             ok.click();
@@ -1008,7 +1008,7 @@ public class FileManageStress extends LetvTestCase {
             ftp.setText("10.58.81.227");
             sleepInt(2);
             //弹出输入窗口需要返回
-            press_back(1);
+//            press_back(1);
             press_down(1);
             UiObject2 ok = waitForObj(By.text("确定"));
             ok.click();
@@ -1018,14 +1018,14 @@ public class FileManageStress extends LetvTestCase {
             check("未输入用户名", ftpuser != null);
             UiObject2 ftpuser_input = waitForObj(By.clazz("android.widget.EditText"));
             check("can't find userName.", ftpuser_input != null);
-            ftpuser_input.setText("pc7");
+            ftpuser_input.setText("pc6");
             sleepInt(2);
             press_down(1);
             sleepInt(2);
 
             UiObject2 ftppassword_input = waitForObj(By.text("密    码")).getParent().findObject(By.clazz("android.widget.EditText"));
             check("can't find userName.", ftppassword_input != null);
-            ftppassword_input.setText("123456");
+            ftppassword_input.setText("admin");
             sleepInt(1);
 
             UiObject2 ok1 = waitForObj(By.text("确定"));
@@ -1078,7 +1078,7 @@ public class FileManageStress extends LetvTestCase {
     public void testFTPenter() throws UiObjectNotFoundException, RemoteException {
         addStep("进入到应用桌面");
         launchApp(AppName.Filemanager, PkgName.Filemanager);
-        press_right(1);
+        press_right(2);
         addStep("进入共享设备");
         UiObject2 shareDevice = waitForObj(shareDeviceS);
         clickAndWaitForNewWindow(shareDevice);
@@ -1087,7 +1087,7 @@ public class FileManageStress extends LetvTestCase {
         sleepInt(2);
         for (int Loop = 0; Loop < getIntParams("Loop"); Loop++) {
             UiObject2 Ftpenter1 = waitForObj(By.text(Pattern.compile("FTP")));
-            UiObject2 Ftpenter2 = waitForObj(By.text(Pattern.compile("10.58.81.227(pc7)")));
+            UiObject2 Ftpenter2 = waitForObj(By.text(Pattern.compile("10.58.81.227(pc6)")));
             check("未进入FTP", Ftpenter1 != null || Ftpenter2 != null);
             Ftpenter1.click();
             Ftpenter1.click();
