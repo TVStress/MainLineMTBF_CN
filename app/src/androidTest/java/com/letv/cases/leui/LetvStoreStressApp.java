@@ -44,11 +44,6 @@ public class LetvStoreStressApp extends LetvTestCase {
             }
 
         }
-        press_back(1);
-        sleepInt(2);
-        UiObject2 exitok = waitForObj(By.text("退出"));
-        exitok.click();
-        press_back(4);
     }
     public void DownloadApp() throws UiObjectNotFoundException, RemoteException {
         BySelector upgradeBtnS = By.text(Pattern.compile("升 级|Upgrade"));
@@ -86,21 +81,24 @@ public class LetvStoreStressApp extends LetvTestCase {
         sleepInt(1);
         UiObject2 D = waitForObj(By.text("D"));
         UiObject2 S = waitForObj(By.text("S"));
+        UiObject2 Y = waitForObj(By.text("Y"));
+        UiObject2 H = waitForObj(By.text("H"));
 //        UiObject2 Y = waitForObj(By.text("Y"));
-        D.click();
-        D.click();
-        S.click();
-        S.click();
+        D.click();D.click();
+        S.click();S.click();
+        Y.click();Y.click();
+        H.click();H.click();
+
 
         press_right(2);
         press_down(1);
-        UiObject2 apply = waitForObj(By.res("com.letv.tvos.appstore:id/tv_app_name").text("电视应用管家"));
+        UiObject2 apply = waitForObj(By.text("电视优化大师"));
         check("未进入下载应用中",apply!=null);
         apply.click();
         apply.click();
         sleepInt(2);
-        UiObject2 down = waitForObj(By.res("com.letv.tvos.appstore:id/downloadTV").text("下载"));
-        BySelector open = By.res("com.letv.tvos.appstore:id/downloadTV").text("打开");
+        UiObject2 down = waitForObj(By.text("下载"));
+        BySelector open = By.text("打开");
 
 
         if (down != null) {
@@ -117,44 +115,42 @@ public class LetvStoreStressApp extends LetvTestCase {
         }
 
         sleepInt(2);
-        press_back(4);
-        sleepInt(4);
+        press_back(3);
+        exitApp();
+
 
         addStep("进入应用管理");
-        UiObject2 manage = waitForObj(By.res("com.letv.tvos.appstore:id/tv_manager").text("管理"));
+        launchApp(AppName.TvManager, PkgName.TvManager);
+        press_down(1);
+        UiObject2 manage = waitForObj(By.res("com.stv.helper.main:id/module_name").text("应用管理"));
         check("未进入管理", manage != null);
         manage.click();
         manage.click();
-        sleepInt(2);
+        UiObject2 youhuo=waitForObj(By.text("电视优化大师"));
+        for(int i =0;i<30;i++){
+            press_right(2);
+            if (youhuo!=null){
+                break;
+            }
+            sleepInt(1);
+
+        }
+        youhuo.click();
+        youhuo.click();
+
+
         addStep("进入应用卸载");
-        press_right(3);
-        press_center(1);
-        sleepInt(3);
+        press_right(4);
+        press_down(3);
         addStep("卸载APP应用");
-        UiObject2 TVmanager=waitForObj(By.res("com.letv.tvos.appstore:id/tv_myapp_item_appname").text("电视应用管家"));
-        check("未进入管理",TVmanager!=null);
+        UiObject2 TVmanager=waitForObj(By.text("卸载应用"));
+        check("未进入卸载应用",TVmanager!=null);
         TVmanager.click();
         TVmanager.click();
-        sleepInt(2);
-
         press_center(1);
-
-        UiObject2 off=waitForObj(By.text("卸载"));
-        check("未进入卸载界面",off!=null);
-        off.click();
-        off.click();
-        sleepInt(2);
-
-        UiObject2 offok=waitForObj(By.text("卸载"));
-        check("未进入卸载按钮",off!=null);
-        offok.click();
-
-        sleepInt(5);
-        press_back(2);
         sleepInt(1);
-//        UiObject2 aaply1=waitForObj(By.text("应用商店"));
-//        check("未退出应用商店",aaply1!=null);
-
+        press_back(2);
+        exitApp();
     }
 
 
